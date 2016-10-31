@@ -2,11 +2,10 @@
     %h1 Iowa City Eats!
 
 .login-box
-    = button_to "Login", :id => 'login'
-    = button_to "Sign Up", :id => 'login'
+    = button_to "Sign up/Login", login_path, :method => :get, :id => 'signuplogin'
 
 .search-bar
-    %h2 Featured Deals
+    %h1 Featured Deals
     
 .dynamic-content
 

@@ -19,23 +19,21 @@ html, body {
     width: 60%;
     height: 120px;
 }
-.button_to{
+#buttons{
     float: right;
     color: blue;
     width: 80px;
     font-size: 24px;
 }
 
-
-
 .search-bar{
     float: left;
     width: 100%;
     border-bottom: 2px solid gold;
 }
-.search-bar h2{
+.search-bar h1{
     float: left;
-    margin-left: 3%;
+    margin-left: 1%;
     font-size: 20px;
     font-family: Tahoma;
 }
