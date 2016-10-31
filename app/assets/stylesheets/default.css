@@ -3,22 +3,62 @@ html, body {
     padding: 0;
 }
 
-.banner {
-    width: 100%;
+.banner-left {
+    width: 40%;
     float: left;
     height: 120px;
-    border-bottom: 2px solid gold;
     font-family: Tahoma;
 }
-.banner h1{
+.banner-left h1{
+    margin-left: 3%;
     font-size: 26px;
+}
+
+.login-box{
+    float: left;
+    width: 60%;
+    height: 120px;
+}
+.button_to{
+    float: right;
+    color: blue;
+    width: 80px;
+    font-size: 24px;
+}
+
+
+
+.search-bar{
+    float: left;
+    width: 100%;
+    border-bottom: 2px solid gold;
+}
+.search-bar h2{
+    float: left;
+    margin-left: 3%;
+    font-size: 20px;
+    font-family: Tahoma;
+}
+    
+.dynamic-content{
+    float: left;
+    width: 100%;
+    border-bottom: 2px solid gold;
+    height: 300px;
+}
+
+.filters{
+    float: left;
+    width: 100%;
+    text-align: center;
+    border-bottom: 2px solid gold;
+    font-family: Tahoma;
 }
 
 .footer {
     width: 100%;
     float: left;
     height: 120px;
-    border-bottom: 2px solid gold;
     font-family: Tahoma;
 }
 .footer h1{
