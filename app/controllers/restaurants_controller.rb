@@ -1,11 +1,6 @@
 class RestaurantsController < ApplicationController
-<<<<<<< HEAD
-  #
-  def movie_params
-=======
 
   def restaurant_params
->>>>>>> armond
     params.require(:restaurant).permit(:name, :location, :description)
   end
   

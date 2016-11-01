@@ -1,2 +1,14 @@
 <h1>Sessions#new</h1>
 <p>Find me in app/views/sessions/new.html.erb</p>
+
+= form_tag login_create_path do
+  
+  = label :user, :user_id, 'User-ID'
+  = text_field :user, 'user_id', :id => 'login_user'
+  
+  = label :user, :email, 'E-mail'
+  = text_field :user, 'email', :id => 'login_email'
+  
+  = button_to 'Login to my account', login_create_path, :method => :post, :id => 'login_submit'
+  
+  = link_to 'Sign-up for an account', new_user_path, :method => :get, :id => 'signup'
