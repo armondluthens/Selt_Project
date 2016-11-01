@@ -1,17 +1,16 @@
-<h1>LOG IN PAGE</h1>
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+%H1 Log In
 
 = button_to 'Home', root_path, :method => :get
 
 = form_tag login_create_path do
   
-  = label :user, :user_id, 'User-ID'
-  = text_field :user, 'user_id', :id => 'login_user'
+  = label :user, :user_id, 'Account-ID'
+  = text_field :user, 'user_id', placeholder: 'Account ID'
   
-  = label :user, :email, 'E-mail'
-  = text_field :user, 'email', :id => 'login_email'
+  = label :user, :email, 'Account Password'
+  = text_field :user, 'password', placeholder: 'Account Password'
+  
+  = link_to 'Forgot Account ID or Password'
+  = link_to 'Register for an Account', new_user_path, :method => :get, :id => 'signup'
   
   = button_to 'Login to my account', login_create_path, :method => :post, :id => 'login_submit'
-  
-  = link_to 'Sign-up for an account', new_user_path, :method => :get, :id => 'signup'
