@@ -38,6 +38,6 @@ List of Registered Users: https://selt-project-{user}.c9users.io/users/
 Specific User Profile Page: https://selt-project-{user}.c9users.io/users/1    (the index at the end designates ID in db)
 Edit Specified User Profile Page: https://selt-project-{user}.c9users.io/users/1/edit     (note: index)
 
-List of Registered Restaurants ???????
+List of Registered Restaurants https://selt-project-{user}.c9users.io/restaurants
 Specified Restaurant Profile Page: https://selt-project-{user}.c9users.io/restaurants/1   (note: index)
 Edit Specified Restaurant Profile Page: https://selt-project-{user}.c9users.io/restaurants/1/edit   (note: index)
