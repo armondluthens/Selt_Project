@@ -24,6 +24,9 @@ ActiveRecord::Schema.define(version: 20161101032020) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
+    t.string   "password"
+    t.string   "email"
+    t.string   "contact"
     t.string   "location"
     t.string   "description"
     t.datetime "created_at",  null: false

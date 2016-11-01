@@ -1,10 +1,12 @@
 class RestaurantsController < ApplicationController
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :location, :description)
+    params.require(:restaurant).permit(:name, :password, :email, :contact, :location, :description)
   end
   
   def create
+    #### not sure if needed..
+    #### restaurants will be pre-made in the database
     @restaurant = Restaurant.new(restaurant_params)
     
     unique_id_check = true
@@ -23,6 +25,19 @@ class RestaurantsController < ApplicationController
       redirect_to login_path
     end
    
+  end
+  
+  def show
+    id = params[:id]
+    @restaurant = Restaurant.find(id)
+  end
+  
+  def edit
+    @restaurant = Restaurant.find params[:id]
+  end
+  
+  def index
+    @restaurant = Restaurant.all
   end
   
 end

@@ -1,0 +1,34 @@
+= button_to 'Home', root_path, :method => :get
+= button_to 'Log Out', logout_path, :method => :delete, :id => 'logout'
+
+%h2 Welcome, #{@restaurant.name} !
+
+%h3 Profile Details
+
+= form_tag edit_restaurant_path(@restaurant) do
+
+    = label :restaurant, :contact, 'Account Contact'
+    = text_field :restaurant, 'contact', placeholder: "Contact Name"
+    
+    = label :restaurant, :name, 'Account ID'
+    = text_field :restaurant, 'name', placeholder: "Account ID"
+    
+    = label :restaurant, :email, 'Account Email'
+    = text_field :restaurant, 'email', placeholder: "Account Email"
+    
+    = label :user, :password, 'Account Password'
+    = button_to 'Update Password'
+    
+    = submit_tag 'Update Account'
+    
+%h3 Restaurant Details
+
+= form_tag edit_restaurant_path(@restaurant) do
+
+    = label :restaurant, :location, 'Restaurant Location'
+    = text_field :restaurant, 'location', placeholder: "Restaurant Location"
+    
+    = label :restaurant, :description, 'Restaurant Description'
+    = text_field :restaurant, 'description', placeholder: "Restaurant Description"
+    
+    = submit_tag 'Update Restaurant Details'

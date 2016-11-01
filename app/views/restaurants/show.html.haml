@@ -1,0 +1,23 @@
+= button_to 'Home', root_path, :method => :get
+= button_to 'Log Out', logout_path, :method => :delete, :id => 'logout'
+
+%h2 #{@restaurant.name}'s Profile
+
+%h3 Profile Details
+= link_to 'Edit', edit_restaurant_path(@restaurant)
+
+%ul
+    %li
+        Restaurant ID:
+        = @restaurant.name
+    %li
+        Restaurant Contact:
+        = @restaurant.contact
+    %li
+        Restaurant Location:
+        = @restaurant.location
+    %li
+        Restaurant Description:
+        = @restaurant.description
+    %li
+        Deals:
