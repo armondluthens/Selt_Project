@@ -1,11 +1,22 @@
-.center-h2
-    %h2 Featured Deals
+%h1 View All Restaurants
 
-.center-h3
-    %h3 Eat Up!
-
-.center-h1
-    %h1 This is the footer
-
-
-
+%table#restaurants
+  %thead
+    %tr
+      %th Restaurant Name
+      %th Restaurant Password
+      %th Restaurant Email
+      %th Restaurant Contact
+      %th Restaurant Location
+      %th Restaurant Description
+      %th More Info
+  %tbody
+    - @restaurants.each do |restaurant|
+      %tr
+        %td= restaurant.name
+        %td= restaurant.password
+        %td= restaurant.email
+        %td= restaurant.contact
+        %td= restaurant.location
+        %td= restaurant.description
+        %td= link_to "More about #{restaurant.name}", user_path(restaurant)

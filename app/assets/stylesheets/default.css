@@ -113,10 +113,9 @@ div#content {
     background-color: #e7e7e7; 
     border: 2px solid black;
     color: black;
-    padding: 15px 32px;
+    padding: 5px 2px;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
     border-radius: 12px;
 }
 

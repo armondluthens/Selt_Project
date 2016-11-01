@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  root 'restaurants#index'
+  
+  root 'sessions#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -32,6 +33,8 @@ Rails.application.routes.draw do
   match '/login', to: 'sessions#new', via: :get
   match '/login_create', to: 'sessions#create', via: :post
   match '/logout', to: 'sessions#destroy', via: :delete
+  
+  
   
   # Example resource route with sub-resources:
   #   resources :products do
