@@ -1,0 +1,16 @@
+rails server -p $PORT -b $IP
+
+git add .
+git commit -m " message "
+git push
+
+git pull
+
+rake db:migrate
+rake db:seed
+
+rake db:drop:all
+rake db:create:all
+rake db:migrate
+
+killall ruby
