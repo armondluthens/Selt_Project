@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     if (!@user.nil?)
       flash[:notice] = "You are logged in as #{@user.user_id}."
       session[:session_token] = @user.session_token
-      redirect_to movies_path
+      redirect_to root_path
     else
       flash[:notice] = "Invalid user credentials. Re-enter, or click Sign-up for an account"
       redirect_to login_path
@@ -25,7 +25,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:session_token] = nil
-    redirect_to movies_path
+    redirect_to root_path
   end
     
 end

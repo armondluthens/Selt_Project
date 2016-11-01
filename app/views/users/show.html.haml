@@ -1,6 +1,10 @@
--# in app/views/users/show.html.haml
+= button_to 'Home', root_path, :method => :get
+= button_to 'Log Out', logout_path, :method => :delete, :id => 'logout'
 
-%h2 Details about #{@user.user_id}
+%h2 Welcome, #{@user.user_id} !
+
+%h3 Profile Details
+= link_to 'Edit', edit_user_path(@user)
 
 %ul#details
   %li
@@ -16,6 +20,5 @@
     Session token:
     = @user.session_token
 
-= link_to 'Edit', edit_user_path(@user)
+
 = button_to 'Delete', user_path(@user), :method => :delete, :confirm => 'Are you sure?'
-= link_to 'Back to user list', users_path
