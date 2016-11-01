@@ -1,5 +1,7 @@
 %h1 Sign-up
 
+= button_to 'Home', root_path, :method => :get
+
 = form_tag users_path do
   
   = label :user, :user_id, 'User-ID'

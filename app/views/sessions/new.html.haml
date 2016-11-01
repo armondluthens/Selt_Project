@@ -1,6 +1,8 @@
 <h1>Sessions#new</h1>
 <p>Find me in app/views/sessions/new.html.erb</p>
 
+= button_to 'Home', root_path, :method => :get
+
 = form_tag login_create_path do
   
   = label :user, :user_id, 'User-ID'
