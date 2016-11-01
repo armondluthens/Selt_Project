@@ -6,6 +6,8 @@ git push
 
 git pull
 
+https://app.moqups.com/aburnight/KpT3p2Y6Gy/view/page/ad64222d5
+
 === Database stuff ===
 rake db:migrate
 rake db:seed
