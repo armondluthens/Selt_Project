@@ -6,11 +6,36 @@ git push
 
 git pull
 
+=== Database stuff ===
 rake db:migrate
 rake db:seed
+
+=== Troubleshooting c9 Errors ===
 
 rake db:drop:all
 rake db:create:all
 rake db:migrate
 
 killall ruby
+
+=== To check what is in the database ===
+(in terminal)
+rails c
+User.all
+Restaurant.all
+Deal.all
+
+=== WEBSITE PAGES ===
+Home Page: https://selt-project-{user}.c9users.io/?
+Login Page: https://selt-project-{user}.c9users.io/login?
+
+Sign Up new User Page: https://selt-project-{user}.c9users.io/users/new?
+Sign up new Restaurant Page: https://selt-project-{user}.c9users.io/restaurants/new?
+
+List of Registered Users: https://selt-project-{user}.c9users.io/users/
+Specific User Profile Page: https://selt-project-{user}.c9users.io/users/1    (the index at the end designates ID in db)
+Edit Specified User Profile Page: https://selt-project-{user}.c9users.io/users/1/edit     (note: index)
+
+List of Registered Restaurants ???????
+Specified Restaurant Profile Page: https://selt-project-{user}.c9users.io/restaurants/1   (note: index)
+Edit Specified Restaurant Profile Page: https://selt-project-{user}.c9users.io/restaurants/1/edit   (note: index)
