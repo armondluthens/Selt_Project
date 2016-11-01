@@ -4,10 +4,17 @@
 
 = form_tag users_path do
   
-  = label :user, :user_id, 'User-ID'
-  = text_field :user, 'user_id', :id => 'signup_user'
+  = label :user, :user_id, 'Account-ID'
+  = text_field :user, 'user_id', placeholder: "Account ID"
   
-  = label :user, :email, 'E-mail'
-  = text_field :user, 'email', :id => 'signup_email'
+  = label :user, :email, 'Account E-mail'
+  = text_field :user, 'email', placeholder: "Account E-mail"
   
-  = submit_tag 'Create my account', :id => 'signup_create'
+  = label :user, :password, 'Account Password'
+  = text_field :user, 'password', placeholder: "Account Password"
+  = text_field :user, 'password', placeholder: "Confirm Password"
+  
+  = check_box_tag 'accept'
+  = label_tag 'I agree to the Terms and Conditions'
+  
+  = submit_tag 'Create Account', :id => 'signup_create'

@@ -6,6 +6,7 @@
     %tr
       %th User ID
       %th Email
+      %th Password
       %th Session Token
       %th More Info
   %tbody
@@ -13,6 +14,7 @@
       %tr
         %td= user.user_id 
         %td= user.email
+        %td= user.password
         %td= user.session_token
         %td= link_to "More about #{user.user_id}", user_path(user)
 
