@@ -1,17 +1,17 @@
-.right-button
-  = button_to 'Home', root_path, :method => :get
+.new_session
+  %h1 Log In
 
-%h1 Log In
-
-= form_tag login_create_path do
-  
-  = label :user, :user_id, 'Account-ID'
-  = text_field :user, 'user_id', placeholder: 'Account ID'
-  
-  = label :user, :email, 'Account Password'
-  = text_field :user, 'password', placeholder: 'Account Password'
-  
-  = link_to 'Forgot Account ID or Password'
-  = link_to 'Register for an Account', new_user_path, :method => :get, :id => 'signup'
-  
-  = button_to 'Login to my account', login_create_path, :method => :post, :id => 'login_submit'
+  = form_tag login_create_path do
+    
+    = label :user, :user_id, 'Account-ID', :id => 'label'
+    = text_field :user, 'user_id', placeholder: 'Account ID', :id => 'textfield'
+    
+    = label :user, :email, 'Account Password', :id => 'label'
+    = text_field :user, 'password', placeholder: 'Account Password', :id => 'textfield'
+    
+    = button_to 'Login to my account', login_create_path, :method => :post, :id => 'login_submit'
+    
+    = link_to 'Forgot Account ID or Password', root_path, :id => 'login_link'
+    = link_to 'Register for an Account', new_user_path, :method => :get, :id => 'login_link'
+    
+    

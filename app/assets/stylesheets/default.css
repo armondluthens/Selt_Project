@@ -177,7 +177,7 @@ ul#subjects li {
     margin-top: 15px;
     min-width: 150px;
     background-color: black;
-    border: 2px solid red;
+    border: 2px solid black;
     height: 40px;
     color: white;
     border-radius: 5px;
@@ -249,14 +249,15 @@ ul#subjects li {
 }
 .deal_class{
     width: 90%;
+    float: left;
     margin-left: 5%;
     margin-right: 5%;
-    float: left;
     font-family: 'Oswald', sans-serif;
 }
 .deal-left{
     width: 30%;
     float: left;
+    padding: 0;
 }
 .deal-left h5{
     font-size: 16px;
@@ -269,6 +270,11 @@ ul#subjects li {
 }
 .deal-right{
     width: 70%;
+    float: right;
+    padding: 0;
+}
+.deal-right p{
+    width: 100%;
     float: left;
 }
 .deal_duration{
@@ -287,3 +293,92 @@ ul#subjects li {
     height: 100px;
 }
 
+.new_session{
+    float: left;
+    width: 100%;
+}
+.new_session h1{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 3%;
+    font-size: 28px;
+    width:97%;
+}
+#label{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
+#textfield{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 22px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+}
+
+#login_submit{
+    float: left;
+    margin-left: 6%;
+    width: 53%;
+    height: 45px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    background-color: black;
+    color: white;
+    display: block;
+}
+#login_submit:hover{
+    background-color: red;
+    border-bottom: 2px solid black;
+    color: black;
+    cursor: pointer;
+    
+}
+#login_link{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:50%;
+    text-decoration: underline;
+    color: black;
+}
+#login_link:hover{
+    opacity: 0.6;
+}
+
+/*--------------------------------------
+    Media Queries
+--------------------------------------*/
+@media screen and (max-width: 675px) {
+    .right-button{
+        height: 150px;
+    }
+    .center-h2{
+        height: 150px;
+    }
+    .center-h2 input{
+        width: 70%;
+        float: left;
+        margin-left: 3%;
+    }
+    #label{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #textfield{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #login_submit{
+        width: 80%;
+        margin-left: 10%;
+    }
+
+}

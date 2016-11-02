@@ -1,17 +1,13 @@
-.right-button
-  = button_to 'Home', root_path, :method => :get
-
-%h1 Sign Up Restaurant page
+.new_session
+  %h1 Sign Up Restaurant
 
 = form_tag restaurants_path do
 
-  = label :restaurant, :name, 'Restaurant Name'
-  = text_field :restaurant, 'name', placeholder: "Restaurant Name"
+  = label :restaurant, :name, 'Restaurant Name', :id => 'label'
+  = text_field :restaurant, 'name', placeholder: "Restaurant Name", :id => 'textfield'
   
-  = label :restaurant, :email, 'Access Email'
-  = text_field :restaurant, 'email', placeholder: "Access Email"
+  = label :restaurant, :email, 'Access Email', :id => 'label'
+  = text_field :restaurant, 'email', placeholder: "Access Email", :id => 'textfield'
   
-  = check_box_tag 'accept'
-  = label_tag 'I am not a robot.'
 
-  = submit_tag 'Request Account'
+  = submit_tag 'Request Account', :id => 'login_submit'
