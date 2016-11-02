@@ -280,8 +280,8 @@ ul#subjects li {
 .deal_duration{
     width: 70%;
     float: left;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 30%;
+    margin-right: 0%;
 }
 .deal_duration h5{
     float: left;
@@ -378,6 +378,10 @@ ul#subjects li {
         float: left;
         margin-left: 3%;
     }
+    .center-h2 h3{
+        float: none;
+        text-align: center;
+    }
     #label{
         width: 80%;
         margin-left: 10%;
@@ -389,6 +393,14 @@ ul#subjects li {
     #login_submit{
         width: 80%;
         margin-left: 10%;
+    }
+    #filter_status{
+        float: left;
+        width: 80%;
+        margin-top: 10px;
+        margin-left: 10%;
+        margin-right: 10%;
+        height: 30px;
     }
 
 }
