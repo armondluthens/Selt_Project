@@ -212,9 +212,9 @@ ul#subjects li {
     text-align: left;
 }
 .center-h2 h3{
-    text-align: center;
+    float: left;
     font-size: 24px;
-    
+    margin-left: 3%;
 }
 .center-h2 input{
     float: right;
@@ -351,6 +351,16 @@ ul#subjects li {
 }
 #login_link:hover{
     opacity: 0.6;
+}
+
+#filter_status{
+    float: right;
+    margin-top: 30px;
+    margin-right: 3%;
+    height: 30px;
+    font-family: 'Oswald', sans-serif;
+    width: 30%;
+    font-size: 20px;
 }
 
 /*--------------------------------------
