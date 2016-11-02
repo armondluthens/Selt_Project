@@ -287,3 +287,61 @@ ul#subjects li {
     height: 100px;
 }
 
+.new_session{
+    float: left;
+    width: 100%;
+}
+.new_session h1{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 3%;
+    font-size: 28px;
+    width:97%;
+}
+#label{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
+#textfield{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 22px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+}
+#login_submit{
+    float: left;
+    margin-left: 6%;
+    width: 53%;
+    height: 45px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    background-color: black;
+    color: white;
+}
+#login_submit:hover{
+    background-color: white;
+    border-bottom: 2px solid black;
+    color: black;
+    cursor: pointer;
+}
+#login_link{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:50%;
+    text-decoration: underline;
+    color: black;
+}
+#login_link:hover{
+    opacity: 0.6;
+}
+
+
