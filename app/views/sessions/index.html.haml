@@ -6,6 +6,7 @@
 
 .center-h2
     %h3 Eat Up!
+    = select(:filter, :status, options_for_select([["restaurant", "1"], ["ethnicity", "2"], ["type", "3"]]))
 .now-showing
     %h3 Now Showing: (Filter) Deals
 .deal_class
