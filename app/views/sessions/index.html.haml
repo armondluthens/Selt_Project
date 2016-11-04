@@ -3,7 +3,33 @@
     = text_field :user, 'user_id', placeholder: "Search Deals...", :id => 'search_deals'
 
 .deals_slideshow
+    %ul#slides
+        %li.slide.showing
+            =image_tag "cactus.jpg"
+        %li.slide
+            =image_tag "shorts_burgers.jpeg"
+        %li.slide
+            =image_tag "zmariks.jpg"
+        %li.slide
+            =image_tag "gumbys.jpg"
+        %li.slide
+            =image_tag "bwws.jpg"
+        %li.slide
+            =image_tag "dpdough.jpg"
+        %li.slide
+            =image_tag "airliner.jpg"
+    
+    :javascript
+        var slides = document.querySelectorAll('#slides .slide');
+        var currentSlide = 0;
+        var slideInterval = setInterval(nextSlide,3000);
 
+        function nextSlide() {
+            slides[currentSlide].className = 'slide';
+            currentSlide = (currentSlide+1)%slides.length;
+            slides[currentSlide].className = 'slide showing';
+        }
+        
 .center-h2
     %h3 Eat Up!
     = select(:filter, :status, options_for_select([["restaurant", "1"], ["ethnicity", "2"], ["type", "3"]]))
