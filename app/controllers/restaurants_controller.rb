@@ -1,7 +1,7 @@
 class RestaurantsController < ApplicationController
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :email, :password, :contact, :location, :description)
+    params.require(:restaurant).permit(:name, :email, :password, :contact, :location, :description, :invitationID)
   end
   
   def create
@@ -31,20 +31,24 @@ class RestaurantsController < ApplicationController
   
   def update
     @restaurant = Restaurant.find params[:id]
-    @restaurant.update_attributes!(restaurant_params)
-    flash[:notice] = "hello was successfully updated."
-    redirect_to restaurant_path
-    #redirect_to edit_restaurant_path(@restaurant_params)
     
-#    if Restaurant.exists?(:invitationID => restaurant_params[:invitationID]) && Restaurant.exists?(:name => restaurant_params[:name]) && Restaurant.exists?(:email => restaurant_params[:email])
-#      @restaurant.update_attributes!(restaurant_params)
-#      flash[:notice] = "#{@restaurant.name} has been successfully registered."
-#      redirect_to login_path
+    if (@restaurant.invitationID).to_s == (params[:restaurant][:invitationID])
+      if Restaurant.exists?(:name => restaurant_params[:name]) && Restaurant.exists?(:email => restaurant_params[:email])
+        @restaurant.update_attributes!(restaurant_params)
+        flash[:notice] = "#{@restaurant.name} has been successfully registered."
+        redirect_to login_path
+      end
       
-#    else
-#      flash[:notice] = "Restaurant name/email is incorrect. Please try again."
-#      redirect_to edit_restaurant_path
-#    end
+    elsif (!(@restaurant.invitationID).to_s == (params[:restaurant][:invitationID]))
+      flash[:notice] = "Restaurant Name, Restaurant Email, and/or Invitation ID is incorrect. Please try again."
+      redirect_to edit_restaurant_path
+    
+    #User has already made it past InvitationID check
+    else
+      @restaurant.update_attributes!(restaurant_params)
+      flash[:notice] = "Updates have been made"
+      redirect_to edit_restaurant_path
+    end
   end
   
   def edit

@@ -22,9 +22,9 @@
         .right-button
           = button_to 'Log In', login_path, :method => :get, :id => 'signuplogin'
 
-          = button_to 'Sign Up', new_user_path, :method => :get, :id => 'signuplogin'
-
-          = button_to 'Request an Account (if Restaurant)', new_restaurant_path, :method => :get, :id => 'requestrestaurant'
+          = button_to 'Request an Account', new_restaurant_path, :method => :get, :id => 'requestrestaurant'
+      
+          = button_to 'View All Restaurants', restaurants_path, :method => :get
       
       - else
         .right-button

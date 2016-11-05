@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     
-  def user_params
-    params.require(:user).permit(:user_id, :email, :session_token)
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :email, :session_token)
   end
     
   def new
@@ -10,14 +10,14 @@ class SessionsController < ApplicationController
   
   def create
     
-    @user = User.find_by(user_params)
+    @restaurant = Restaurant.find_by(restaurant_params)
     
-    if (!@user.nil?)
-      flash[:notice] = "You are logged in as #{@user.user_id}."
-      session[:session_token] = @user.session_token
+    if (!@restaurant.nil?)
+      flash[:notice] = "You are logged in as #{@restaurant.name}."
+      session[:session_token] = @restaurant.session_token
       redirect_to root_path
     else
-      flash[:notice] = "Invalid user credentials. Re-enter, or click Sign-up for an account"
+      flash[:notice] = "Invalid credentials. Re-enter, or click Sign-up for an account"
       redirect_to login_path
     end
     

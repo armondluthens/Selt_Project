@@ -4,14 +4,14 @@
   = form_tag login_create_path do
     
     = label :user, :user_id, 'Account-ID', :id => 'label'
-    = text_field :user, 'user_id', placeholder: 'Account ID', :id => 'textfield'
+    = text_field :restaurant, 'name', placeholder: 'Account ID', :id => 'textfield'
     
     = label :user, :email, 'Account Password', :id => 'label'
-    = text_field :user, 'password', placeholder: 'Account Password', :id => 'textfield'
+    = text_field :restaurant, 'password', placeholder: 'Account Password', :id => 'textfield'
     
     = button_to 'Login to my account', login_create_path, :method => :post, :id => 'login_submit'
     
     = link_to 'Forgot Account ID or Password', root_path, :id => 'login_link'
-    = link_to 'Register for an Account', new_user_path, :method => :get, :id => 'login_link'
+    = link_to 'Register for an Account', new_restaurant_path, :method => :get, :id => 'login_link'
     
     

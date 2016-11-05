@@ -8,6 +8,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :location
       t.string :description
       t.integer :invitationID
+      t.string :session_token
       t.timestamps null: false
     end
   end
