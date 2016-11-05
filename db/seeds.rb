@@ -6,4 +6,5 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Restaurant.create(name: 'TestRestaurant', password: 'test', email: 'test', contact: 'tester@email.com', location: 'iowa city', description: 'yummy')
+Restaurant.create(name: 'TestRestaurant', password: 'test', email: 'test', contact: 'tester@email.com', location: 'iowa city', description: 'yummy', invitationID: 1)
+Restaurant.create(name: 'incompleteSignUpAccount', email: 'test', invitationID: 2)

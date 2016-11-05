@@ -7,6 +7,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :contact
       t.string :location
       t.string :description
+      t.integer :invitationID
       t.timestamps null: false
     end
   end

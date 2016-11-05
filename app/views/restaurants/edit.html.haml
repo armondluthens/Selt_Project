@@ -1,34 +1,54 @@
 .right-button
   = button_to 'Home', root_path, :method => :get
 
-%h2 Welcome, #{@restaurant.name} !
+  %h2 Welcome, #{@restaurant.name} !
 
-%h3 Profile Details
-
-= form_tag edit_restaurant_path(@restaurant) do
-
-  = label :restaurant, :contact, 'Account Contact'
-  = text_field :restaurant, 'contact', placeholder: "Contact Name"
+  - if @restaurant.password.nil?
   
-  = label :restaurant, :name, 'Account ID'
-  = text_field :restaurant, 'name', placeholder: "Account ID"
-  
-  = label :restaurant, :email, 'Account Email'
-  = text_field :restaurant, 'email', placeholder: "Account Email"
-  
-  = label :user, :password, 'Account Password'
-  = button_to 'Update Password'
-  
-  = submit_tag 'Update Account'
+    = form_tag edit_restaurant_path(@restaurant) do
     
-%h3 Restaurant Details
+      = label :restaurant, :invitationID, 'Invitation ID'
+      = text_field :restaurant, 'invitationID', placeholder: "Invitation ID"
+      
+      = label :restaurant, :name, 'Restaurant Name'
+      = text_field :restaurant, 'name', placeholder: "Restaurant Name"
+      
+      = label :restaurant, :email, 'Account Email'
+      = text_field :restaurant, 'email', placeholder: "Account Email"
+      
+      = label :restaurant, :password, 'Account Password'
+      = text_field :restaurant, 'password', placeholder: 'Account Password'
+      = text_field :restaurant, 'password', placeholder: 'Confirm Password'
 
-= form_tag edit_restaurant_path(@restaurant) do
+      = submit_tag 'Update Account', :method => :post
 
-  = label :restaurant, :location, 'Restaurant Location'
-  = text_field :restaurant, 'location', placeholder: "Restaurant Location"
-  
-  = label :restaurant, :description, 'Restaurant Description'
-  = text_field :restaurant, 'description', placeholder: "Restaurant Description"
-  
-  = submit_tag 'Update Restaurant Details'
+  - else
+    %h3 Profile Details
+    
+    = form_tag edit_restaurant_path(@restaurant) do
+    
+      = label :restaurant, :contact, 'Account Contact'
+      = text_field :restaurant, 'contact', placeholder: "Contact Name"
+      
+      = label :restaurant, :name, 'Account ID'
+      = text_field :restaurant, 'name', placeholder: "Account ID"
+      
+      = label :restaurant, :email, 'Account Email'
+      = text_field :restaurant, 'email', placeholder: "Account Email"
+      
+      = label :user, :password, 'Account Password'
+      = button_to 'Update Password'
+      
+      = submit_tag 'Update Account'
+        
+    %h3 Restaurant Details
+    
+    = form_tag edit_restaurant_path(@restaurant) do
+    
+      = label :restaurant, :location, 'Restaurant Location'
+      = text_field :restaurant, 'location', placeholder: "Restaurant Location"
+      
+      = label :restaurant, :description, 'Restaurant Description'
+      = text_field :restaurant, 'description', placeholder: "Restaurant Description"
+      
+      = submit_tag 'Update Restaurant Details'
