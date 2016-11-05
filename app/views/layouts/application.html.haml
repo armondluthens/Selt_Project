@@ -18,7 +18,7 @@
       - elsif flash[:warning]
         #warning.message= flash[:warning]
 
-      - if !@current_user
+      - if !@current_restaurant
         .right-button
           = button_to 'Log In', login_path, :method => :get, :id => 'signuplogin'
 
@@ -31,5 +31,7 @@
           = button_to 'Home', root_path, :method => :get
         .right-button
           = button_to 'Log Out', logout_path, :method => :delete, :id => 'logout'
+        .right-button
+          = button_to 'View All Restaurants', restaurants_path, :method => :get
 
       = yield

@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     
   def restaurant_params
-    params.require(:restaurant).permit(:name, :email, :session_token)
+    params.require(:restaurant).permit(:name, :email, :password, :contact, :location, :description, :invitationID, :session_token)
   end
     
   def new
