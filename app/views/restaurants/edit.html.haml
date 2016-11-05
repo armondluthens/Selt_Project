@@ -5,7 +5,7 @@
 
   - if @restaurant.password.nil?
   
-    = form_tag edit_restaurant_path(@restaurant) do
+    = form_tag restaurant_path(@restaurant), :method => :put do
     
       = label :restaurant, :invitationID, 'Invitation ID'
       = text_field :restaurant, 'invitationID', placeholder: "Invitation ID"
@@ -20,12 +20,12 @@
       = text_field :restaurant, 'password', placeholder: 'Account Password'
       = text_field :restaurant, 'password', placeholder: 'Confirm Password'
 
-      = submit_tag 'Update Account', :method => :post
+      = submit_tag 'Create Account'
 
   - else
     %h3 Profile Details
     
-    = form_tag edit_restaurant_path(@restaurant) do
+    = form_tag edit_restaurant_path(@restaurant), :method => :put do
     
       = label :restaurant, :contact, 'Account Contact'
       = text_field :restaurant, 'contact', placeholder: "Contact Name"
@@ -43,7 +43,7 @@
         
     %h3 Restaurant Details
     
-    = form_tag edit_restaurant_path(@restaurant) do
+    = form_tag edit_restaurant_path(@restaurant), :method => :put do
     
       = label :restaurant, :location, 'Restaurant Location'
       = text_field :restaurant, 'location', placeholder: "Restaurant Location"
