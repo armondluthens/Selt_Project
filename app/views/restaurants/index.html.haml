@@ -9,6 +9,7 @@
       %th Restaurant Contact
       %th Restaurant Location
       %th Restaurant Description
+      %th Session Token
       %th More Info
   %tbody
     - @restaurants.each do |restaurant|
@@ -19,4 +20,5 @@
         %td= restaurant.contact
         %td= restaurant.location
         %td= restaurant.description
-        %td= link_to "More about #{restaurant.name}", user_path(restaurant)
+        %td= restaurant.session_token
+        %td= link_to "More about #{restaurant.name}", restaurant_path(restaurant)

@@ -6,5 +6,18 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Restaurant.create(name: 'TestRestaurant', password: 'test', email: 'test', contact: 'tester@email.com', location: 'iowa city', description: 'yummy', invitationID: 1)
-Restaurant.create(name: 'incompleteSignUpAccount', email: 'test', invitationID: 2)
+restaurants = [
+    {name: 'TestRestaurant',    password: 'test', email: 'test', contact: 'tester@email.com', location: 'iowa city', description: 'yummy', invitationID: 1, session_token: SecureRandom.base64},
+    {name: 'incompleteAccount',                   email: 'test',                                                                           invitationID: 2, session_token: SecureRandom.base64},
+  ]
+  
+restaurants.each do |restaurant|
+  Restaurant.create!(restaurant)
+end
+
+deals = [
+  
+  ]
+deals.each do |deal|
+  Deals.create!(deal)
+end

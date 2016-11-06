@@ -34,8 +34,9 @@ ActiveRecord::Schema.define(version: 20161102001734) do
     t.string   "location"
     t.string   "description"
     t.integer  "invitationID"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "session_token"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "users", force: :cascade do |t|

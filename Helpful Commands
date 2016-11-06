@@ -1,3 +1,5 @@
+https://cryptic-wildwood-33336.herokuapp.com/
+
 rails server -p $PORT -b $IP
 
 git add .
