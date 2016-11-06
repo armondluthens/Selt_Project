@@ -4,7 +4,7 @@ RSpec.describe Restaurant, type: :model do
   describe 'adding restaurant' do
     it 'should create a session token' do
        expect(SecureRandom).to receive(:base64).and_return('012345678901234567890123')
-       restaurant = Restaurant.create_restaurant!(name: 'Test', email: 'fake_email')
+       restaurant = Restaurant.create_restaurant!(name: 'Test', email: 'Test@email.com')
        expect(restaurant).to have_attributes(:session_token => '012345678901234567890123')
     end
     it 'should call Restaurant create' do
@@ -14,8 +14,12 @@ RSpec.describe Restaurant, type: :model do
         Restaurant.create_restaurant!(fake_params)
     end
     it 'should be valid with valid attributes' do
-        restaurant = Restaurant.new(name: 'Test', email: 'fake_email')
+        restaurant = Restaurant.new(name: 'Test', email: 'Test@email.com')
         expect(restaurant).to be_valid
+    end
+    it 'should not be valid with incorrect email' do
+        restaurant = Restaurant.new(name: 'Test', email: 'incorrectemail')
+        expect(restaurant).to_not be_valid
     end
     it 'should be invalid without name' do
         restaurant = Restaurant.new(name: nil)
