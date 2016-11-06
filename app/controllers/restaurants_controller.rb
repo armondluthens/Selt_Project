@@ -14,9 +14,20 @@ class RestaurantsController < ApplicationController
       redirect_to login_path
       
     else
-      Restaurant.create!(restaurant_params);
-      flash[:notice] = "Welcome #{restaurant_params[:name]}. Please wait for a follow-up email."
-      
+      begin 
+        pw = (password_generator(16))
+        puts pw 
+        Restaurant.create!(restaurant_params.merge(:password => pw))
+        flash[:notice] = "Welcome #{restaurant_params[:name]}. Please wait for a follow-up email."
+      rescue ActiveRecord::RecordInvalid => e
+        messages = e.record.errors.full_messages
+        notice = "Error: "
+        messages.each do |m|
+          notice += m + ". "
+        end 
+        flash[:notice] = notice
+        redirect_to new_restaurant_path and return 
+      end
       ### NEED TO USE EMAIL API HERE!! ###
       
       redirect_to login_path
@@ -74,6 +85,15 @@ class RestaurantsController < ApplicationController
   
   def index
     @restaurants = Restaurant.all
+  end
+  
+  def password_generator(length)
+	  valid_characters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "!", "@", "#", "$", "%", "^", "&"]
+	  pw = ""
+	  length.times do
+  		pw += valid_characters.sample
+	  end
+  	return pw
   end
   
 end

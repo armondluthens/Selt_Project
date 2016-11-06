@@ -9,5 +9,7 @@
   = label :restaurant, :email, 'Access Email', :id => 'label'
   = text_field :restaurant, 'email', placeholder: "Access Email", :id => 'textfield'
   
+  = check_box :restaurant, 'terms_of_service'
+  = label :restaurant, :terms_of_service, 'I agree to the terms of service for Iowa City Eats!'
 
   = submit_tag 'Request Account', :id => 'login_submit'
