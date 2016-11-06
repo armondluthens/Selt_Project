@@ -5,3 +5,6 @@ Feature: Login as Restaurant
   
 Scenario: Login as Restaurant (Declarative)
   Given the restaurant with name "Test", password "password", email "test@email.com", invitationID 1;
+  When I login with name "Test", password "password", email "test@email.com"
+  Then I should go to the home page
+  And I should see "You are logged in as Test"

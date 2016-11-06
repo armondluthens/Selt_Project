@@ -12,4 +12,3 @@ Scenario: Add a new deal (Declarative)
   And I am on the IowaCityEats home page
   Then I should see a deals list entry with title "Mac Monday" and description "Large size bowl for small bowl price" as restaurant "Za'Marics"
   
-  When I 
