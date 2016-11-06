@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe RestaurantsController, type: :controller do
   
-  describe "POST create" do
+  describe "POST #create" do
     it "has a restaurant parameter" do
       post :create, {restaurant: {name: 'Blank', email: 'Blank'}}
       expect(controller.params[:restaurant]).to eq({"name" => 'Blank', "email" => 'Blank'})
@@ -65,7 +65,7 @@ RSpec.describe RestaurantsController, type: :controller do
     end
   end
   
-  describe "GET index" do
+  describe "GET #index" do
     it "should show index" do
       get :index
       expect(response).to render_template('index')
@@ -77,11 +77,21 @@ RSpec.describe RestaurantsController, type: :controller do
     end
   end
   
-  describe "GET edit" do
+  describe "GET #edit" do
     
   end
   
-  describe "GET show" do
-    
+  describe "GET #show" do
+    it "should render show" do
+      expect(Restaurant).to receive(:find)
+      get :show, id: 1
+      expect(response).to render_template('show')
+    end
+    it "should set variable restaurant" do
+      fake_restaurant = double("Test1")
+      expect(Restaurant).to receive(:find).and_return(fake_restaurant)
+      get :show, id: 1
+      expect(assigns(:restaurant)).to eq(fake_restaurant)
+    end
   end
 end
