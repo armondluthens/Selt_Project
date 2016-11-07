@@ -1,6 +1,7 @@
 {
   "RSpec": {
     "coverage": {
+<<<<<<< HEAD
       "/home/ubuntu/workspace/Selt_Project/app/helpers/application_helper.rb": [
         1,
         null
@@ -10,6 +11,17 @@
         null
       ],
       "/home/ubuntu/workspace/Selt_Project/app/controllers/restaurants_controller.rb": [
+=======
+      "/home/ubuntu/workspace/app/helpers/application_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/helpers/sessions_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/app/controllers/restaurants_controller.rb": [
+>>>>>>> 853ead408cd0a41294300039ed827b63f7072f90
         1,
         null,
         1,
@@ -104,7 +116,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/Selt_Project/app/controllers/application_controller.rb": [
+=======
+      "/home/ubuntu/workspace/app/controllers/application_controller.rb": [
+>>>>>>> 853ead408cd0a41294300039ed827b63f7072f90
         1,
         null,
         null,
@@ -118,7 +134,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/Selt_Project/app/controllers/sessions_controller.rb": [
+=======
+      "/home/ubuntu/workspace/app/controllers/sessions_controller.rb": [
+>>>>>>> 853ead408cd0a41294300039ed827b63f7072f90
         1,
         null,
         1,
@@ -150,7 +170,11 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/Selt_Project/app/controllers/users_controller.rb": [
+=======
+      "/home/ubuntu/workspace/app/controllers/users_controller.rb": [
+>>>>>>> 853ead408cd0a41294300039ed827b63f7072f90
         1,
         null,
         1,
@@ -192,27 +216,43 @@
         null,
         null
       ],
+<<<<<<< HEAD
       "/home/ubuntu/workspace/Selt_Project/app/models/deal.rb": [
+=======
+      "/home/ubuntu/workspace/app/models/user.rb": [
+>>>>>>> 853ead408cd0a41294300039ed827b63f7072f90
         0,
         0,
         0,
         0,
+<<<<<<< HEAD
         0
       ],
       "/home/ubuntu/workspace/Selt_Project/app/models/user.rb": [
+=======
+>>>>>>> 853ead408cd0a41294300039ed827b63f7072f90
         0,
         0,
         0,
         0,
         0,
         0,
+<<<<<<< HEAD
+=======
+        0
+      ],
+      "/home/ubuntu/workspace/app/models/restaurant.rb": [
+>>>>>>> 853ead408cd0a41294300039ed827b63f7072f90
         0,
         0,
         0,
         0,
+<<<<<<< HEAD
         0
       ],
       "/home/ubuntu/workspace/Selt_Project/app/models/restaurant.rb": [
+=======
+>>>>>>> 853ead408cd0a41294300039ed827b63f7072f90
         0,
         0,
         0,
@@ -229,6 +269,12 @@
         0,
         0,
         0,
+<<<<<<< HEAD
+=======
+        0
+      ],
+      "/home/ubuntu/workspace/app/models/deal.rb": [
+>>>>>>> 853ead408cd0a41294300039ed827b63f7072f90
         0,
         0,
         0,
@@ -236,6 +282,10 @@
         0
       ]
     },
+<<<<<<< HEAD
     "timestamp": 1478492058
+=======
+    "timestamp": 1478491827
+>>>>>>> 853ead408cd0a41294300039ed827b63f7072f90
   }
 }

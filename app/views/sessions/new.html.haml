@@ -1,7 +1,7 @@
 .new_session
   %h1 Log In
 
-  = form_tag login_create_path do
+  = form_tag login_create_path :method => 'post' do
     
     = label :restaurant_session, :name, 'Account ID', :id => 'Account ID'
     = text_field :restaurant_session, 'name', placeholder: 'Account ID', :id => 'signup_name'

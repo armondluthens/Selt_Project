@@ -9,6 +9,6 @@ Scenario: Add a new deal (Declarative)
 #  | title                   | start_date | end_date | description | 
 #  | Mac Monday               25-Nov-1992 |
   When I have added the deal with title "Mac Monday" and description "Large size bowl for small bowl price" as restaurant "Za'Marics" 
-  And I am on the IowaCityEats home page
+  And I am on the "home page"
   Then I should see a deals list entry with title "Mac Monday" and description "Large size bowl for small bowl price" as restaurant "Za'Marics"
   

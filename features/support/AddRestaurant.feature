@@ -33,8 +33,9 @@ Scenario: Add a new restaurant (Happy Path)
   And I should see a notice of "Welcome Pancheros. Please wait for a follow-up email."
   
 Scenario: Add a restaurant that exists (Sad Path)
-  Given I am on the "request account page"
-  Given I have filled out the request form with name "TestRestaurant", with email "pancheros@email.com"
+  Given the restaurant with name "Test", password "password", email "test@email.com", invitationID "1"
+  And I am on the "request account page"
+  And I have filled out the request form with name "Test", with email "test@email.com"
   Then I should be on the "request account page"
   And I should see a notice of "Error: Name has already been taken. Email has already been taken."
   

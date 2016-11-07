@@ -10,7 +10,7 @@ Scenario: Login as Restaurant (Sad Path)
   And I should see a notice of "Invalid credentials. Re-enter, or click Sign-up for an account"
   
 Scenario: Login as Restaurant (Declarative)
-  Given the restaurant with name "Test", password "password", email "test@email.com", invitationID 1;
+  Given the restaurant with name "Test", password "password", email "test@email.com", invitationID "1"
   And I am on the "login page"
   And I login with name "Test", password "password"
   Then I should be on the "home page"
