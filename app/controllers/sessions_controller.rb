@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
     
   def session_params
-    params.require(:restaurant).permit(:name, :password)
+    params.require(:restaurant_session).permit(:password, :name)
   end
     
   def new
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   end
   
   def create
-    
+    puts session_params
     @restaurant = Restaurant.find_by(name: session_params[:name], password: session_params[:password])
     if (!@restaurant.nil?)
       flash[:notice] = "You are logged in as #{@restaurant.name}."

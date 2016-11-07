@@ -5,34 +5,22 @@ class RestaurantsController < ApplicationController
   end
   
   def create
-    if Restaurant.exists?(:name => restaurant_params[:name])
-      flash[:notice] = "Restaurant name is unavailable. Try again."
-      redirect_to new_restaurant_path
-      
-    elsif Restaurant.exists?(:email => restaurant_params[:email])
-      flash[:notice] = "Email is already registered with an account. Please log in or inquiry forgotten password."
-      redirect_to login_path
-      
-    else
-      begin 
-        pw = (password_generator(16))
-        puts pw 
-        Restaurant.create!(restaurant_params.merge(:password => pw))
-        flash[:notice] = "Welcome #{restaurant_params[:name]}. Please wait for a follow-up email."
-      rescue ActiveRecord::RecordInvalid => e
-        messages = e.record.errors.full_messages
-        notice = "Error: "
-        messages.each do |m|
-          notice += m + ". "
-        end 
-        flash[:notice] = notice
-        redirect_to new_restaurant_path and return 
-      end
+    begin 
+      pw = (password_generator(16))
+      Restaurant.create!(restaurant_params.merge(:password => pw))
+      flash[:notice] = "Welcome #{restaurant_params[:name]}. Please wait for a follow-up email."
+    rescue ActiveRecord::RecordInvalid => e
+      messages = e.record.errors.full_messages
+      notice = "Error: "
+      messages.each do |m|
+        notice += m + ". "
+      end 
+      flash[:notice] = notice
+      redirect_to new_restaurant_path and return 
+    end
       ### NEED TO USE EMAIL API HERE!! ###
       
-      redirect_to login_path
-    end
-   
+    redirect_to login_path
   end
   
   def show

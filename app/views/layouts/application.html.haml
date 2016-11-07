@@ -11,7 +11,7 @@
   %body
     #main
       .left-h1
-        =link_to 'Iowa City Eats!', root_path
+        =link_to 'Iowa City Eats!', root_path, :id => 'homepage'
         
       - if flash[:notice]
         #notice.message= flash[:notice]
@@ -20,9 +20,9 @@
 
       - if !@current_restaurant
         .right-button
-          = button_to 'Log In', login_path, :method => :get, :id => 'signuplogin'
+          = button_to 'Log In', login_path, :method => :get, :id => 'Log In'
 
-          = button_to 'Request an Account', new_restaurant_path, :method => :get, :id => 'requestrestaurant'
+          = button_to 'Request an Account', new_restaurant_path, :method => :get, :id => 'Request an Account'
       
           = button_to 'View All Restaurants', restaurants_path, :method => :get, :id => 'viewrestaurants'
       
