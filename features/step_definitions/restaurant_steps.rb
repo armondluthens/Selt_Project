@@ -39,6 +39,7 @@ Given /^I have filled out the request form with name "(.*?)", with email "(.*?)"
    click_button 'Request Account'
 end
   
+  
 Then /^I should see a notice of "(.*?)"$/ do |notice|  
   page.should have_content notice
 end 
@@ -47,4 +48,8 @@ Given /^I login with name "(.*?)", password "(.*?)"$/ do |name, pw|
    fill_in 'Account ID', :with => name 
    fill_in 'Account Password', :with => pw 
    click_button 'Login to my account'
+end
+
+Given /^the restaurant with name "(.*?)", password "(.*?)", email "(.*?)", invitationID "(.*?)"$/ do |name, password, email, invitationID|
+    Restaurant.create!(:name => name, :password => password, :email => email, :invitationID => invitationID)
 end
