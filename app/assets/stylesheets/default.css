@@ -414,7 +414,19 @@ ul#subjects li {
     font-size: 20px;
 }
 
-
+#restaurants-table{
+    float: left;
+    width: 90%;
+    margin-left: 5%;
+    font-family: 'Oswald', sans-serif;
+}
+#table_title{
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    float: left;
+    width: 100%;
+    text-align: center;
+}
 /********************************************
     JavaScript Deal Slideshow
 ********************************************/
