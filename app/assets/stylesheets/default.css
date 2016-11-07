@@ -195,6 +195,20 @@ ul#subjects li {
     color: black;
     cursor: pointer;
 }
+#restaurant_terms_of_service{
+    float: left;
+    margin-left: 5.5%;
+    width: 2%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#service_agreement{
+    float: left;
+    width: 70%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
+}
 
 .center-h2 {
     float:left;
