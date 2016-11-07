@@ -3,11 +3,11 @@
 
   = form_tag login_create_path do
     
-    = label :user, :user_id, 'Account-ID', :id => 'label'
-    = text_field :restaurant, 'name', placeholder: 'Account ID', :id => 'textfield'
+    = label :restaurant_session, :name, 'Account ID', :id => 'Account ID'
+    = text_field :restaurant_session, 'name', placeholder: 'Account ID', :id => 'signup_name'
     
-    = label :user, :email, 'Account Password', :id => 'label'
-    = text_field :restaurant, 'password', placeholder: 'Account Password', :id => 'textfield'
+    = label :restaurant_session, :password, 'Account Password', :id => 'Account Password'
+    = text_field :restaurant_session, 'password', placeholder: 'Account Password', :id => 'signup_password'
     
     = button_to 'Login to my account', login_create_path, :method => :post, :id => 'login_submit'
     

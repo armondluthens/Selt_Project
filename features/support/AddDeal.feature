@@ -6,8 +6,8 @@ Feature: Add a Deal
 
 Scenario: Add a new deal (Declarative)
     Given the following deal has been added to IowaCityEats:
-  | title                   | start_time | start_date | start_time | end_date | description | deal days |
-  | Mac Monday              |            | 25-Nov-1992  |
+#  | title                   | start_date | end_date | description | 
+#  | Mac Monday               25-Nov-1992 |
   When I have added the deal with title "Mac Monday" and description "Large size bowl for small bowl price" as restaurant "Za'Marics" 
   And I am on the IowaCityEats home page
   Then I should see a deals list entry with title "Mac Monday" and description "Large size bowl for small bowl price" as restaurant "Za'Marics"
