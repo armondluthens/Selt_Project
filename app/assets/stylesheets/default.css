@@ -159,7 +159,7 @@ ul#subjects li {
     height: 80px;
     border-bottom: 2px solid black;
 }
-#signuplogin{
+#Log_In{
     float: left;
     margin-top: 15px;
     min-width: 100px;
@@ -172,7 +172,8 @@ ul#subjects li {
     font-size: 20px;
     margin-right: 5px;
 }
-#requestrestaurant{
+/*#requestrestaurant{*/
+#Request_an_Account{
     float: left;
     margin-top: 15px;
     min-width: 150px;
@@ -203,12 +204,12 @@ ul#subjects li {
     color: black;
     cursor: pointer;
 }
-#signuplogin:hover{
+#Log_In:hover{
     background-color: white;
     color: black;
     cursor: pointer;
 }
-#requestrestaurant:hover{
+#Request_an_Account:hover{
     background-color: white;
     color: black;
     cursor: pointer;
