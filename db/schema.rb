@@ -28,15 +28,10 @@ ActiveRecord::Schema.define(version: 20161102001734) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
-    t.string   "password"
-    t.string   "email"
-    t.string   "contact"
     t.string   "location"
     t.string   "description"
-    t.integer  "invitationID"
-    t.string   "session_token"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

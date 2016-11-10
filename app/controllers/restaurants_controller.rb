@@ -1,26 +1,21 @@
 class RestaurantsController < ApplicationController
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :email, :password, :contact, :location, :description, :invitationID, :session_token)
+    params.require(:restaurant).permit(:name, :email, :password, :contact, :location, :description, :session_token)
   end
   
   def create
-    begin 
-      pw = (password_generator(16))
-      Restaurant.create!(restaurant_params.merge(:password => pw))
-      flash[:notice] = "Welcome #{restaurant_params[:name]}. Please wait for a follow-up email."
-    rescue ActiveRecord::RecordInvalid => e
-      messages = e.record.errors.full_messages
-      notice = "Error: "
-      messages.each do |m|
-        notice += m + ". "
-      end 
-      flash[:notice] = notice
-      redirect_to new_restaurant_path and return 
-    end
-      ### NEED TO USE EMAIL API HERE!! ###
+      @restaurant = Restaurant.new(restaurant_params)
       
-    redirect_to login_path
+      if Restaurant.exists?(email: @restaurant.email)
+        flash[:notice] = "Account #{@restaurant.email} already exists. Please try again."
+        redirect_to new_restaurant_path
+      else
+        Restaurant::create_restaurant!(restaurant_params)
+        flash[:notice] = "Welcome #{@restaurant.name}. Your account was successfully created."
+        redirect_to login_path
+      end
+      
   end
   
   def show
@@ -28,7 +23,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(id)
   end
   
+  
   def update
+=begin
+  
     @restaurant = Restaurant.find params[:id]
     
     if (@restaurant.invitationID).to_s == (params[:restaurant][:invitationID])
@@ -52,7 +50,7 @@ class RestaurantsController < ApplicationController
   
   def edit
     @restaurant = Restaurant.find params[:id]
-    
+=end    
     # InvitationID is correct
     
 #      # If Restaurant Name and Email is correct, save password
@@ -80,14 +78,7 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
   
-  def password_generator(length)
-	  valid_characters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "!", "@", "#", "$", "%", "^", "&"]
-	  pw = ""
-	  length.times do
-  		pw += valid_characters.sample
-	  end
-  	return pw
-  end
+  
   
 end
   
