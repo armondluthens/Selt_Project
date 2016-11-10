@@ -567,5 +567,9 @@ ul#subjects li {
         margin-right: 10%;
         height: 30px;
     }
+    #viewrestaurants{
+        float: left;
+    }
+
 
 }
