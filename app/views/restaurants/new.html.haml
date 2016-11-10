@@ -1,16 +1,47 @@
 .new_session
   %h1 Sign Up Restaurant
+  
+  :javascript
+    if(form.restaurant[contact].value.length != 10){
+      alert("Error: Phone number is invalid");
+      form.restaurant[contact].focus();
+      return false;
+    }
+                //PASSWORD VALIDATION
+    if(form.restaurant[password].value != form.restaurant[confirm_password].value) {
+      alert("Error: Passwords Do Not Match");
+      form.restaurant[password].focus();
+      return false;
+    }
 
-= form_tag restaurants_path do
+= form_tag restaurants_path, :onsubmit => "return validateForm(this);" do
 
   = label :restaurant, :name, 'Restaurant Name', :id => 'Restaurant_Name'
   = text_field :restaurant, 'name', placeholder: "Restaurant Name", :id => 'textfield'
   
   = label :restaurant, :email, 'Access Email', :id => 'Access_Email'
-  = text_field :restaurant, 'email', placeholder: "Access Email", :id => 'textfield'
+  = text_field :restaurant, 'email', placeholder: "elchapo@elchapo.com", :id => 'textfield'
+  
+  
+  = label :restaurant, :password, 'Password', :id => 'label'
+  = password_field :restaurant, 'password', placeholder: "password", :id => 'textfield'
+  
+  = label :restaurant, :confirm_password, 'Confirm Password', :id => 'label'
+  = password_field :restaurant, 'password', placeholder: "password", :id => 'textfield'
+  
+  = label :restaurant, :contact, 'Phone', :id => 'label'
+  = number_field :restaurant, 'contact', placeholder: "555-555-5555", :id => 'textfield'
+  
+  = label :restaurant, :location, 'Address', :id => 'label'
+  = text_field :restaurant, 'Address', placeholder: "100 Main Street", :id => 'textfield'
+  
+  = label :restaurant, :description, 'Description', :id => 'label'
+  = text_field :restaurant, 'Address', placeholder: "Best Tacos in Town!", :id => 'textfield'
   
 
   = check_box :restaurant, 'terms_of_service'
   = label :restaurant, :terms_of_service, 'I agree to the terms of service for Iowa City Eats!', :id => 'service_agreement'
 
   = submit_tag 'Request Account', :id => 'login_submit'
+  
+  
