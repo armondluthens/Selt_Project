@@ -363,7 +363,53 @@ ul#subjects li {
     font-size: 22px;
     width:20%;
 }
+#Account_Password{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
+#Account_ID{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
 #textfield{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 22px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+}
+#Restaurant_Name{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
+#Access_Email{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
+#signup_name{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 22px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+}
+#signup_password{
     float: left;
     font-family: 'Oswald', sans-serif;
     margin-left: 2%;
@@ -480,7 +526,32 @@ ul#subjects li {
         width: 80%;
         margin-left: 10%;
     }
+    #Restaurant_Name{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #Access_Email{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #Account_Password{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #Account_ID{
+        width: 80%;
+        margin-left: 10%; 
+    }
+    
     #textfield{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #signup_name{
+        width: 80%;
+        margin-left: 10%;
+    }
+     #signup_password{
         width: 80%;
         margin-left: 10%;
     }
