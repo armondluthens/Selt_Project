@@ -7,8 +7,8 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 restaurants = [
-    {name: 'TestRestaurant',    password: 'test', email: 'test@email.com', contact: 'tester@email.com', location: 'iowa city', description: 'yummy', invitationID: 1, session_token: SecureRandom.base64},
-    {name: 'incompleteAccount',                   email: 'test1@email.com',                                                                           invitationID: 2, session_token: SecureRandom.base64},
+    {name: 'TestRestaurant',    password: 'test', email: 'test@email.com', contact: 'tester@email.com', location: 'iowa city', description: 'yummy', session_token: SecureRandom.base64},
+    
   ]
   
 restaurants.each do |restaurant|

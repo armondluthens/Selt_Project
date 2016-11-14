@@ -1,14 +1,14 @@
 class RestaurantsController < ApplicationController
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :email, :password, :contact, :location, :description, :invitationID, :session_token)
+    params.require(:restaurant).permit(:name, :email, :password, :contact, :location, :description, :session_token)
   end
   
   def create
     begin 
       pw = (password_generator(16))
       Restaurant.create!(restaurant_params.merge(:password => pw))
-      flash[:notice] = "Welcome #{restaurant_params[:name]}. Please wait for a follow-up email."
+      #flash[:notice] = "Welcome #{restaurant_params[:name]}. Please wait for a follow-up email."
     rescue ActiveRecord::RecordInvalid => e
       messages = e.record.errors.full_messages
       notice = "Error: "
