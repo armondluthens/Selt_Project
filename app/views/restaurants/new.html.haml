@@ -1,20 +1,11 @@
 .new_session
   %h1 Sign Up Restaurant
-  
-  :javascript
-    if(form.restaurant[contact].value.length != 10){
-      alert("Error: Phone number is invalid");
-      form.restaurant[contact].focus();
-      return false;
-    }
-                //PASSWORD VALIDATION
-    if(form.restaurant[password].value != form.restaurant[confirm_password].value) {
-      alert("Error: Passwords Do Not Match");
-      form.restaurant[password].focus();
-      return false;
-    }
 
-= form_tag restaurants_path, :onsubmit => "return validateForm(this);" do
+
+
+
+
+= form_tag restaurants_path do
 
   = label :restaurant, :name, 'Restaurant Name', :id => 'Restaurant_Name'
   = text_field :restaurant, 'name', placeholder: "Restaurant Name", :id => 'textfield'
