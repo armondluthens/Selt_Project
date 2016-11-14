@@ -1,7 +1,6 @@
 class Restaurant < ActiveRecord::Base
+    has_secure_password
     has_many :deals
-    
-    #has_secure_password
     
     before_save{|restaurant| restaurant.email = restaurant.email.downcase} 
     
@@ -11,9 +10,11 @@ class Restaurant < ActiveRecord::Base
     validates :email, presence: true, 
         format:{with: VALID_EMAIL_REGEX}, 
         uniqueness:{case_sensitive: false} 
-    validates :password, length: {minimum: 6}, :confirmation => true 
-    #validates :password_confirmation, :presence => true
-    #validates_confirmation_of :password
+    
+    
+    validates :password, presence: true, length: {minimum: 6}
+    validates :password_confirmation, presence: true
+    
      
     validates :terms_of_service, acceptance: true
    
