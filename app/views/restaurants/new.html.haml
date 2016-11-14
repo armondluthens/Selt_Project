@@ -18,16 +18,16 @@
   = password_field :restaurant, 'password', placeholder: "password", :id => 'textfield'
   
   = label :restaurant, :confirm_password, 'Confirm Password', :id => 'label'
-  = password_field :restaurant, 'password', placeholder: "password", :id => 'textfield'
+  = password_field :restaurant, 'confirm_password', placeholder: "password", :id => 'textfield'
   
   = label :restaurant, :contact, 'Phone', :id => 'label'
   = number_field :restaurant, 'contact', placeholder: "555-555-5555", :id => 'textfield'
   
   = label :restaurant, :location, 'Address', :id => 'label'
-  = text_field :restaurant, 'Address', placeholder: "100 Main Street", :id => 'textfield'
+  = text_field :restaurant, 'location', placeholder: "100 Main Street", :id => 'textfield'
   
   = label :restaurant, :description, 'Description', :id => 'label'
-  = text_field :restaurant, 'Address', placeholder: "Best Tacos in Town!", :id => 'textfield'
+  = text_field :restaurant, 'description', placeholder: "Best Tacos in Town!", :id => 'textfield'
   
 
   = check_box :restaurant, 'terms_of_service'
