@@ -4,13 +4,13 @@
 
 = form_tag deals_path do
 
-  = label :deal, :name, 'Deal Title', :id => 'Restaurant_Name'
-  = text_field :deal, 'name', placeholder: "Taco Tuesday", :id => 'textfield'
+  = label :deal, :title, 'Deal Title', :id => 'Restaurant_Name'
+  = text_field :deal, 'title', placeholder: "Taco Tuesday", :id => 'textfield'
   
   = label :deal, :start_date, 'Start Date', :id => 'Access_Email'
   = date_field :deal, 'start_date', placeholder: "2016-12-22", :id => 'textfield'
   
-  = label :deal, :end_date, 'Start Date', :id => 'Access_Email'
+  = label :deal, :end_date, 'End Date', :id => 'Access_Email'
   = date_field :deal, 'end_date', placeholder: "2016-12-24", :id => 'textfield'
   
   
