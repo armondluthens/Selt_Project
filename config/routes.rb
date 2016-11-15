@@ -1,5 +1,23 @@
 Rails.application.routes.draw do
 
+  get 'deals/create'
+
+  get 'deals/show'
+
+  get 'deals/update'
+
+  get 'deals/destroy'
+
+  get 'deals/new'
+
+  get 'deals/create'
+
+  get 'deals/show'
+
+  get 'deals/update'
+
+  get 'deals/destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
