@@ -18,9 +18,6 @@ class Restaurant < ActiveRecord::Base
     validates :location, presence: true
     validates :contact, presence: true
     validates :description, presence: true
-        
-    end
-    
      
     validates :terms_of_service, acceptance: true
    
