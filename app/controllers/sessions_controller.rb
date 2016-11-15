@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     restaurant = Restaurant.find_by_email(session_params[:email])
     if restaurant && restaurant.authenticate(session_params[:password])
       session[:session_token] = restaurant.session_token
+      @current_restaurant = restaurant
       flash[:notice] = "You are logged in as #{restaurant.name}."
         redirect_to root_path
     else
