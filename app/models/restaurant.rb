@@ -15,6 +15,12 @@ class Restaurant < ActiveRecord::Base
     validates :password, presence: true, length: {minimum: 6}
     validates :password_confirmation, presence: true
     
+    validates :location, presence: true
+    validates :contact, presence: true
+    validates :description, presence: true
+        
+    end
+    
      
     validates :terms_of_service, acceptance: true
    
