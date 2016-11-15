@@ -374,6 +374,47 @@ ul#subjects li {
     font-size: 28px;
     width:97%;
 }
+/********************************************
+    Deals Signup Styling
+********************************************/
+.deal_creation label{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
+.deal_creation input{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 22px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+}
+.deal_creation textarea{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 22px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+    height: 150px;
+    margin-bottom: 10px;
+}
+/*
+.deal_creation input[type=checkbox]{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 0%;
+    font-size: 22px;
+    height: 50px;
+    color: black;
+}
+*/
+
 
 /********************************************
     Login/Signup Styling
@@ -595,6 +636,17 @@ td{
     #viewrestaurants{
         float: left;
     }
-
+    .deal_creation label{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .deal_creation input{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .deal_creation textarea{
+        width: 80%;
+        margin-left: 10%;
+    }
 
 }
