@@ -22,6 +22,10 @@ class DealsController < ApplicationController
   end
 
   def update
+    @deal = Deal.find params[:id]
+    @deal.update_attributes!(deal_params)
+    flash[:notice] = "#{@deal.title} was successfully updated."
+    redirect_to root_path
   end
 
   def destroy
