@@ -11,19 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161114233844) do
+ActiveRecord::Schema.define(version: 20161115210634) do
 
   create_table "deals", force: :cascade do |t|
     t.string   "title"
     t.date     "start_date"
     t.date     "end_date"
     t.string   "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.time     "start_time"
     t.time     "end_time"
     t.text     "deal_days"
     t.integer  "restaurant_id"
+    t.string   "ethnicity"
+    t.boolean  "sunday",        default: false
+    t.boolean  "monday",        default: false
+    t.boolean  "tuesday",       default: false
+    t.boolean  "wednesday",     default: false
+    t.boolean  "thursday",      default: false
+    t.boolean  "friday",        default: false
+    t.boolean  "saturday",      default: false
   end
 
   create_table "restaurants", force: :cascade do |t|
