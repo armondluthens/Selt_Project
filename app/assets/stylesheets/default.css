@@ -2,11 +2,15 @@
     margin: 0;
     padding: 0;
 }
+
 html{
     margin: 0;
     padding: 0;  
 }
-
+.message{
+    font-family: 'Oswald', sans-serif;
+    margin-left: 3%;
+}
 .banner-left {
     width: 40%;
     float: left;
@@ -172,6 +176,19 @@ ul#subjects li {
     font-size: 20px;
     margin-right: 5px;
 }
+#Log_Out{
+    float: left;
+    margin-top: 15px;
+    min-width: 100px;
+    background-color: black;
+    border: 2px solid black;
+    height: 40px;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin-right: 5px;
+}
 /*#requestrestaurant{*/
 #Request_an_Account{
     float: left;
@@ -205,6 +222,11 @@ ul#subjects li {
     cursor: pointer;
 }
 #Log_In:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+#Log_Out:hover{
     background-color: white;
     color: black;
     cursor: pointer;
@@ -466,6 +488,9 @@ ul#subjects li {
     width: 90%;
     margin-left: 5%;
     font-family: 'Oswald', sans-serif;
+}
+td{
+    text-align: center;
 }
 #table_title{
     font-size: 24px;

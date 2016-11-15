@@ -28,10 +28,8 @@
       
       - else
         .right-button
-          = button_to 'Home', root_path, :method => :get
-        .right-button
-          = button_to 'Log Out', logout_path, :method => :delete, :id => 'logout'
-        .right-button
-          = button_to 'View All Restaurants', restaurants_path, :method => :get
+          = button_to 'Log Out', logout_path, :method => :delete, :id => 'Log_Out'
+        
+          = button_to 'View All Restaurants', restaurants_path, :method => :get, :id => 'viewrestaurants'
 
       = yield
