@@ -9,9 +9,7 @@
     
     = label :deal, :description, 'Description'
     = text_area :deal, 'description', placeholder: "Half off all tacos on tuesdays 5-8pm!"
-    
-    
-    
+  
     = label :deal, :start_date, 'Start Date'
     = date_field :deal, 'start_date', placeholder: "2016-12-22"
     
@@ -25,6 +23,7 @@
     = time_field :deal, 'end_time', placeholder: ""
     
     = label :deal, :days_checkboxes, 'Days of Week'
+
     :plain
       <!-- DO NOT DELETE THIS LEXI, IT TOOK FOR FUCKING EVER-->
       <div class="checkbox_wrapper">
@@ -49,21 +48,13 @@
         <input type="checkbox" name="saturday" value="1" id="saturday">
         <label for="saturday">Saturday</label>
       </div>
+      
+    
     
     = label :deal, :ethnicity, 'Type'
     = select(:deal, :status, options_for_select([["General", "1"], ["Mexican", "2"], ["Asian", "3"], ["Spanish", "4"], ["Seafood", ""]]))
       
-    
-      
-    
-      
-      
-    
-    
-    
-    
-  
   = submit_tag 'Create Deal', :id => 'login_submit'
-  
+      
   
 

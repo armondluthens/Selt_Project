@@ -4,7 +4,8 @@ class DealsController < ApplicationController
   #before_filter :set_current_restaurant
   
   def deal_params
-    params.require(:deal).permit(:title, :start_date, :end_date, :description, :start_time, :end_time, :deal_days)
+    params.require(:deal).permit(:title, :start_date, :end_date, :description, :start_time, :end_time, :sunday, :monday, :tuesday, :wednesdaay, :thursday, :friday, :saturday)
+    #params.require(:deal).permit(:title, :description)
   end
   
   def create
