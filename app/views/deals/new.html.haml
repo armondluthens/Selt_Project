@@ -1,6 +1,6 @@
 .new_session
   %h1 Create New Deal
-
+  
 .deal_creation
   = form_tag deals_path do
   
@@ -8,7 +8,9 @@
     = text_field :deal, 'title', placeholder: "Taco Tuesday"
     
     = label :deal, :description, 'Description'
-    = text_area :deal, 'description', placeholder: "blah blah blah"
+    = text_area :deal, 'description', placeholder: "Half off all tacos on tuesdays 5-8pm!"
+    
+    
     
     = label :deal, :start_date, 'Start Date'
     = date_field :deal, 'start_date', placeholder: "2016-12-22"
@@ -21,6 +23,38 @@
     
     = label :deal, :end_time, 'End Time'
     = time_field :deal, 'end_time', placeholder: ""
+    
+    = label :deal, :days_checkboxes, 'Days of Week'
+    :plain
+      <!-- DO NOT DELETE THIS LEXI, IT TOOK FOR FUCKING EVER-->
+      <div class="checkbox_wrapper">
+        <input type="checkbox" name="sunday" value="1" id="sunday">
+        <label for="sunday">Sunday</label>
+        
+        <input type="checkbox" name="monday" value="1" id="monday">
+        <label for="monday"> Monday</label>
+        
+        <input type="checkbox" name="tuesday" value="1" id="tuesday">
+        <label for="tuesday"> Tuesday</label>
+        
+        <input type="checkbox" name="wednesday" value="1" id="wednesday">
+        <label for="wednesday">Wednesday</label>
+        
+        <input type="checkbox" name="thursday" value="1" id="thursday">
+        <label for="thursday">Thursday</label>
+        
+        <input type="checkbox" name="friday" value="1" id="friday">
+        <label for="friday">Friday</label>
+        
+        <input type="checkbox" name="saturday" value="1" id="saturday">
+        <label for="saturday">Saturday</label>
+      </div>
+    
+    = label :deal, :ethnicity, 'Type'
+    = select(:deal, :status, options_for_select([["General", "1"], ["Mexican", "2"], ["Asian", "3"], ["Spanish", "4"], ["Seafood", ""]]))
+      
+    
+      
     
       
       

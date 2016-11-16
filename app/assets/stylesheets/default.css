@@ -404,6 +404,17 @@ ul#subjects li {
     height: 150px;
     margin-bottom: 10px;
 }
+.deal_creation select{
+    float: left;
+    height: 30px;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 18px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+    margin-bottom: 25px;
+}
 /*
 .deal_creation input[type=checkbox]{
     float: left;
@@ -414,7 +425,23 @@ ul#subjects li {
     color: black;
 }
 */
+.checkbox_wrapper{
+    float: left;
+    width: 100%;
+    margin: 0;
+}
 
+.checkbox_wrapper input{
+    float: left;
+    margin-left: 10%;
+    margin-top: 10px;
+    width: 4%;
+}
+.checkbox_wrapper label{
+    float: left;
+    margin-left: -35%;
+    width: 50%;
+}
 
 /********************************************
     Login/Signup Styling
@@ -647,6 +674,10 @@ td{
     .deal_creation textarea{
         width: 80%;
         margin-left: 10%;
+    }
+    .checkbox_wrapper label{
+        margin-left: 10%;
+        width: 90%;
     }
 
 }
