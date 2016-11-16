@@ -1,27 +1,21 @@
 class RestaurantsController < ApplicationController
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :email, :password, :contact, :location, :description, :invitationID, :session_token)
+    params.require(:restaurant).permit(:name, :email, :password, :password_confirmation, :contact, :location, :description, :session_token)
   end
   
   def create
-    if Restaurant.exists?(:name => restaurant_params[:name])
-      flash[:notice] = "Restaurant name is unavailable. Try again."
-      redirect_to new_restaurant_path
+      @restaurant = Restaurant.new(restaurant_params)
       
-    elsif Restaurant.exists?(:email => restaurant_params[:email])
-      flash[:notice] = "Email is already registered with an account. Please log in or inquiry forgotten password."
-      redirect_to login_path
+      if Restaurant.exists?(email: @restaurant.email)
+        flash[:notice] = "Account #{@restaurant.email} already exists. Please try again."
+        redirect_to new_restaurant_path
+      else
+        Restaurant::create_restaurant!(restaurant_params)
+        flash[:notice] = "Welcome #{@restaurant.name}. Your account was successfully created."
+        redirect_to login_path
+      end
       
-    else
-      Restaurant.create!(restaurant_params);
-      flash[:notice] = "Welcome #{restaurant_params[:name]}. Please wait for a follow-up email."
-      
-      ### NEED TO USE EMAIL API HERE!! ###
-      
-      redirect_to login_path
-    end
-   
   end
   
   def show
@@ -29,7 +23,10 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(id)
   end
   
+  
   def update
+=begin
+  
     @restaurant = Restaurant.find params[:id]
     
     if (@restaurant.invitationID).to_s == (params[:restaurant][:invitationID])
@@ -53,7 +50,7 @@ class RestaurantsController < ApplicationController
   
   def edit
     @restaurant = Restaurant.find params[:id]
-    
+=end    
     # InvitationID is correct
     
 #      # If Restaurant Name and Email is correct, save password
@@ -80,6 +77,8 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
   end
+  
+  
   
 end
   

@@ -11,32 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161102001734) do
+ActiveRecord::Schema.define(version: 20161115210634) do
 
   create_table "deals", force: :cascade do |t|
     t.string   "title"
     t.date     "start_date"
     t.date     "end_date"
     t.string   "description"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.time     "start_time"
     t.time     "end_time"
     t.text     "deal_days"
     t.integer  "restaurant_id"
+    t.string   "ethnicity"
+    t.boolean  "sunday",        default: false
+    t.boolean  "monday",        default: false
+    t.boolean  "tuesday",       default: false
+    t.boolean  "wednesday",     default: false
+    t.boolean  "thursday",      default: false
+    t.boolean  "friday",        default: false
+    t.boolean  "saturday",      default: false
   end
 
   create_table "restaurants", force: :cascade do |t|
     t.string   "name"
-    t.string   "password"
     t.string   "email"
     t.string   "contact"
     t.string   "location"
     t.string   "description"
-    t.integer  "invitationID"
     t.string   "session_token"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
   create_table "users", force: :cascade do |t|

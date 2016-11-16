@@ -3,11 +3,12 @@ class CreateRestaurants < ActiveRecord::Migration
     create_table :restaurants do |t|
       t.string :name
       t.string :password
+      #t.string :password_digest
       t.string :email
       t.string :contact
       t.string :location
       t.string :description
-      t.integer :invitationID
+      #t.integer :invitationID
       t.string :session_token
       t.timestamps null: false
     end

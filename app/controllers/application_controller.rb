@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
   
   def set_current_restaurant
     @current_restaurant ||= session[:session_token] && Restaurant.find_by_session_token(session[:session_token])
+    #redirect_to login_path unless @current_restaurant
+    
   end
   
 end
+
+

@@ -2,11 +2,15 @@
     margin: 0;
     padding: 0;
 }
+
 html{
     margin: 0;
     padding: 0;  
 }
-
+.message{
+    font-family: 'Oswald', sans-serif;
+    margin-left: 3%;
+}
 .banner-left {
     width: 40%;
     float: left;
@@ -159,7 +163,7 @@ ul#subjects li {
     height: 80px;
     border-bottom: 2px solid black;
 }
-#signuplogin{
+#Log_In{
     float: left;
     margin-top: 15px;
     min-width: 100px;
@@ -172,7 +176,21 @@ ul#subjects li {
     font-size: 20px;
     margin-right: 5px;
 }
-#requestrestaurant{
+#Log_Out{
+    float: left;
+    margin-top: 15px;
+    min-width: 100px;
+    background-color: black;
+    border: 2px solid black;
+    height: 40px;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin-right: 5px;
+}
+/*#requestrestaurant{*/
+#Request_an_Account{
     float: left;
     margin-top: 15px;
     min-width: 150px;
@@ -185,15 +203,53 @@ ul#subjects li {
     font-size: 20px;
     margin-right: 5px;
 }
-#signuplogin:hover{
+#viewrestaurants{
+    float: right;
+    margin-top: 15px;
+    min-width: 250px;
+    background-color: black;
+    border: 2px solid black;
+    height: 40px;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    margin-right: 50px;
+}
+#viewrestaurants:hover{
     background-color: white;
     color: black;
     cursor: pointer;
 }
-#requestrestaurant:hover{
+#Log_In:hover{
     background-color: white;
     color: black;
     cursor: pointer;
+}
+#Log_Out:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+#Request_an_Account:hover{
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+#restaurant_terms_of_service{
+    float: left;
+    margin-left: 5.5%;
+    width: 2%;
+    margin-right: 1%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#service_agreement{
+    float: left;
+    width: 70%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Oswald', sans-serif;
 }
 
 .center-h2 {
@@ -318,6 +374,74 @@ ul#subjects li {
     font-size: 28px;
     width:97%;
 }
+/********************************************
+    Deals Signup Styling
+********************************************/
+.deal_creation label{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
+.deal_creation input{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 22px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+}
+.deal_creation textarea{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 22px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+    height: 150px;
+    margin-bottom: 10px;
+}
+.deal_creation select{
+    float: left;
+    height: 30px;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 18px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+    margin-bottom: 25px;
+}
+/*
+.deal_creation input[type=checkbox]{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 0%;
+    font-size: 22px;
+    height: 50px;
+    color: black;
+}
+*/
+.checkbox_wrapper{
+    float: left;
+    width: 100%;
+    margin: 0;
+}
+
+.checkbox_wrapper input{
+    float: left;
+    margin-left: 10%;
+    margin-top: 10px;
+    width: 4%;
+}
+.checkbox_wrapper label{
+    float: left;
+    margin-left: -35%;
+    width: 50%;
+}
 
 /********************************************
     Login/Signup Styling
@@ -329,7 +453,53 @@ ul#subjects li {
     font-size: 22px;
     width:20%;
 }
+#Account_Password{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
+#Account_ID{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
 #textfield{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 22px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+}
+#Restaurant_Name{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
+#Access_Email{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 6%;
+    font-size: 22px;
+    width:20%;
+}
+#signup_name{
+    float: left;
+    font-family: 'Oswald', sans-serif;
+    margin-left: 2%;
+    font-size: 22px;
+    width:30%;
+    margin-right: 35%;
+    border: 1px solid black;
+}
+#signup_password{
     float: left;
     font-family: 'Oswald', sans-serif;
     margin-left: 2%;
@@ -381,7 +551,22 @@ ul#subjects li {
     font-size: 20px;
 }
 
-
+#restaurants-table{
+    float: left;
+    width: 90%;
+    margin-left: 5%;
+    font-family: 'Oswald', sans-serif;
+}
+td{
+    text-align: center;
+}
+#table_title{
+    font-size: 24px;
+    font-family: 'Oswald', sans-serif;
+    float: left;
+    width: 100%;
+    text-align: center;
+}
 /********************************************
     JavaScript Deal Slideshow
 ********************************************/
@@ -434,7 +619,32 @@ ul#subjects li {
         width: 80%;
         margin-left: 10%;
     }
+    #Restaurant_Name{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #Access_Email{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #Account_Password{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #Account_ID{
+        width: 80%;
+        margin-left: 10%; 
+    }
+    
     #textfield{
+        width: 80%;
+        margin-left: 10%;
+    }
+    #signup_name{
+        width: 80%;
+        margin-left: 10%;
+    }
+     #signup_password{
         width: 80%;
         margin-left: 10%;
     }
@@ -449,6 +659,25 @@ ul#subjects li {
         margin-left: 10%;
         margin-right: 10%;
         height: 30px;
+    }
+    #viewrestaurants{
+        float: left;
+    }
+    .deal_creation label{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .deal_creation input{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .deal_creation textarea{
+        width: 80%;
+        margin-left: 10%;
+    }
+    .checkbox_wrapper label{
+        margin-left: 10%;
+        width: 90%;
     }
 
 }

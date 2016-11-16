@@ -3,11 +3,32 @@
 
 = form_tag restaurants_path do
 
-  = label :restaurant, :name, 'Restaurant Name', :id => 'label'
+  = label :restaurant, :name, 'Restaurant Name', :id => 'Restaurant_Name'
   = text_field :restaurant, 'name', placeholder: "Restaurant Name", :id => 'textfield'
   
-  = label :restaurant, :email, 'Access Email', :id => 'label'
-  = text_field :restaurant, 'email', placeholder: "Access Email", :id => 'textfield'
+  = label :restaurant, :email, 'Access Email', :id => 'Access_Email'
+  = text_field :restaurant, 'email', placeholder: "elchapo@elchapo.com", :id => 'textfield'
+  
+  
+  = label :restaurant, :password, 'Password', :id => 'label'
+  = password_field :restaurant, 'password', placeholder: "password", :id => 'textfield'
+  
+  = label :restaurant, :password_confirmation, 'Confirm Password', :id => 'label'
+  = password_field :restaurant, 'password_confirmation', placeholder: "password", :id => 'textfield'
+  
+  = label :restaurant, :contact, 'Phone', :id => 'label'
+  = number_field :restaurant, 'contact', placeholder: "555-555-5555", :id => 'textfield'
+  
+  = label :restaurant, :location, 'Address', :id => 'label'
+  = text_field :restaurant, 'location', placeholder: "100 Main Street", :id => 'textfield'
+  
+  = label :restaurant, :description, 'Description', :id => 'label'
+  = text_field :restaurant, 'description', placeholder: "Best Tacos in Town!", :id => 'textfield'
   
 
+  = check_box :restaurant, 'terms_of_service'
+  = label :restaurant, :terms_of_service, 'I agree to the terms of service for Iowa City Eats!', :id => 'service_agreement'
+
   = submit_tag 'Request Account', :id => 'login_submit'
+  
+  
