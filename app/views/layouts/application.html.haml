@@ -25,6 +25,8 @@
           = button_to 'Request an Account', new_restaurant_path, :method => :get, :id => 'Request_an_Account'
       
           = button_to 'View All Restaurants', restaurants_path, :method => :get, :id => 'viewrestaurants'
+          
+          = button_to 'View All Deals', deals_path, :method => :get, :id => 'viewrestaurants'
       
       - else
         .right-button
@@ -33,5 +35,7 @@
           
           
           = button_to 'View All Restaurants', restaurants_path, :method => :get, :id => 'viewrestaurants'
+          
+          = button_to 'View All Deals', deals_path, :method => :get, :id => 'viewrestaurants'
 
       = yield

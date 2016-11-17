@@ -11,8 +11,8 @@ class DealsController < ApplicationController
   def create
     # Do we want to check if a deal has already been created? If so need to do that here
     
-    @deal = Deal.create!(deal_params)
-    flash[:notice] = "#{@deal.title} was successfully created"
+    Deal.create_deal!(deal_params)
+    flash[:notice] = "#{deal_params[:title]} was successfully created"
     redirect_to root_path
     
   end
@@ -37,5 +37,9 @@ class DealsController < ApplicationController
   end
 
   def new
+  end
+  
+  def index
+    @deals = Deal.all
   end
 end
