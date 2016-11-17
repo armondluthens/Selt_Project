@@ -1,7 +1,7 @@
 #table_title
   %h1 View All Deals
 
-%table#deals
+%table#restaurants-table
   %thead
     %tr
       %th Deal Title
@@ -9,17 +9,28 @@
       %th Deal End Date
       %th Deal Description
       %th Deal Ethnicity
-      %th Sunday
-      %th Monday
-      %th Tuesday
-      %th Wednesday
-      %th Thursday
-      %th Friday
-      %th Saturday
+      %th Offered by Restaurant
       %th Days Offered
       %th More Info
   %tbody
     - @deals.each do |deal|
+      - deal_days = ""
+      -if deal.sunday == true
+        -deal_days = deal_days + "Sunday "
+      -if deal.monday == true
+        =deal_days = deal_days + "Monday "
+      -if deal.tuesday == true
+        -deal_days = deal_days + "Tuesday "
+      -if deal.wednesday == true
+        -deal_days = deal_days + "Wednesday "
+      -if deal.thursday == true
+        -deal_days = deal_days + "Thursday "
+      -if deal.friday == true
+        -deal_days = deal_days + "Friday "
+      -if deal.saturday == true
+        -deal_days = deal_days + "Saturday"
+        
+      
       %tr
         %td= deal.title
         %td= deal.start_date
@@ -27,11 +38,5 @@
         %td= deal.description
         %td= deal.ethnicity
         %td= deal.restaurant_name
-        %td= deal.sunday
-        %td= deal.monday
-        %td= deal.tuesday
-        %td= deal.wednesday
-        %td= deal.thursday
-        %td= deal.friday
-        %td= deal.saturday
+        %td= deal_days
         %td= link_to "More about #{deal.title}", deal_path(deal)
