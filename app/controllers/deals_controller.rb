@@ -1,17 +1,19 @@
 class DealsController < ApplicationController
   
-  #uncomment line below to make sure restaurant is logged in 
-  #before_filter :set_current_restaurant
-  
   def deal_params
     params.require(:deal).permit(:title, :start_date, :end_date, :description, :start_time, :end_time, :sunday, :monday, :tuesday, :wednesdaay, :thursday, :friday, :saturday, :ethnicity)
-    #params.require(:deal).permit(:title, :description)
   end
   
   def create
     # Do we want to check if a deal has already been created? If so need to do that here
+    #deal_params[:restaurant_name] = @current_restaurant.name
     
-    Deal.create_deal!(deal_params)
+    @deal = Deal.create_deal!(deal_params)
+    
+    # Update database 'deals' column to contain current_restaurant's name
+    @deal.restaurant_name = @current_restaurant.name
+    @deal.save
+    
     flash[:notice] = "#{deal_params[:title]} was successfully created"
     redirect_to root_path
     

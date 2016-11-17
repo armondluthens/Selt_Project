@@ -10,13 +10,7 @@
       %th Deal Description
       %th Deal Ethnicity
       %th Offered by Restaurant
-      %th Sunday
-      %th Monday
-      %th Tuesday
-      %th Wednesday
-      %th Thursday
-      %th Friday
-      %th Saturday
+      %th Days Offered
       %th More Info
   %tbody
     - @deals.each do |deal|
@@ -26,7 +20,7 @@
         %td= deal.end_date
         %td= deal.description
         %td= deal.ethnicity
-        %td= deal.restaurant_id
+        %td= deal.restaurant_name
         %td= deal.sunday
         %td= deal.monday
         %td= deal.tuesday
