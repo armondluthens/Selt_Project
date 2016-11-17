@@ -27,32 +27,32 @@
     :plain
       <!-- DO NOT DELETE THIS LEXI, IT TOOK FOR FUCKING EVER-->
       <div class="checkbox_wrapper">
-        <input type="checkbox" name="sunday" value="1" id="sunday">
+        <input type="checkbox" name="deal[sunday]" value="1" id="deal_sunday">
         <label for="sunday">Sunday</label>
         
-        <input type="checkbox" name="monday" value="1" id="monday">
+        <input type="checkbox" name="deal[monday]" value="1" id="deal_monday">
         <label for="monday"> Monday</label>
         
-        <input type="checkbox" name="tuesday" value="1" id="tuesday">
+        <input type="checkbox" name="deal[tuesday]" value="1" id="deal_tuesday">
         <label for="tuesday"> Tuesday</label>
         
-        <input type="checkbox" name="wednesday" value="1" id="wednesday">
+        <input type="checkbox" name="deal[wednesday]" value="1" id="deal_wednesday">
         <label for="wednesday">Wednesday</label>
         
-        <input type="checkbox" name="thursday" value="1" id="thursday">
+        <input type="checkbox" name="deal[thursday]" value="1" id="deal_thursday">
         <label for="thursday">Thursday</label>
         
-        <input type="checkbox" name="friday" value="1" id="friday">
+        <input type="checkbox" name="deal[friday]" value="1" id="deal[friday]">
         <label for="friday">Friday</label>
         
-        <input type="checkbox" name="saturday" value="1" id="saturday">
+        <input type="checkbox" name="deal[saturday]" value="1" id="deal_saturday">
         <label for="saturday">Saturday</label>
       </div>
       
     
     
     = label :deal, :ethnicity, 'Type'
-    = select(:deal, :status, options_for_select([["General", "1"], ["Mexican", "2"], ["Asian", "3"], ["Spanish", "4"], ["Seafood", ""]]))
+    = select(:deal, :ethnicity, options_for_select([["General", "All"], ["Mexican", "Mexican"], ["Asian", "Asian"], ["Spanish", "Spanish"], ["Seafood", "Seafood"]]))
       
     = submit_tag 'Create Deal', :id => 'login_submit'
       
