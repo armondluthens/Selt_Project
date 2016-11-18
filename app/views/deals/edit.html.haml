@@ -29,30 +29,55 @@
   
   = label :deal, :days_checkboxes, 'Days of Week'
   
-  :plain
-    <!-- DO NOT DELETE THIS LEXI, IT TOOK FOR FUCKING EVER-->
-    <div class="checkbox_wrapper">
-      <input type="checkbox" name="deal[sunday]" value="1" id="deal_sunday">
-      <label for="sunday">Sunday</label>
-      
-      <input type="checkbox" name="deal[monday]" value="1" id="deal_monday">
-      <label for="monday"> Monday</label>
-      
-      <input type="checkbox" name="deal[tuesday]" value="1" id="deal_tuesday">
-      <label for="tuesday"> Tuesday</label>
-      
-      <input type="checkbox" name="deal[wednesday]" value="1" id="deal_wednesday">
-      <label for="wednesday">Wednesday</label>
-      
-      <input type="checkbox" name="deal[thursday]" value="1" id="deal_thursday">
-      <label for="thursday">Thursday</label>
-      
-      <input type="checkbox" name="deal[friday]" value="1" id="deal[friday]">
-      <label for="friday">Friday</label>
-      
-      <input type="checkbox" name="deal[saturday]" value="1" id="deal_saturday">
-      <label for="saturday">Saturday</label>
-    </div>
+  - if @deal.sunday == true
+    <input type="checkbox" checked="checked" name="deal[sunday]" value="1" id="deal_sunday">
+  - else
+    <input type="checkbox" name="deal[sunday]" id="deal_sunday">
+    
+  <label for="sunday">Sunday</label>
+  
+  - if @deal.monday == true
+    <input type="checkbox" checked="checked" name="deal[monday]" value="1" id="deal_monday">
+  - else
+    <input type="checkbox" name="deal[monday]" id="deal_monday">
+  
+  <label for="monday"> Monday</label>
+  
+  - if @deal.tuesday == true
+    <input type="checkbox" checked="checked" name="deal[tuesday]" value="1" id="deal_tuesday">
+  - else
+    <input type="checkbox" name="deal[tuesday]" id="deal_tuesday">
+  
+  <label for="tuesday"> Tuesday</label>
+  
+  - if @deal.wednesday == true
+    <input type="checkbox" checked="checked" name="deal[wednesday]" value="1" id="deal_wednesday">
+  - else
+    <input type="checkbox" name="deal[wednesday]" id="deal_wednesday">
+  
+  <label for="wednesday">Wednesday</label>
+  
+  - if @deal.thursday == true
+    <input type="checkbox" checked="checked" name="deal[thursday]" value="1" id="deal_thursday">
+  - else
+    <input type="checkbox" name="deal[thursday]" id="deal_thursday">
+    
+  <label for="thursday">Thursday</label>
+  
+  - if @deal.friday == true
+    <input type="checkbox" checked="checked" name="deal[friday]" value="1" id="deal[friday]">
+  - else
+    <input type="checkbox" name="deal[friday]" id="deal[friday]">
+    
+  <label for="friday">Friday</label>
+  
+  - if @deal.saturday == true
+    <input type="checkbox" checked="checked" name="deal[saturday]" value="1" id="deal_saturday">
+  - else
+    <input type="checkbox" name="deal[saturday]" value="false" id="deal_saturday">
+    
+  <label for="saturday">Saturday</label>
     
   = submit_tag 'Update Deal', :id => 'login_submit'
     
+= button_to 'Delete Deal', deal_path(@deal), :method => :delete, :confirm => 'Are you sure?'

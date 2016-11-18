@@ -1,5 +1,5 @@
 class DealsController < ApplicationController
-  
+
   def deal_params
     params.require(:deal).permit(:title, :start_date, :end_date, :description, :start_time, :end_time, :sunday, :monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :ethnicity)
   end
@@ -16,32 +16,34 @@ class DealsController < ApplicationController
     @deal.save
     
     flash[:notice] = "#{deal_params[:title]} was successfully created"
-    redirect_to root_path
+    redirect_to deal_path(@deal)
     
   end
 
   def show
     id = params[:id]
     @deal = Deal.find(id)
-    flash[:notice] = @deal.id
+    #flash[:notice] = @deal.id
+    
   end
 
   def destroy
     @deal = Deal.find(params[:id])
     @deal.destroy
     flash[:notice] = "#{@deal.title} was successfully deleted."
-    redirect_to root_path
+    redirect_to deals_path
   end
 
   def index
     @deals = Deal.all
+    
   end
   
   def update
     @deal = Deal.find(params[:id])
     @deal.update_attributes!(deal_params)
     flash[:notice] = "#{@deal.title} has been successfully updated"
-    redirect_to edit_deal_path
+    redirect_to deal_path(@deal)
   end
   
   def edit

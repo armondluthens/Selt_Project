@@ -1,6 +1,6 @@
 #table_title
   %h1 View All Deals
-
+  
 %table#restaurants-table
   %thead
     %tr
@@ -18,7 +18,7 @@
       -if deal.sunday == true
         -deal_days = deal_days + "Sunday "
       -if deal.monday == true
-        =deal_days = deal_days + "Monday "
+        -deal_days = deal_days + "Monday "
       -if deal.tuesday == true
         -deal_days = deal_days + "Tuesday "
       -if deal.wednesday == true

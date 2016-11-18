@@ -11,4 +11,5 @@ class Deal < ActiveRecord::Base
         Deal.create!(params)
   end
   
+  
 end
