@@ -1,7 +1,8 @@
 .right-button
   = button_to 'Home', root_path, :method => :get
   
-%h2 Modify #{@deal.title} 
+%h2 Welcome, #{@current_restaurant.name} !
+%h4 Modify #{@deal.title} :
 
 = form_tag deal_path(@deal), :method => :put do
     
@@ -53,5 +54,5 @@
       <label for="saturday">Saturday</label>
     </div>
     
-  = submit_tag 'Create Deal', :id => 'login_submit'
+  = submit_tag 'Update Deal', :id => 'login_submit'
     
