@@ -83,7 +83,6 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.14)
-    filterrific (2.1.2)
     formatador (0.2.5)
     gherkin (4.0.0)
     globalid (0.3.7)
@@ -244,7 +243,6 @@ GEM
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
     week_sauce (0.0.2)
-    will_paginate (3.1.5)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -258,7 +256,6 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner
-  filterrific
   guard-rspec
   haml
   jbuilder (~> 2.0)
@@ -277,7 +274,6 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   web-console
   week_sauce
-  will_paginate (~> 3.1.0)
 
 RUBY VERSION
    ruby 2.3.0p0
