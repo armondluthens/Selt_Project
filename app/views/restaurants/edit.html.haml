@@ -7,9 +7,6 @@
   
     = form_tag restaurant_path(@restaurant), :method => :put do
     
-      = label :restaurant, :invitationID, 'Invitation ID'
-      = text_field :restaurant, 'invitationID', placeholder: "Invitation ID"
-      
       = label :restaurant, :name, 'Restaurant Name'
       = text_field :restaurant, 'name', placeholder: "Restaurant Name"
       

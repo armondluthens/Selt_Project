@@ -1,2 +1,58 @@
-<h1>Deals#show</h1>
-<p>Find me in app/views/deals/show.html.erb</p>
+.right-button
+  = button_to 'Home', root_path, :method => :get
+
+%h2 #{@deal.title}'s Details'
+
+- if @deal.restaurant_id == @current_restaurant.id
+  %h3 Profile Details
+  = link_to 'Edit', edit_deal_path(@deal)
+
+%ul
+  %li
+    Deal Title:
+    = @deal.title
+  %li
+    Deal Description:
+    = @deal.description
+  %li
+    Deal Start Date:
+    = @deal.start_date
+  %li
+    Deal End Date:
+    = @deal.end_date
+  %li
+    Deal Start Time
+    = @deal.start_time
+  %li
+    Deal End Time
+    = @deal.end_time
+  %li
+    Deal Ethnicity
+    = @deal.ethnicity
+  %li 
+    Sunday
+    = @deal.sunday
+  %li 
+    Monday
+    = @deal.monday
+  %li 
+    Tuesday
+    = @deal.tuesday
+  %li 
+    Wednesday
+    = @deal.wednesday
+  %li 
+    Thursday
+    = @deal.thursday
+  %li 
+    Friday
+    = @deal.friday
+  %li 
+    Saturday
+    = @deal.saturday
+  %li
+    Restaurant_ID
+    = @deal.restaurant_id
+  %li 
+    Restaurant Name
+    = @deal.restaurant_name

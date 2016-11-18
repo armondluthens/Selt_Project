@@ -1,0 +1,57 @@
+.right-button
+  = button_to 'Home', root_path, :method => :get
+  
+%h2 Modify #{@deal.title} 
+
+= form_tag deal_path(@deal), :method => :put do
+    
+  = label :deal, :title, 'Deal Title'
+  = text_field :deal, 'title', placeholder: "Deal Title"
+  
+  = label :deal, :description, 'Description'
+  = text_field :deal, 'description', placeholder: "Description"
+  
+  = label :deal, :ethnicity, 'Type'
+  = select(:deal, :ethnicity, options_for_select([["General", "All"], ["Mexican", "Mexican"], ["Asian", "Asian"], ["Spanish", "Spanish"], ["Seafood", "Seafood"]]))
+  
+  = label :deal, :start_date, 'Start Date'
+  = text_field :deal, 'start_date', placeholder: "Start Date"
+  
+  = label :deal, :end_date, 'End Date'
+  = text_field :deal, 'end_date', placeholder: "End Date"
+  
+  = label :deal, :start_time, 'Start Time'
+  = text_field :deal, 'start_time', placeholder: "Start Time"
+  
+  = label :deal, :end_time, 'End Time'
+  = text_field :deal, 'end_time', placeholder: "End Time"
+  
+  = label :deal, :days_checkboxes, 'Days of Week'
+  
+  :plain
+    <!-- DO NOT DELETE THIS LEXI, IT TOOK FOR FUCKING EVER-->
+    <div class="checkbox_wrapper">
+      <input type="checkbox" name="deal[sunday]" value="1" id="deal_sunday">
+      <label for="sunday">Sunday</label>
+      
+      <input type="checkbox" name="deal[monday]" value="1" id="deal_monday">
+      <label for="monday"> Monday</label>
+      
+      <input type="checkbox" name="deal[tuesday]" value="1" id="deal_tuesday">
+      <label for="tuesday"> Tuesday</label>
+      
+      <input type="checkbox" name="deal[wednesday]" value="1" id="deal_wednesday">
+      <label for="wednesday">Wednesday</label>
+      
+      <input type="checkbox" name="deal[thursday]" value="1" id="deal_thursday">
+      <label for="thursday">Thursday</label>
+      
+      <input type="checkbox" name="deal[friday]" value="1" id="deal[friday]">
+      <label for="friday">Friday</label>
+      
+      <input type="checkbox" name="deal[saturday]" value="1" id="deal_saturday">
+      <label for="saturday">Saturday</label>
+    </div>
+    
+  = submit_tag 'Create Deal', :id => 'login_submit'
+    

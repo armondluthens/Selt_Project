@@ -25,8 +25,6 @@ class RestaurantsController < ApplicationController
   
   
   def update
-=begin
-  
     @restaurant = Restaurant.find params[:id]
     
     if (@restaurant.invitationID).to_s == (params[:restaurant][:invitationID])
@@ -50,7 +48,7 @@ class RestaurantsController < ApplicationController
   
   def edit
     @restaurant = Restaurant.find params[:id]
-=end    
+
     # InvitationID is correct
     
 #      # If Restaurant Name and Email is correct, save password
