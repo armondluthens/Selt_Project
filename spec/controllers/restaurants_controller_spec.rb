@@ -6,61 +6,49 @@ RSpec.describe RestaurantsController, type: :controller do
   
   describe "POST #create" do
     it "has a restaurant parameter" do
-      post :create, {restaurant: {name: 'Blank', email: 'Blank@email.com'}}
-      expect(controller.params[:restaurant]).to eq({"name" => 'Blank', "email" => 'Blank@email.com'})
+      post :create, {restaurant: {name: 'Blank', email: 'Blank@email.com', password: "password", password_confirmation: "password", location: "loc", contact: "123", description: "descipt"}}
+      expect(controller.params[:restaurant]).to eq({'name' => 'Blank', 'email' => 'Blank@email.com', 'password' => 'password', 'password_confirmation' => 'password', 'location' => 'loc', 'contact' => '123', 'description' => 'descipt'})
     end
     context "with valid attributes" do
       before :each do
-        allow(Restaurant).to receive(:exists?).with(:name => 'Test').and_return(false)
-        allow(Restaurant).to receive(:exists?).with(:email => 'Test@email.com').and_return(false)
+        @fake_res = double('Sudo', :name => "Name", :email => "test@email.com")
+        allow_any_instance_of(RestaurantsController).to receive(:restaurant_params)
+        allow(Restaurant).to receive(:new).with(anything()).and_return(@fake_res)
+        allow(Restaurant).to receive(:exists?).and_return(false)
       end
       it "saves to the database" do
-        expect(Restaurant).to receive(:create!).with(anything()).exactly(1).times
-        post :create, {restaurant: {name: 'Test', email: 'Test@email.com'}}
+        expect(Restaurant).to receive(:create_restaurant!).with(anything()).exactly(1).times
+        post :create, {restaurant: Hash.new}
       end
       it "redirects to login page" do
-        post :create, {restaurant: {name: 'Test', email: 'Test@email.com'}}
+        allow(Restaurant).to receive(:create_restaurant!).with(anything())
+        post :create, {restaurant: Hash.new}
         expect(response).to redirect_to(login_path)
       end
       it "sets the flash message" do
-        post :create, {restaurant: {name: 'Test', email: 'Test@email.com'}}
-        expect(flash[:notice]).to eq("Welcome Test. Please wait for a follow-up email.")
+        allow(Restaurant).to receive(:create_restaurant!).with(anything())
+        post :create, {restaurant: @fake_res}
+        expect(flash[:notice]).to eq("Welcome Name. Your account was successfully created.")
       end
     end
-    context "with name taken" do
+    context "with account already taken" do
       before :each do
-        allow(Restaurant).to receive(:exists?).with(:name => 'Test').and_return(true)
-        allow(Restaurant).to receive(:exists?).with(:email => 'Test@email.com').and_return(false)
+        @fake_res = double('Sudo', :name => "Name", :email => "test@email.com")
+        allow_any_instance_of(RestaurantsController).to receive(:restaurant_params)
+        allow(Restaurant).to receive(:new).with(anything()).and_return(@fake_res)
+        allow(Restaurant).to receive(:exists?).and_return(true)
       end
       it "doesn't save to the database" do
         expect(Restaurant).to_not receive(:create!)
-        post :create, {restaurant: {name: 'Test', email: 'Test@email.com'}}
+        post :create, {restaurant: Hash.new}
       end
       it "redirects to the new restaurant page" do
-        post :create, {restaurant: {name: 'Test', email: 'Test@email.com'}}
+        post :create, {restaurant: Hash.new}
         expect(response).to redirect_to(new_restaurant_path)
       end
       it "sets the flash message" do
-        post :create, {restaurant: {name: 'Test', email: 'Test@email.com'}}
-        expect(flash[:notice]).to eq("Restaurant name is unavailable. Try again.")
-      end
-    end
-    context "with account already registered" do
-      before :each do
-        allow(Restaurant).to receive(:exists?).with(:name => 'Test').and_return(false)
-        allow(Restaurant).to receive(:exists?).with(:email => 'Test@email.com').and_return(true)
-      end
-      it "doesn't save to the database" do
-        expect(Restaurant).to_not receive(:create!)
-        post :create, {restaurant: {name: 'Test', email: 'Test@email.com'}}
-      end
-      it "redirects to the login page" do
-        post :create, {restaurant: {name: 'Test', email: 'Test@email.com'}}
-        expect(response).to redirect_to(login_path)
-      end
-      it "sets the flash message" do
-        post :create, {restaurant: {name: 'Test', email: 'Test@email.com'}}
-        expect(flash[:notice]).to eq("Email is already registered with an account. Please log in or inquiry forgotten password.")
+        post :create, {restaurant: @fake_res}
+        expect(flash[:notice]).to eq("Account test@email.com already exists. Please try again.")
       end
     end
   end
