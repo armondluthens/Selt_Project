@@ -2,6 +2,9 @@ class Deal < ActiveRecord::Base
   belongs_to :restaurant
   #serialize :deal_days, WeekSauce
   
+  scope :title, -> { where(category: 'title') }
+  #scope :restaurant_name, -> { where(category: 'restaurant_name') }
+  
   
   validates :title, presence: true
   
@@ -15,6 +18,12 @@ class Deal < ActiveRecord::Base
         #params[:session_token] = SecureRandom.base64 #don't think a deal needs a session token
         Deal.create!(params)
   end
+  
+  
+
+ def self.search(term)
+   where("title like :term", term: "%#{term}%")
+ end
   
   def end_date_is_after_start_date
     return if end_date.blank? || start_date.blank?

@@ -25,6 +25,8 @@ class DealsController < ApplicationController
     @deal = Deal.find(id)
     #flash[:notice] = @deal.id
     
+    
+    
   end
 
   def destroy
@@ -33,10 +35,18 @@ class DealsController < ApplicationController
     flash[:notice] = "#{@deal.title} was successfully deleted."
     redirect_to deals_path
   end
+  
 
   def index
     @deals = Deal.all
+    @deals = Deal.search(params[:deal]) unless params[:deal].blank?
+    @deals = @deals.title unless params[:title].blank?
     
+    #if Deal.where("restaurant_name like ?", "%#{params[:restaurant_name]}%")
+      #redirect_to root_path
+    #end
+    
+    #flash[:notice] = Deal.where(restaurant_name: cindy)
   end
   
   def update

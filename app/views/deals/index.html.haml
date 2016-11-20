@@ -1,6 +1,17 @@
 #table_title
   %h1 View All Deals
   
+%h3 Search Criteria:
+
+= form_tag deals_path, :method => 'get' do
+
+  = label :deal, :title, 'Filter by Title'
+  = text_field_tag :deal, params[:deal], :autocomplete => 'off', placeholder: "Title"
+
+  
+  
+  = submit_tag 'Search', :name => nil
+  
 %table#restaurants-table
   %thead
     %tr
