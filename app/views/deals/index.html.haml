@@ -6,11 +6,10 @@
 = form_tag deals_path, :method => 'get' do
 
   = label :deal, :title, 'Filter by Title'
-  = text_field_tag :deal, params[:deal], :autocomplete => 'off', placeholder: "Title"
+  = text_field_tag :deal, params[:deal], :autocomplete => 'off'
 
-  
-  
   = submit_tag 'Search', :name => nil
+  = submit_tag 'Clear Search', :name => 'clear_search'
   
 %table#restaurants-table
   %thead

@@ -24,9 +24,6 @@ class DealsController < ApplicationController
     id = params[:id]
     @deal = Deal.find(id)
     #flash[:notice] = @deal.id
-    
-    
-    
   end
 
   def destroy
@@ -39,14 +36,19 @@ class DealsController < ApplicationController
 
   def index
     @deals = Deal.all
-    @deals = Deal.search(params[:deal]) unless params[:deal].blank?
-    @deals = @deals.title unless params[:title].blank?
     
-    #if Deal.where("restaurant_name like ?", "%#{params[:restaurant_name]}%")
-      #redirect_to root_path
+    if (params[:clear_search])
+      render :action => 'index'
+    else
+      @deals = Deal.searchTitle(params[:deal]) unless params[:deal].blank?
+      if (!params[:title].blank?)
+        @deals = @deals.title
+      end
+    end
+    
+    #if (!params[:restaurant_name].blank?)
+     # @deals = @deals.restaurant_name unless params[:restaurant_name].blank?
     #end
-    
-    #flash[:notice] = Deal.where(restaurant_name: cindy)
   end
   
   def update

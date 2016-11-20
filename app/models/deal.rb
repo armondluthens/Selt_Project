@@ -3,7 +3,7 @@ class Deal < ActiveRecord::Base
   #serialize :deal_days, WeekSauce
   
   scope :title, -> { where(category: 'title') }
-  #scope :restaurant_name, -> { where(category: 'restaurant_name') }
+  scope :restaurant_name, -> { where(category: 'restaurant_name') }
   
   
   validates :title, presence: true
@@ -15,13 +15,13 @@ class Deal < ActiveRecord::Base
   
   
   def self.create_deal!(params)
-        #params[:session_token] = SecureRandom.base64 #don't think a deal needs a session token
-        Deal.create!(params)
+    #params[:session_token] = SecureRandom.base64 #don't think a deal needs a session token
+    Deal.create!(params)
   end
   
   
 
- def self.search(term)
+ def self.searchTitle(term)
    where("title like :term", term: "%#{term}%")
  end
   
@@ -32,6 +32,5 @@ class Deal < ActiveRecord::Base
       errors.add(:end_date, "cannot be before the start date") 
     end 
   end
-  
   
 end
