@@ -444,6 +444,30 @@ ul#subjects li {
 }
 
 /********************************************
+    Display Deal
+********************************************/
+.display_deal{
+    float: left;
+    width: 90%;
+    margin: 15px 5% 15px 5%;
+    font-family: 'Oswald', sans-serif;
+}
+.display_deal h1{
+    width: 100%;
+    float: left;
+    font-size: 30px;
+}
+.display_deal h2{
+    width: 100%;
+    float: left;
+    font-size: 20px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    border-bottom: 1px solid grey;
+    color: red;
+}
+
+/********************************************
     Login/Signup Styling
 ********************************************/
 #label{
