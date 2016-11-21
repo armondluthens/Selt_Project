@@ -19,11 +19,10 @@ class Deal < ActiveRecord::Base
     Deal.create!(params)
   end
   
-  
-
- def self.searchTitle(term)
-   where("title like :term", term: "%#{term}%")
- end
+  # performs simple search based on deal title
+  def self.search(term)
+    where("title like :term", term: "%#{term}%")
+  end
   
   def end_date_is_after_start_date
     return if end_date.blank? || start_date.blank?
