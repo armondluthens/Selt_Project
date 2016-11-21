@@ -28,7 +28,7 @@ Rails.application.routes.draw do
   #       get 'sold'
   #     end
   #   end
-  resources :restaurants, :users, :deals, :sessions
+  resources :restaurants, :users, :deals, :sessions, :searches
   
   match '/login', to: 'sessions#new', via: :get
   match '/login_create', to: 'sessions#create', via: :post
