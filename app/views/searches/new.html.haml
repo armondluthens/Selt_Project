@@ -1,1 +1,18 @@
 %h1 Advanced Search
+
+= form_for @search do
+
+  = label :title, 'Filter by Title'
+  = text_field_tag :title
+  
+  
+  = label :ethnicity, 'Filter by Ethnicity'
+  = select(:search, :ethnicity, options_for_select([["General", "All"], ["Mexican", "Mexican"], ["Asian", "Asian"], ["Spanish", "Spanish"], ["Seafood", "Seafood"]]), :include_blank => true)
+  
+  
+  = label :restaurant_name, 'Filter by Restaurant'
+  = text_field_tag :restaurant_name
+  
+  = submit_tag 'Advanced Search', :name => nil
+  
+= link_to 'Back', deals_path
