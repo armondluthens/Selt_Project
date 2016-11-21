@@ -1,6 +1,6 @@
 %h1 Advanced Search
 
-= form_for @search do
+= form_tag searches_path do
 
   = label :title, 'Filter by Title'
   = text_field_tag :title
