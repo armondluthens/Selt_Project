@@ -11,10 +11,6 @@ RSpec.describe SessionsController, type: :controller do
   end
 
   describe "GET #create" do
-    #it "returns http success" do
-    #  get :create, {restaurant: {name: "Test", password: "Test"}}
-    #  expect(response).to have_http_status(:success)
-    #end
     context "with valid session" do
       let(:restaurant) do
         @fake_token = SecureRandom.base64;
@@ -27,6 +23,10 @@ RSpec.describe SessionsController, type: :controller do
         @fake_params = {email: 'test@email.com', password: 'password', session_token: SecureRandom.base64}
         allow_any_instance_of(SessionsController).to receive(:session_params).and_return(@fake_params)
         allow(Restaurant).to receive(:find_by_email).and_return(restaurant)
+      end
+      it "should return http success" do
+        get :create, {session: @fake_params}
+        expect(response).to have_http_status(302)
       end
       it "should return to home page" do
         get :create, {session: @fake_params}
@@ -82,6 +82,7 @@ RSpec.describe SessionsController, type: :controller do
           allow_any_instance_of(SessionsController).to receive(:session_params).and_return(@fake_params)
           allow(Restaurant).to receive(:find_by_email).and_return(restaurant)
         end
+        it "should authenticate password"
         it "should return to login page" do
           get :create, {session: {name: "Test", password: "Test"}}
           expect(response).to redirect_to(login_path)
