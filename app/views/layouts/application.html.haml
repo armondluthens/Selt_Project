@@ -1,17 +1,18 @@
 !!!
 %html
   %head
-    %title SELT PROJECT
+    %title Iowa City Dine & Devour
     = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Lato'
     = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Oswald:400,300'
+    = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Open+Sans'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   %body
     #main
       .left-h1
-        =link_to 'Iowa City Eats!', root_path, :id => 'homepage'
+        =link_to 'Iowa City Dine & Devour', root_path, :id => 'homepage'
         
       - if flash[:notice]
         #notice.message= flash[:notice]
@@ -20,22 +21,29 @@
 
       - if !@current_restaurant
         .right-button
-          = button_to 'Log In', login_path, :method => :get, :id => 'Log_In'
-
-          = button_to 'Request an Account', new_restaurant_path, :method => :get, :id => 'Request_an_Account'
-      
-          = button_to 'View All Restaurants', restaurants_path, :method => :get, :id => 'viewrestaurants'
-          
-          = button_to 'View All Deals', deals_path, :method => :get, :id => 'viewrestaurants'
+          %ul#left-nav
+            %li.left-nav.nav-bar
+              = link_to 'Log In', login_path, :method => :get, :id => 'Log_In'
+            %li.left-nav.nav-bar
+              = link_to 'Request an Account', new_restaurant_path, :method => :get, :id => 'Request_an_Account'
+          %ul#right-nav
+            %li.right-nav.nav-bar
+              = link_to 'View All Restaurants', restaurants_path, :method => :get, :id => 'viewrestaurants'
+            %li.right-nav.nav-bar
+              = link_to 'View All Deals', deals_path, :method => :get, :id => 'viewrestaurants'
       
       - else
         .right-button
-          = button_to 'Create Deal', new_deal_path, :method => :get, :id => 'Request_an_Account'
-          = button_to 'Log Out', logout_path, :method => :delete, :id => 'Log_Out'
+          %ul#left-nav
+            %li.left-nav.nav-bar
+              = link_to 'Create Deal', new_deal_path, :method => :get, :id => 'Request_an_Account'
+            %li.left-nav.nav-bar  
+              = link_to 'Log Out', logout_path, :method => :delete, :id => 'Log_Out'
           
-          
-          = button_to 'View All Restaurants', restaurants_path, :method => :get, :id => 'viewrestaurants'
-          
-          = button_to 'View All Deals', deals_path, :method => :get, :id => 'viewrestaurants'
+          %ul#right-nav
+            %li.right-nav.nav-bar
+              = link_to 'View All Restaurants', restaurants_path, :method => :get, :id => 'viewrestaurants'
+            %li.right-nav.nav-bar
+              = link_to 'View All Deals', deals_path, :method => :get, :id => 'viewrestaurants'
 
       = yield
