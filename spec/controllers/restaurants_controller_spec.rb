@@ -69,6 +69,10 @@ RSpec.describe RestaurantsController, type: :controller do
     
   end
   
+  describe "PUT #update" do
+    
+  end
+  
   describe "GET #show" do
     it "should render show" do
       expect(Restaurant).to receive(:find)

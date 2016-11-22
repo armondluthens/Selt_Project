@@ -59,14 +59,24 @@ RSpec.describe DealsController, type: :controller do
   describe "GET #show" do
     let(:deal) do
       stub_model Deal,  :title => "Test",
-                        :id => 1,
                         :restaurant_name => "Rest Test",
                         :save => true
     end
+    let(:restaurant) do
+      mock_model Restaurant, :name => "Rest Test",
+                             :save => true
+    end
     before :each do
-      allow(Deal).to receive(:find).and_return(deal)
+        @fake_params = {title: "title", start_date: '01/20/15', end_date: '02/20/15', 
+                        description: 'test deal', start_time: '17:00', end_time: '18:00',
+                        sunday: false, monday: false, tuesday: false, wednesday: false, 
+                        thursday: true, friday: true, saturday: false, ethnicity: 'Mexican'}
+        allow_any_instance_of(DealsController).to receive(:deal_params).and_return(@fake_params)
+        allow(Deal).to receive(:create_deal!).with(@fake_params).and_return(deal)
+        controller.instance_variable_set(:@current_restaurant, restaurant)
     end
     it "returns http success" do
+      allow(Deal).to receive(:find).and_return(deal)
       get :show, :id => deal.id
       expect(response).to have_http_status(:success)
     end
@@ -88,6 +98,7 @@ RSpec.describe DealsController, type: :controller do
       allow(Deal).to receive(:find).and_return(deal)
     end
     it "returns http success" do
+      allow_any_instance_of(Deal).to receive(:update_attributes!).and_return(deal)
       expect(Deal).to receive(:create_deal!).with(@fake_params).and_return(deal)
       patch :update, :id => deal.id
       expect(response).to have_http_status(:success)
@@ -96,6 +107,7 @@ RSpec.describe DealsController, type: :controller do
 
   describe "GET #destroy" do
     it "returns http success" do
+      allow_any_instance_of(Deal).to receive(:update_attributes!).and_return(deal)
       get :destroy
       expect(response).to have_http_status(:success)
     end

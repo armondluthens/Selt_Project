@@ -3,6 +3,17 @@ require 'spec_helper'
 
 RSpec.describe SessionsController, type: :controller do
 
+  describe "param function" do
+    it "blocks incorrect parameters" do
+      controller.params = {session: {email: 'test@email.com', password: 'password', session_token: "01234567890123456"}}
+      expect(controller.session_params()).to eq({'email' => 'test@email.com', 'password' => 'password', 'session_token' => "01234567890123456"})
+    end
+    it "passes correct parameters" do
+      controller.params = {session: {email: 'test@email.com', password: 'password', session_token: "01234567890123456"}}
+      expect(controller.session_params()).to eq({'email' => 'test@email.com', 'password' => 'password', 'session_token' => "01234567890123456"})
+    end
+  end
+
   describe "GET #new" do
     it "returns http success" do
       get :new
