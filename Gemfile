@@ -54,6 +54,7 @@ end
 
 group :test do
   gem 'rspec-expectations'
+  gem 'rspec-activemodel-mocks'
   gem 'cucumber-rails', :require=>false
   gem 'capybara'
   gem 'database_cleaner'
