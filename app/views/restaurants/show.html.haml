@@ -1,5 +1,5 @@
-- myLongitude = -95.54692519999999
-- myLatitude = 4.6480415
+
+
 %h2 #{@restaurant.name}'s Profile
 
 %h3 Profile Details
@@ -21,4 +21,16 @@
   %li
     Deals:
     = @deal
-  
+    
+  - google_address = @restaurant.location
+  - google_address.tr!(" ", "+")
+    
+  :plain
+    <iframe
+      width="600"
+      height="450"
+      frameborder="0" style="border:0"
+      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBflC9F2q9s5axPkt1oOXG2qmpnoVpgQFc&q=#{google_address}" allowfullscreen>
+    </iframe>
+    
+

@@ -1,7 +1,5 @@
 class Restaurant < ActiveRecord::Base
     has_secure_password
-    
-    
     has_many :deals
     
     before_save{|restaurant| restaurant.email = restaurant.email.downcase} 
@@ -23,16 +21,11 @@ class Restaurant < ActiveRecord::Base
      
     validates :terms_of_service, acceptance: true
    
-    def getAddress
-        return location
-    end
     
-    geocoded_by :getAddress
-    after_validation :geocode
+    
     
     def Restaurant::create_restaurant!(restaurant_params)
         restaurant_params[:session_token] = SecureRandom.base64
-        
         Restaurant.create!(restaurant_params)
     end
 end
