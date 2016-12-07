@@ -15,7 +15,7 @@
   -deal_days = deal_days + "Saturday"
     
 .display_deal
-  %h1 #{@deal.title}'s Details'
+  %h1 #{@deal.title}'s Details
   
   
   %h2
@@ -41,7 +41,20 @@
     = @deal.ethnicity
   %h2
     Deal Days:
-    = deal_days
+    - if @deal.sunday == true
+      Sunday
+    - if @deal.monday == true
+      Monday
+    - if @deal.tuesday == true
+      Tuesday
+    - if @deal.wednesday == true
+      Wednesday
+    - if @deal.thursday == true
+      Thursday
+    - if @deal.friday == true
+      Friday
+    - if @deal.saturday == true
+      Saturday
   %h2 
     Restaurant Name:
     = @deal.restaurant_name
