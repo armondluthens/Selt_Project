@@ -41,7 +41,6 @@ class DealsController < ApplicationController
       render :action => 'index'
     else
       @deals = Deal.search(params[:deal]) unless params[:deal].blank?
-      @deals = @deals.title unless params[:title].blank?
     end
   end
   

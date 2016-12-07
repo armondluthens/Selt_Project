@@ -5,7 +5,7 @@
 
 = form_tag deals_path, :method => 'get' do
 
-  = label :deal, :title, 'Filter by Title'
+  = label :deal, :title, 'Filter by'
   = text_field_tag :deal, params[:deal]
   
   = submit_tag 'Search', :name => nil

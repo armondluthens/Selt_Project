@@ -2,8 +2,8 @@ class Deal < ActiveRecord::Base
   belongs_to :restaurant
   #serialize :deal_days, WeekSauce
   
-  scope :title, -> { where(category: 'title') }
-  scope :restaurant_name, -> { where(category: 'restaurant_name') }
+  #scope :title, -> { where(category: 'title') }
+ # scope :restaurant_name, -> { where(category: 'restaurant_name') }
   
   
   validates :title, presence: true
@@ -21,7 +21,7 @@ class Deal < ActiveRecord::Base
   
   # performs simple search based on deal title
   def self.search(term)
-    where("title like :term", term: "%#{term}%")
+    where("title like :term or description like :term or ethnicity like :term or restaurant_name like :term", term: "%#{term}%")
   end
   
   def end_date_is_after_start_date
