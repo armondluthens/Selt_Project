@@ -47,6 +47,13 @@ class DealsController < ApplicationController
   
   def update
     @deal = Deal.find(params[:id])
+    @deal.monday = false;
+    @deal.tuesday = false;
+    @deal.wednesday = false;
+    @deal.thursday = false;
+    @deal.friday = false;
+    @deal.saturday = false;
+    @deal.sunday = false;
     @deal.update_attributes!(deal_params)
     flash[:notice] = "#{@deal.title} has been successfully updated"
     redirect_to deal_path(@deal)
