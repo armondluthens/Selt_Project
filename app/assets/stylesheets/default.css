@@ -7,15 +7,15 @@ html{
     margin: 0;
     padding: 0;  
 }
+
 .message{
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 3%;
 }
 .banner-left {
     width: 40%;
     float: left;
-    height: 120px;
-    font-family: Tahoma;
+    height: 100px;
 }
 .banner-left h1{
     margin-left: 3%;
@@ -38,7 +38,6 @@ html{
     float: left;
     margin-left: 1%;
     font-size: 20px;
-    font-family: Tahoma;
 }
     
 .dynamic-content{
@@ -53,14 +52,13 @@ html{
     width: 100%;
     text-align: center;
     border-bottom: 2px solid gold;
-    font-family: Tahoma;
 }
 
 .footer {
     width: 100%;
     float: left;
     height: 120px;
-    font-family: Tahoma;
+    font-family: 'Open Sans', sans-serif;
 }
 .footer h1{
     font-size: 23px;
@@ -69,13 +67,10 @@ html{
 body {
    margin: 0;
    padding: 0;
+   font-family: 'Open Sans', sans-serif;
 }
 
-/*
-a:link, a:active, a:visited {
-   color: #CD0000;
-}
-*/
+
 input { 
    margin-bottom: 5px;
 }
@@ -93,13 +88,7 @@ div#header {
    text-align: center;
    padding-bottom: 15px;
 }
-/*
-div#content {
-   float: left;
-   width: 450px;
-   padding: 10px;
-}
-*/
+
 .left-h1 {
     float: left;
     width: 100%;
@@ -109,7 +98,7 @@ div#content {
     border-bottom: 2px solid black;
     color: black;
     margin-top: 0;
-    height: 120px;
+    height: 80px;
 }
 .left-h1 a{
     float: left;
@@ -118,10 +107,7 @@ div#content {
     text-decoration: none;
     color: black;
     margin-top: 15px;
-    font-family: 'Oswald', sans-serif;
 }
-
-
 
 
 div#content h3 {
@@ -155,87 +141,87 @@ ul#subjects li {
    padding-left: 5px;
 }
 
+/********************************
+    Navigation Bar
+********************************/
+
 .right-button {
     float: left;
     width: 100%;
-    padding-left: 2.5%;
-    padding-right: 2.5%;
-    height: 80px;
+    padding: 0px;
+    background-color: #0077be; 
+    height: 40px;
     border-bottom: 2px solid black;
 }
-#Log_In{
-    float: left;
-    margin-top: 15px;
-    min-width: 100px;
-    background-color: black;
-    border: 2px solid black;
-    height: 40px;
-    color: white;
-    border-radius: 5px;
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px;
-    margin-right: 5px;
+
+.left-nav,
+.right-nav{ 
+    padding: 0px; 
+    width:45%;
+    overflow:hidden;
 }
-#Log_Out{
-    float: left;
-    margin-top: 15px;
-    min-width: 100px;
-    background-color: black;
-    border: 2px solid black;
-    height: 40px;
-    color: white;
-    border-radius: 5px;
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px;
-    margin-right: 5px;
+
+ul#right-nav,
+ul#left-nav{
+   list-style-type: none;
+   margin: 0;
+   padding: 0;
+   float: left;
+   
 }
-/*#requestrestaurant{*/
-#Request_an_Account{
-    float: left;
-    margin-top: 15px;
-    min-width: 150px;
-    background-color: black;
-    border: 2px solid black;
-    height: 40px;
-    color: white;
-    border-radius: 5px;
-    font-family: 'Oswald', sans-serif;
-    font-size: 20px;
-    margin-right: 5px;
+
+ul#left-nav li,
+ul#right-nav li{
+    display: block;
+    width: auto;
+    text-align: center;
+    white-space: nowrap;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-decoration: none;
+    padding-top: 0px;
+    margin-top: 0px;
 }
+
+ul#right-nav,
+ul#right-nav li,
 #viewrestaurants{
     float: right;
-    margin-top: 15px;
-    min-width: 250px;
-    background-color: black;
-    border: 2px solid black;
-    height: 40px;
+}
+
+ul#left-nav,
+ul#left-nav li, 
+#Request_an_Account,
+#Log_In,
+#Log_Out{
+    float: left;
+}
+
+.nav-bar:hover{ 
+    background-color: rgba(255,255,255,.2);
+    color: white;
+    cursor: pointer;
+}
+
+#Request_an_Account,
+#Log_In,
+#Log_Out, 
+#viewrestaurants{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    min-width: 120px;
+    height: 30px;
     color: white;
     border-radius: 5px;
-    font-family: 'Oswald', sans-serif;
     font-size: 20px;
-    margin-right: 50px;
+    margin-right: 5px;
+    text-decoration: none;
 }
-#viewrestaurants:hover{
-    background-color: white;
-    color: black;
-    cursor: pointer;
-}
-#Log_In:hover{
-    background-color: white;
-    color: black;
-    cursor: pointer;
-}
-#Log_Out:hover{
-    background-color: white;
-    color: black;
-    cursor: pointer;
-}
-#Request_an_Account:hover{
-    background-color: white;
-    color: black;
-    cursor: pointer;
-}
+
+
+/***************************
+***************************/ 
+
 #restaurant_terms_of_service{
     float: left;
     margin-left: 5.5%;
@@ -249,18 +235,17 @@ ul#subjects li {
     width: 70%;
     margin-top: 5px;
     margin-bottom: 10px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .center-h2 {
     float:left;
     width: 100%;
-    background-color: black;
-    color: white;
+    background-color: #f2f2f2;
+    color: black;
     text-align: center;
     height: 80px;
-    font-family: 'Oswald', sans-serif;
-    border-bottom: 2px solid white;
+    font-family: 'Open Sans', sans-serif;
 }
 .center-h2 h2{
     float: left;
@@ -279,8 +264,8 @@ ul#subjects li {
     height: 40px;
     border-radius: 5px;
     width: 25%;
-    font-size: 18px;
-    font-family: 'Oswald', sans-serif;
+    font-size: 20px;
+    font-family: 'Open Sans', sans-serif;
     background-color: white;
     color: black;
 }
@@ -288,7 +273,7 @@ ul#subjects li {
     float: left;
     width: 100%;
     height: 300px;
-    background-color: black;
+    background-color: #f2f2f2;;
 }
 
 .deals_slideshow img{
@@ -304,7 +289,7 @@ ul#subjects li {
 .now-showing{
     float: left;
     width: 100%;
-    font-family: Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: black;
     color: white;
     
@@ -319,7 +304,7 @@ ul#subjects li {
     float: left;
     margin-left: 5%;
     margin-right: 5%;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 .deal-left{
     width: 30%;
@@ -369,7 +354,7 @@ ul#subjects li {
 }
 .new_session h1{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 3%;
     font-size: 28px;
     width:97%;
@@ -379,14 +364,14 @@ ul#subjects li {
 ********************************************/
 .deal_creation label{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 6%;
     font-size: 22px;
     width:20%;
 }
 .deal_creation input{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 2%;
     font-size: 22px;
     width:30%;
@@ -395,7 +380,7 @@ ul#subjects li {
 }
 .deal_creation textarea{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 2%;
     font-size: 22px;
     width:30%;
@@ -407,7 +392,7 @@ ul#subjects li {
 .deal_creation select{
     float: left;
     height: 30px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 2%;
     font-size: 18px;
     width:30%;
@@ -418,9 +403,9 @@ ul#subjects li {
 /*
 .deal_creation input[type=checkbox]{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    -font-family: 'Open Sans', sans-serif;
     margin-left: 0%;
-    font-size: 22px;
+    font-font-size: 22px;
     height: 50px;
     color: black;
 }
@@ -450,7 +435,7 @@ ul#subjects li {
     float: left;
     width: 90%;
     margin: 15px 5% 15px 5%;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 .display_deal h1{
     width: 100%;
@@ -472,28 +457,28 @@ ul#subjects li {
 ********************************************/
 #label{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    -font-family: 'Open Sans', sans-serif;
     margin-left: 6%;
     font-size: 22px;
     width:20%;
 }
 #Account_Password{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 6%;
     font-size: 22px;
     width:20%;
 }
 #Account_ID{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 6%;
     font-size: 22px;
     width:20%;
 }
 #textfield{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 2%;
     font-size: 22px;
     width:30%;
@@ -502,21 +487,21 @@ ul#subjects li {
 }
 #Restaurant_Name{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 6%;
     font-size: 22px;
     width:20%;
 }
 #Access_Email{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 6%;
     font-size: 22px;
     width:20%;
 }
 #signup_name{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 2%;
     font-size: 22px;
     width:30%;
@@ -525,7 +510,7 @@ ul#subjects li {
 }
 #signup_password{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 2%;
     font-size: 22px;
     width:30%;
@@ -539,8 +524,8 @@ ul#subjects li {
     width: 53%;
     height: 45px;
     border-radius: 5px;
-    font-size: 20px;
-    font-family: 'Oswald', sans-serif;
+    size: 20px;
+    font-family: 'Open Sans', sans-serif;
     background-color: black;
     color: white;
     display: block;
@@ -554,7 +539,7 @@ ul#subjects li {
 }
 #login_link{
     float: left;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin-left: 6%;
     font-size: 22px;
     width:50%;
@@ -570,7 +555,7 @@ ul#subjects li {
     margin-top: 30px;
     margin-right: 3%;
     height: 30px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     width: 30%;
     font-size: 20px;
 }
@@ -579,14 +564,14 @@ ul#subjects li {
     float: left;
     width: 90%;
     margin-left: 5%;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 td{
     text-align: center;
 }
 #table_title{
     font-size: 24px;
-    font-family: 'Oswald', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     float: left;
     width: 100%;
     text-align: center;
@@ -703,5 +688,5 @@ td{
         margin-left: 10%;
         width: 90%;
     }
-
+    
 }
