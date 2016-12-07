@@ -3,7 +3,6 @@
 %h2 #{@restaurant.name}'s Profile
 
 %h3 Profile Details
-= link_to 'Edit', edit_restaurant_path(@restaurant)
 
 %ul
   %li
@@ -33,4 +32,7 @@
       src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBflC9F2q9s5axPkt1oOXG2qmpnoVpgQFc&q=#{google_address}" allowfullscreen>
     </iframe>
     
-
+- if !@current_restaurant.nil?
+  - if @restaurant.id == @current_restaurant.id
+    %h3 Edit Restaurant Details
+    = link_to 'Edit', edit_restaurant_path(@restaurant)
