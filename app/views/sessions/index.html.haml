@@ -1,3 +1,5 @@
+
+
 .center-h2
     %h2 Featured Deals
     = text_field :user, 'user_id', placeholder: "Search Deals...", :id => 'search_deals'
@@ -18,6 +20,29 @@
             =image_tag "dpdough.jpg"
         %li.slide
             =image_tag "airliner.jpg"
+            
+        
+.container
+    .row
+        .col-md-12
+            .carousel-showmanymoveone 
+                .carousel-inner
+                    .item.active
+                        =image_tag "cactus.jpg"
+                    .item
+                        =image_tag "shorts_burgers.jpeg"
+                        =image_tag "zmariks.jpg"
+                    .item
+                        =image_tag "gumbys.jpg"
+                    .item
+                        =image_tag "bwws.jpg"
+                    .item
+                        =image_tag "dpdough.jpg"
+                    .item
+                        =image_tag "airliner.jpg"
+                
+
+ 
     
     :javascript
         var slides = document.querySelectorAll('#slides .slide');
@@ -29,6 +54,26 @@
             currentSlide = (currentSlide+1)%slides.length;
             slides[currentSlide].className = 'slide showing';
         }
+        
+        (function(){
+            $('#carousel123').carousel({ interval: 2000 });
+        }());
+
+        (function(){
+            $('.carousel-showmanymoveone .item').each(function(){
+                var itemToClone = $(this);
+
+               for (var i=1;i<4;i++) {
+                    itemToClone = itemToClone.next();
+                    if (!itemToClone.length) {
+                        itemToClone = $(this).siblings(':first');
+                }
+                itemToClone.children(':first-child').clone()
+                .addClass("cloneditem-"+(i))
+                .appendTo($(this));
+                }
+            });
+        }());
         
 .center-h2
     %h3 Eat Up!
