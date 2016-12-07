@@ -1,25 +1,28 @@
 #table_title
   %h1 View All Restaurants
 
+%h3 Search Criteria:
+= form_tag restaurants_path, :method => 'get' do
+
+  = label :restaurant, :name, 'Filter by Restaurant or Description'
+  = text_field_tag :restaurant, params[:restaurant]
+  
+  = submit_tag 'Search', :name => nil
+  = submit_tag 'Clear Search', :name => 'clear_search'
+
 %table#restaurants-table
   %thead
     %tr
       %th Restaurant Name
-      %th Restaurant Password
-      %th Restaurant Email
       %th Restaurant Contact
       %th Restaurant Location
       %th Restaurant Description
-      %th Session Token
       %th More Info
   %tbody
     - @restaurants.each do |restaurant|
       %tr
         %td= restaurant.name
-        %td= restaurant.password
-        %td= restaurant.email
         %td= restaurant.contact
         %td= restaurant.location
         %td= restaurant.description
-        %td= restaurant.session_token
         %td= link_to "More about #{restaurant.name}", restaurant_path(restaurant)
