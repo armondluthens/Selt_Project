@@ -85,9 +85,11 @@ GEM
     execjs (2.7.0)
     ffi (1.9.14)
     formatador (0.2.5)
+    geocoder (1.4.0)
     gherkin (4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    gmaps4rails (2.1.2)
     guard (2.14.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, < 4.0)
@@ -194,6 +196,10 @@ GEM
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
       rspec-mocks (~> 3.5.0)
+    rspec-activemodel-mocks (1.0.3)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      rspec-mocks (>= 2.99, < 4.0)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -279,6 +285,8 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   cucumber-rails
   database_cleaner
+  geocoder
+  gmaps4rails
   guard-rspec
   haml
   jbuilder (~> 2.0)
@@ -287,6 +295,7 @@ DEPENDENCIES
   pg
   rails (= 4.2.6)
   rails_12factor
+  rspec-activemodel-mocks
   rspec-expectations
   rspec-rails
   sass-rails (~> 5.0)
