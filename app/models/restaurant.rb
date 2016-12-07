@@ -28,4 +28,9 @@ class Restaurant < ActiveRecord::Base
         restaurant_params[:session_token] = SecureRandom.base64
         Restaurant.create!(restaurant_params)
     end
+    
+    # performs simple search based on restaurant name
+  def self.search(term)
+    where("name like :term or description like :term", term: "%#{term}%")
+  end
 end
