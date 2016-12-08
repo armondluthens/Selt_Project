@@ -1,6 +1,6 @@
 
 .row
-    .col-sm-7
+    .col-sm-8
         .carousel.slide#slides{"data-ride" => "carousel"}
             %ol.carousel-indicators
                 %li.active{"data-target"=>"#slides", "data-slide-to"=>"0"}
@@ -29,7 +29,7 @@
             .carousel-control.right{"data-slide"=>"left", :onclick =>"$('#slides').carousel('next')"}
                 =link_to '#slides' do 
                     %span.glyphicon.glyphicon-chevron-right.black
-    .col-sm-5 
+    .col-sm-4 
         .row
             .col-sm-2
                 %h2 Welcome!

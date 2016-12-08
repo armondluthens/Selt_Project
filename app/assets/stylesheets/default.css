@@ -73,7 +73,6 @@ html{
 body {
    margin: 0;
    padding: 0;
-   padding-top: 51px; 
    font-family: 'Open Sans', sans-serif;
 }
 
@@ -576,12 +575,12 @@ td{
     JavaScript Deal Slideshow
 ********************************************/
 .carousel{ 
-     height: 400px; 
-     width: 700px; 
+    height: 300px; 
+    width: 800px;   
 }
 .carousel-inner{ 
-    height: 400px; 
-    width: 700px;    
+    height: 300px; 
+    width: 800px;    
 }
 .showing {
     opacity: 1;
