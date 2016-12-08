@@ -47,26 +47,32 @@ class DealsController < ApplicationController
       #destroy expired deals
       if deal.end_date < Time.now.in_time_zone("Central Time (US & Canada)")
         deal.destroy
-      
-      elsif deal.sunday == true
+      end
+      if deal.sunday == true
         sun_deals[sun] = deal
         sun += 1
-      elsif deal.monday == true
+      end
+      if deal.monday == true
         mon_deals[mon] = deal
         mon += 1
-      elsif deal.tuesday == true
+      end
+      if deal.tuesday == true
         tues_deals[tues] = deal
         tues += 1
-      elsif deal.wednesday == true
+      end
+      if deal.wednesday == true
         wed_deals[wed] = deal
         wed += 1
-      elsif deal.thursday == true
+      end
+      if deal.thursday == true
         thurs_deals[thurs] = deal
         thurs += 1
-      elsif deal.friday == true
+      end
+      if deal.friday == true
         fri_deals[fri] = deal
         fri += 1
-      elsif deal.saturday == true
+      end
+      if deal.saturday == true
         sat_deals[sat] = deal
         sat += 1
       end
@@ -74,18 +80,25 @@ class DealsController < ApplicationController
        
     if @time == 0
       @deals += sun_deals + mon_deals + tues_deals + wed_deals + thurs_deals + fri_deals + sat_deals
+      @deals = @deals.uniq
     elsif @time == 1
       @deals += mon_deals + tues_deals + wed_deals + thurs_deals + fri_deals + sat_deals + sun_deals
+      @deals = @deals.uniq
     elsif @time == 2
       @deals += tues_deals + wed_deals + thurs_deals + fri_deals + sat_deals + sun_deals + mon_deals
+      @deals = @deals.uniq
     elsif @time == 3
       @deals += wed_deals + thurs_deals + fri_deals + sat_deals + sun_deals + mon_deals + tues_deals
+      @deals = @deals.uniq
     elsif @time == 4
       @deals += thurs_deals + fri_deals + sat_deals + sun_deals + mon_deals + tues_deals + wed_deals
+      @deals = @deals.uniq
     elsif @time == 5
       @deals += fri_deals + sat_deals + sun_deals + mon_deals + tues_deals + wed_deals + thurs_deals
+      @deals = @deals.uniq
     elsif @time == 6
       @deals += sat_deals + sun_deals + mon_deals + tues_deals + wed_deals + thurs_deals + fri_deals
+      @deals = @deals.uniq
     end
     
     
