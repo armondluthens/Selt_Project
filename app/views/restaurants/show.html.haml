@@ -19,7 +19,9 @@
     = @restaurant.description
   %li
     Deals:
-    = @deal
+    - @deals.each do |deal|
+      - if deal.restaurant_id == @restaurant.id
+        = deal.title
     
   - google_address = @restaurant.location
   - google_address.tr!(" ", "+")
