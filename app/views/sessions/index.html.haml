@@ -77,19 +77,22 @@
         
 .center-h2
     %h3 Eat Up!
-    = select(:filter, :status, options_for_select([["restaurant", "1"], ["ethnicity", "2"], ["type", "3"]]))
 .now-showing
-    %h3 Now Showing: (Filter) Deals
+    %h2 Today's Deals
 .deal_class
-    .deal-left
-        %h5 Status
-        %h1 Deal Title
-        %h5 Rating tool
-    .deal-right
-        %p 
-            
-    .deal_duration
-        %h5 Start Date: mm-dd-yy
-        %h5 End Date: mm-dd-yy
-            
+
+%table#deals-table
+    %thead
+        %tr
+            %th Deal Title
+            %th Deal Description
+            %th More Information
+      
+    %tbody
+        - @deals.each do |deal|
+            %tr
+                %td= deal.title
+                %td= deal.description
+                %td= link_to "More about #{deal.title}", deal_path(deal)
+    
 .footer
