@@ -18,7 +18,13 @@ class Deal < ActiveRecord::Base
   end
   
   # performs simple search based on deal title
-  def self.search(term)
+  def self.search(search)
+    if search
+      where(["title LIKE ?","%#{search}%"])
+    else
+      all
+    end
+=begin
     if (term == "sunday" || term == "Sunday")
       Deal.where(sunday: true)
     elsif(term == "monday" || "Monday")
@@ -33,10 +39,11 @@ class Deal < ActiveRecord::Base
       Deal.where(friday: true)
     elsif(term == "saturday" || "Saturday")
       Deal.where(saturday: true)
+
     else
       where("title like :term or description like :term or ethnicity like :term or restaurant_name like :term", term: "%#{term}%")
     end
-
+=end
     
   end
   

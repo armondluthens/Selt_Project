@@ -35,12 +35,15 @@ class DealsController < ApplicationController
   
 
   def index
+    
     @deals = Deal.all
     
     if (params[:clear_search])
       render :action => 'index'
     else
-      @deals = Deal.search(params[:deal]) unless params[:deal].blank?
+      #@deals = Deal.where(["title or ethnicity LIKE ?","%#{params[:search]}%"])
+      #@deals = Deal.search(params[:search]) unless params[:search].blank?
+      @deals = Deal.search(params[:search])
     end
   end
   

@@ -3,18 +3,23 @@
   
 %h3 Search Criteria:
 
+:erb
+  <!--
+  <%= form_tag deals_path, :method => 'get' do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search" %>
+  <% end %>
+  -->
 = form_tag deals_path, :method => 'get' do
 
-  = label :deal, :title, 'Filter by'
-  = text_field_tag :deal, params[:deal]
-
-          
+  = label :deal, :title, 'Search By Title'
+  = text_field_tag :search, params[:search]
   
   = submit_tag 'Search', :name => nil
   = submit_tag 'Clear Search', :name => 'clear_search'
-  
-= link_to "Advanced Search", new_search_path
-  
+
+-#= link_to "Advanced Search", new_search_path
+
 %table#restaurants-table
   %thead
     %tr
@@ -42,6 +47,17 @@
       -if deal.friday == true
         -deal_days = deal_days + "Friday "
       -if deal.saturday == true
+        -deal_days = deal_days + "Saturday"
+        
+      
+      %tr
+        %td= deal.title
+        %td= deal.start_date
+        %td= deal.end_date
+        %td= deal.description
+        %td= deal.ethnicity
+        %td= deal.restaurant_name
+        %td= deal_days
         -deal_days = deal_days + "Saturday"
         
       
