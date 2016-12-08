@@ -5,8 +5,10 @@
 
 html{
     margin: 0;
-    padding: 0;  
+    padding: 0; 
 }
+
+
 
 .message{
     font-family: 'Open Sans', sans-serif;
@@ -39,6 +41,10 @@ html{
     margin-left: 1%;
     font-size: 20px;
 }
+
+#search_deals{ 
+    float: right;
+}
     
 .dynamic-content{
     float: left;
@@ -70,6 +76,10 @@ body {
    font-family: 'Open Sans', sans-serif;
 }
 
+.container-fluid{ 
+    margin: 0;
+    padding: 0;
+}
 
 input { 
    margin-bottom: 5px;
@@ -140,6 +150,7 @@ ul#subjects li {
    display: inline;
    padding-left: 5px;
 }
+
 
 /********************************
     Navigation Bar
@@ -269,23 +280,7 @@ ul#left-nav li,
     background-color: white;
     color: black;
 }
-.deals_slideshow{
-    float: left;
-    width: 100%;
-    height: 300px;
-    background-color: #f2f2f2;;
-}
 
-.deals_slideshow img{
-    height: 250px;
-    border-radius: 5px;
-    margin-top: 25px;
-    width: 40%;
-    margin-left: 30%;
-}
-.deals_slideshow a{
-    margin-top: 20px;
-}
 .now-showing{
     float: left;
     width: 100%;
@@ -579,29 +574,29 @@ td{
 /********************************************
     JavaScript Deal Slideshow
 ********************************************/
-#slides {
-    position: relative;
-    height: 300px;
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none;
+.carousel{ 
+    height: 300px; 
+    width: 800px;   
 }
-.slide {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 1;
-    -webkit-transition: opacity 1s;
-    -moz-transition: opacity 1s;
-    -o-transition: opacity 1s;
-    transition: opacity 1s;
+.carousel-inner{ 
+    height: 300px; 
+    width: 800px;    
 }
 .showing {
     opacity: 1;
     z-index: 2;
+}
+
+.black{ 
+    color: black;   
+}
+
+.carousel img {
+  position: absolute;
+
+  min-width: 100%;
+  height: 500px;
+  max-width: none;
 }
 
 
@@ -687,6 +682,11 @@ td{
     .checkbox_wrapper label{
         margin-left: 10%;
         width: 90%;
+    }
+    
+    .no-gutter > [class*='col-'] {
+        padding-right:0;
+        padding-left:0;
     }
     
 }

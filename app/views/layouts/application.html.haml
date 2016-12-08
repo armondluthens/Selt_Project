@@ -1,49 +1,61 @@
-!!!
+!!! 5
 %html
   %head
-    %title Iowa City Dine & Devour
+    %title The Gorge
     = stylesheet_link_tag 'application', 'media' => 'all', 'data-turbolinks-track' => true
     = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Lato'
     = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Oswald:400,300'
     = stylesheet_link_tag 'application', 'https://fonts.googleapis.com/css?family=Open+Sans'
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-
+    
   %body
-    #main
-      .left-h1
-        =link_to 'Iowa City Dine & Devour', root_path, :id => 'homepage'
-        
-      - if flash[:notice]
-        #notice.message= flash[:notice]
-      - elsif flash[:warning]
-        #warning.message= flash[:warning]
+    .container-fluid#main-container
+      .row 
+        %nav.navbar.navbar-inverse.navbar-fixed-top
+          .container-fluid
+            .navbar-header
+              .navbar-brand   
+                THE GORGE
+            %ul.nav.navbar-nav
+              %li
+                =link_to root_path do 
+                  %span.glyphicon.glyphicon-home
+              %li 
+                =link_to 'Deals', deals_path
+              %li 
+                =link_to 'Restaurants', restaurants_path
+                
+            - if !@current_restaurant
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  =link_to new_restaurant_path do 
+                    ='Sign Up'
+                    %span.glyphicon.glyphicon-user 
+                %li
+                  = link_to login_path do 
+                    ='Log In'
+                    %span.glyphicon.glyphicon-log-in 
+            - else   
+              %ul.nav.navbar-nav.navbar-right
+                %li
+                  =link_to new_deal_path do 
+                    ='Create Deal'
+                    %span.glyphicon.glyphicon-plus-sign
+                %li
+                  = link_to logout_path, :method => 'delete' do 
+                    ='Log Out'
+                    %span.glyphicon.glyphicon-log-out
 
-      - if !@current_restaurant
-        .right-button
-          %ul#left-nav
-            %li.left-nav.nav-bar
-              = link_to 'Log In', login_path, :method => :get, :id => 'Log_In'
-            %li.left-nav.nav-bar
-              = link_to 'Request an Account', new_restaurant_path, :method => :get, :id => 'Request_an_Account'
-          %ul#right-nav
-            %li.right-nav.nav-bar
-              = link_to 'View All Restaurants', restaurants_path, :method => :get, :id => 'viewrestaurants'
-            %li.right-nav.nav-bar
-              = link_to 'View All Deals', deals_path, :method => :get, :id => 'viewrestaurants'
-      
-      - else
-        .right-button
-          %ul#left-nav
-            %li.left-nav.nav-bar
-              = link_to 'Create Deal', new_deal_path, :method => :get, :id => 'Request_an_Account'
-            %li.left-nav.nav-bar  
-              = link_to 'Log Out', logout_path, :method => :delete, :id => 'Log_Out'
+        - if flash[:notice]
+          #notice.message= flash[:notice]
+        - elsif flash[:warning]
+          #warning.message= flash[:warning]
           
-          %ul#right-nav
-            %li.right-nav.nav-bar
-              = link_to 'View All Restaurants', restaurants_path, :method => :get, :id => 'viewrestaurants'
-            %li.right-nav.nav-bar
-              = link_to 'View All Deals', deals_path, :method => :get, :id => 'viewrestaurants'
+      .footer 
+        .navbar.navbar-inverse.navbar-fixed-bottom
+          .container
+            .navbar-text.pull-left
+              2016 SELT Class University Of Iowa 
 
       = yield

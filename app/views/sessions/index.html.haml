@@ -1,95 +1,107 @@
 
+.row
+    .col-sm-8
+        .carousel.slide#slides{"data-ride" => "carousel"}
+            %ol.carousel-indicators
+                %li.active{"data-target"=>"#slides", "data-slide-to"=>"0"}
+                %li{"data-target"=>"#slides", "data-slide-to"=>"1"}
+                %li{"data-target"=>"#slides", "data-slide-to"=>"2"}
+            .carousel-inner
+                .item.active
+                    =image_tag "shorts_burgers.jpg"
+                    .carousel-caption
+                        Caption 1 
+                        %p text 
+                .item
+                    =image_tag "gumbys.jpg"
+                    .carousel-caption
+                        Caption 2 
+                        %p text
+                .item
+                    =image_tag "bwws.jpg"
+                    .carousel-caption
+                        Caption 3 
+                        %p text
+            .carousel-control.left{"data-slide"=>"prev", :onclick =>"$('#slides').carousel('prev')"}
+                =link_to '#slides' do
+                    %span.glyphicon.glyphicon-chevron-left.black
+                
+            .carousel-control.right{"data-slide"=>"left", :onclick =>"$('#slides').carousel('next')"}
+                =link_to '#slides' do 
+                    %span.glyphicon.glyphicon-chevron-right.black
+    .col-sm-4 
+        .row
+            .col-sm-2
+                %h2 Welcome!
+                
+        .row
+            .col-sm-2
+            .col-sm-8
+                We're here to help you find the best deals in Iowa City. 
+                If you're a restaurant owner, create an account and join the Gorge where 
+                Iowa City residents are engorging without eating a whole through their wallet!
+        .row
 
-.center-h2
-    %h2 Featured Deals
-    = text_field :user, 'user_id', placeholder: "Search Deals...", :id => 'search_deals'
+.row
+    %nav.navbar.navbar-inverse
+        .container-fluid
+            .navbar-header
+                .navbar-brand  
+                    Today's Deals!
+                    
+            %form.navbar-form.navbar-right{:id=>'search_deals', :controller => :user}
+                .input-group
+                    %input.form-control{:type=>"text", :placeholder=>"Search", :id => 'search_deals'}
+                    .input-group-btn
+                        .btn.btn-default{:type=>"submit"}
+                            %i.class.glyphicon.glyphicon-search
 
-.deals_slideshow
-    %ul#slides
-        %li.slide.showing
-            =image_tag "cactus.jpg"
-        %li.slide
-            =image_tag "shorts_burgers.jpeg"
-        %li.slide
-            =image_tag "zmariks.jpg"
-        %li.slide
-            =image_tag "gumbys.jpg"
-        %li.slide
-            =image_tag "bwws.jpg"
-        %li.slide
-            =image_tag "dpdough.jpg"
-        %li.slide
-            =image_tag "airliner.jpg"
-            
-        
-.container
-    .row
-        .col-md-12
-            .carousel-showmanymoveone 
-                .carousel-inner
-                    .item.active
-                        =image_tag "cactus.jpg"
-                    .item
-                        =image_tag "shorts_burgers.jpeg"
-                        =image_tag "zmariks.jpg"
-                    .item
-                        =image_tag "gumbys.jpg"
-                    .item
-                        =image_tag "bwws.jpg"
-                    .item
-                        =image_tag "dpdough.jpg"
-                    .item
-                        =image_tag "airliner.jpg"
+            %ul.nav.navbar-nav.navbar-right
+                =text_field :user, 'user_id', placeholder: "Search Deals...", :id => 'search_deals' 
+                %i.glyphicon.glyphicon-search
                 
 
- 
-    
-    :javascript
-        var slides = document.querySelectorAll('#slides .slide');
-        var currentSlide = 0;
-        var slideInterval = setInterval(nextSlide,3000);
 
-        function nextSlide() {
-            slides[currentSlide].className = 'slide';
-            currentSlide = (currentSlide+1)%slides.length;
-            slides[currentSlide].className = 'slide showing';
-        }
-        
-        (function(){
-            $('#carousel123').carousel({ interval: 2000 });
-        }());
-
-        (function(){
-            $('.carousel-showmanymoveone .item').each(function(){
-                var itemToClone = $(this);
-
-               for (var i=1;i<4;i++) {
-                    itemToClone = itemToClone.next();
-                    if (!itemToClone.length) {
-                        itemToClone = $(this).siblings(':first');
-                }
-                itemToClone.children(':first-child').clone()
-                .addClass("cloneditem-"+(i))
-                .appendTo($(this));
-                }
-            });
-        }());
-        
-.center-h2
-    %h3 Eat Up!
-    = select(:filter, :status, options_for_select([["restaurant", "1"], ["ethnicity", "2"], ["type", "3"]]))
-.now-showing
-    %h3 Now Showing: (Filter) Deals
+.row
+    .center-h2
+        %h3.col-sm-3 Eat Up!
+        =select(:filter, :status, options_for_select([["restaurant", "1"], ["ethnicity", "2"], ["type", "3"]]))
+    .now-showing
+        %h3 Now Showing: (Filter) Deals
+.row    
+    .deal_class
+        .deal-left
+            %h5 Status
+            %h1 Deal Title
+            %h5 Rating tool
+        .deal-right
+            %p 
+            .deal_duration
+            %h5 Start Date: mm-dd-yy
+            %h5 End Date: mm-dd-yy
+            
 .deal_class
-    .deal-left
-        %h5 Status
-        %h1 Deal Title
-        %h5 Rating tool
-    .deal-right
-        %p 
-            
-    .deal_duration
-        %h5 Start Date: mm-dd-yy
-        %h5 End Date: mm-dd-yy
-            
+
+= form_tag sessions_path, :method => 'get' do
+
+    = label :deal,  'Filter by'
+    = text_field_tag :deal, params[:deal]
+    
+    = submit_tag 'Search', :name => nil
+    = submit_tag 'Clear Search', :name => 'clear_search'
+
+%table#deals-table
+    %thead
+        %tr
+            %th Deal Title
+            %th Deal Description
+            %th Restaurant
+      
+    %tbody
+        - @deals.each do |deal|
+            %tr
+                %td= link_to deal.title, deal_path(deal)
+                %td= deal.description
+                %td= link_to deal.restaurant_name, restaurant_path(deal.restaurant_id)
+    
 .footer

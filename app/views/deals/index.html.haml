@@ -24,13 +24,9 @@
   %thead
     %tr
       %th Deal Title
-      %th Deal Start Date
-      %th Deal End Date
       %th Deal Description
-      %th Deal Ethnicity
       %th Offered by Restaurant
       %th Days Offered
-      %th More Info
   %tbody
     - @deals.each do |deal|
       - deal_days = ""
@@ -51,13 +47,11 @@
         
       
       %tr
-        %td= deal.title
-        %td= deal.start_date
-        %td= deal.end_date
+        %td= link_to deal.title, deal_path(deal)
         %td= deal.description
-        %td= deal.ethnicity
-        %td= deal.restaurant_name
+        %td= link_to deal.restaurant_name, restaurant_path(deal.restaurant_id)
         %td= deal_days
+<<<<<<< HEAD
         -deal_days = deal_days + "Saturday"
         
       
@@ -70,3 +64,5 @@
         %td= deal.restaurant_name
         %td= deal_days
         %td= link_to "More about #{deal.title}", deal_path(deal)
+=======
+>>>>>>> master

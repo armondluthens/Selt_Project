@@ -2,10 +2,7 @@ class Deal < ActiveRecord::Base
   belongs_to :restaurant
   #serialize :deal_days, WeekSauce
   
-#scope :title, -> { where(category: 'title') }
-# scope :restaurant_name, -> { where(category: 'restaurant_name') }
-  
-  
+
   validates :title, presence: true
   
   validates_presence_of :start_date, :end_date

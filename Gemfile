@@ -28,10 +28,11 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'therubyracer'  # If using Ruby
 gem 'therubyrhino'  # If using JRuby
-gem 'jquery-rails'  # If using Bootstrap's JS plugins.
 gem 'less-rails-bootstrap'
 gem 'twitter-bootstrap-rails'
-
+gem 'bootstrap-sass', '~> 3.3.1'
+gem 'autoprefixer-rails'
+gem 'simple_form'
 gem 'geocoder'
 gem 'gmaps4rails'
 
