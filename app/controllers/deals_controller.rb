@@ -44,7 +44,11 @@ class DealsController < ApplicationController
     sun = 0; mon = 0; tues = 0; wed = 0; thurs = 0; fri = 0; sat = 0;
     
     @allDeals.each do |deal|
-      if deal.sunday == true
+      #destroy expired deals
+      if deal.end_date < Time.now.in_time_zone("Central Time (US & Canada)")
+        deal.destroy
+      
+      elsif deal.sunday == true
         sun_deals[sun] = deal
         sun += 1
       elsif deal.monday == true

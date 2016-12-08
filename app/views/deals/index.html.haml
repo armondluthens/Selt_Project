@@ -18,7 +18,6 @@
       %th Deal Description
       %th Offered by Restaurant
       %th Days Offered
-      %th Today
   %tbody
     - @deals.each do |deal|
       - deal_days = ""
@@ -43,4 +42,3 @@
         %td= deal.description
         %td= link_to deal.restaurant_name, restaurant_path(deal.restaurant_id)
         %td= deal_days
-        %td= @time
