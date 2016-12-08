@@ -21,7 +21,7 @@ class RestaurantsController < ApplicationController
   def show
     id = params[:id]
     @restaurant = Restaurant.find(id)
-    
+    @deals = Deal.all
     
   end
   
@@ -76,6 +76,13 @@ class RestaurantsController < ApplicationController
   
   def index
     @restaurants = Restaurant.all
+    
+    if (params[:clear_search])
+      render :action => 'index'
+    else
+      @restaurants = Restaurant.search(params[:restaurant]) unless params[:restaurant].blank?
+      @restaurants = @restaurants.title unless params[:title].blank?
+    end
   end
   
   
