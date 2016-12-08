@@ -81,11 +81,20 @@
     %h2 Today's Deals
 .deal_class
 
+= form_tag sessions_path, :method => 'get' do
+
+    = label :deal,  'Filter by'
+    = text_field_tag :deal, params[:deal]
+    
+    = submit_tag 'Search', :name => nil
+    = submit_tag 'Clear Search', :name => 'clear_search'
+
 %table#deals-table
     %thead
         %tr
             %th Deal Title
             %th Deal Description
+            %th Restaurant
             %th More Information
       
     %tbody
@@ -93,6 +102,7 @@
             %tr
                 %td= deal.title
                 %td= deal.description
+                %td= deal.restaurant_name
                 %td= link_to "More about #{deal.title}", deal_path(deal)
     
 .footer

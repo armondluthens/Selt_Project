@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
   end
   
   def index
+    
+    # displays deals by current day
     @allDeals = Deal.all
     @deals = []
     i = 0
@@ -36,6 +38,13 @@ class SessionsController < ApplicationController
         @deals[i] = deal
         i += 1
       end
+    end
+    
+    # Searching criteria
+    if (params[:clear_search])
+      render :action => 'index'
+    else
+      @deals = Deal.search(params[:deal]) unless params[:deal].blank?
     end
   end
 
