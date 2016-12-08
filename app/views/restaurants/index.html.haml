@@ -17,12 +17,10 @@
       %th Restaurant Contact
       %th Restaurant Location
       %th Restaurant Description
-      %th More Info
   %tbody
     - @restaurants.each do |restaurant|
       %tr
-        %td= restaurant.name
+        %td= link_to restaurant.name, restaurant_path(restaurant)
         %td= restaurant.contact
         %td= restaurant.location
         %td= restaurant.description
-        %td= link_to "More about #{restaurant.name}", restaurant_path(restaurant)

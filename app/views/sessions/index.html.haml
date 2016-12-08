@@ -95,14 +95,12 @@
             %th Deal Title
             %th Deal Description
             %th Restaurant
-            %th More Information
       
     %tbody
         - @deals.each do |deal|
             %tr
-                %td= deal.title
+                %td= link_to deal.title, deal_path(deal)
                 %td= deal.description
-                %td= deal.restaurant_name
-                %td= link_to "More about #{deal.title}", deal_path(deal)
+                %td= link_to deal.restaurant_name, restaurant_path(deal.restaurant_id)
     
 .footer
