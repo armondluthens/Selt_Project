@@ -593,7 +593,7 @@ ul#left-nav li,
      text-align: center;   
 }
 #row_bottom_cushion{
-    margin-bottom: 200px;
+    margin-bottom: 200px !important;
 }
 
 /********************************************
