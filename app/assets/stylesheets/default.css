@@ -599,6 +599,14 @@ ul#left-nav li,
 #bottom-margin{
     margin-top: 100px;
 }
+.footer666{
+    float: left;
+    height: 100px;
+    background-color: lightgrey;
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+}
 
 /********************************************
     JavaScript Deal Slideshow
