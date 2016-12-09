@@ -589,6 +589,10 @@ ul#left-nav li,
 #signupform{
     margin-bottom: 100px;
 }
+.center { 
+     text-align: center;   
+}
+
 /********************************************
     JavaScript Deal Slideshow
 ********************************************/

@@ -36,7 +36,7 @@
                 We're here to help you find the best deals in Iowa City. 
                 If you're a restaurant owner, create an account and join the Gorge where 
                 Iowa City residents are eating well without eating a whole through their wallet!
-        .row.center 
+        .row
             
             .main-image
                 =image_tag "Gorge1.png", :height => 100
@@ -80,14 +80,25 @@
   
                     %td
                         .row
-                            .col-sm-2
-                            .col-sm-8.col-md.8
-                                .row
+                            .col-sm-12
+                                .row.center
                                     =deal.description
                                 
                                 .row    
+                                    -if !deal.restaurant_name.nil?
+                                        .row.center
+                                            %i.glyphicon.glyphicon-user
+                                        .row.center
+                                            = link_to Restaurant.where(:id => deal.restaurant_id).pluck(:name)[0], restaurant_path(deal.restaurant_id)
+                        
                         %td
-                            -if !deal.restaurant_name.nil?
-                                = link_to Restaurant.where(:id => deal.restaurant_id).pluck(:name)[0], restaurant_path(deal.restaurant_id)
+                            .row 
+                                %span.label.label-success 
+                                    Start Date:
+                                    = deal.start_date
+                            .row 
+                                %span.label.label-danger 
+                                    End Date:
+                                    = deal.end_date   
 
 .footer
