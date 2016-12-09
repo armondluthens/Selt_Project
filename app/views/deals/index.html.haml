@@ -10,8 +10,8 @@
       %form.navbar-form.navbar-right{:id=>'search_deals'}
         .form-group
           .form-inline
-            = form_tag(new_search_path, :method => "get", id: "search-form") do
-              = text_field_tag :search, params[:search], placeholder: "Search Deals", class: 'form-control', id: 'search_field' do 
+            = form_tag(deals_path, :method => "get", id: "search-form") do
+              = text_field_tag :deal, params[:deal], placeholder: "Search Deals", class: 'form-control', id: 'search_field' do 
                 %i#searchclear.glyphicon.glyphicon-remove-circle
               = button_tag(:type => 'submit', :class => 'btn btn-destroy') do
                 %i.class.glyphicon.glyphicon-search
