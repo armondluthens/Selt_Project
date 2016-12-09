@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 - deal_days = ""
 -if @deal.sunday == true
   -deal_days = deal_days + "Sunday "
@@ -24,8 +25,29 @@
 
     
 .display_deal
+=======
+
+.row
+>>>>>>> master
   %h1 #{@deal.title}'s Details
+
+.row 
+  .col-sm-4
+    .row.center
+      .row
+        %h3
+          %span.glyphicon.glyphicon-piggy-bank
+      .row  
+        From
+      .row
+        = @deal.start_time
+      .row  
+        Until 
+      .row
+        = @deal.end_time
+
   
+<<<<<<< HEAD
   %h2
     Deal Title:
     = @deal.title
@@ -72,3 +94,66 @@
     %h3 Edit Deal
     = link_to 'Edit', edit_deal_path(@deal)
 
+=======
+    
+  .col-sm-4.center
+    .row
+      .row
+        = @deal.description
+      .row
+        Ethnicity: 
+        =@deal.ethnicity
+      .clear-fix
+      .row
+        -if !@deal.restaurant_name.nil?
+          .row.center
+            %i.glyphicon.glyphicon-user
+          .row.center
+            = link_to Restaurant.where(:id => @deal.restaurant_id).pluck(:name)[0], restaurant_path(@deal.restaurant_id)
+      
+      .row 
+        - if !@current_restaurant.nil?
+          - if @deal.restaurant_id == @current_restaurant.id
+            = link_to 'Edit', edit_deal_path(@deal)
+      
+    .row 
+      %span.label.label-success 
+        Start Date:
+        = @deal.start_date
+    
+      %span.label.label-danger 
+        End Date:
+        = @deal.end_date
+    
+  .col-sm-4.center
+    .row
+      - if @deal.sunday == true
+        %span.label.label-default 
+          Sunday
+    .row
+      - if @deal.monday == true
+        %span.label.label-default 
+          Monday
+    .row    
+      - if @deal.tuesday == true
+        %span.label.label-default 
+          Tuesday
+    .row
+      - if @deal.wednesday == true
+        %span.label.label-default 
+          Wednesday
+    .row
+      - if @deal.thursday == true
+        %span.label.label-default 
+          Thursday
+    .row
+      - if @deal.friday == true
+        %span.label.label-default 
+          Friday
+    .row
+      - if @deal.saturday == true
+        %span.label.label-default 
+          Saturday
+
+        
+>>>>>>> master

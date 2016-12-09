@@ -1,43 +1,45 @@
 
-.row
+.row.white
     .col-sm-8
-        .carousel.slide#slides{"data-ride" => "carousel"}
+        .carousel.slide#slides{"data-ride" => "carousel", :style => 'background-color:white;'}
             %ol.carousel-indicators
                 %li.active{"data-target"=>"#slides", "data-slide-to"=>"0"}
                 %li{"data-target"=>"#slides", "data-slide-to"=>"1"}
                 %li{"data-target"=>"#slides", "data-slide-to"=>"2"}
             .carousel-inner
                 .item.active
-                    =image_tag "shorts_burgers.jpg"
+                    =image_tag "zmaks.jpg", :width => 800
                     .carousel-caption
-                        Caption 1 
+                        $h3 Eat 
                         %p text 
                 .item
-                    =image_tag "gumbys.jpg"
+                    =image_tag "mesa.jpg", :width => 800
                     .carousel-caption
-                        Caption 2 
+                        %h3 Enjoy 
                         %p text
                 .item
-                    =image_tag "bwws.jpg"
+                    =image_tag "don.jpg", :width => 800
                     .carousel-caption
-                        Caption 3 
+                        %h3 Engorge
                         %p text
             .carousel-control.left{"data-slide"=>"prev", :onclick =>"$('#slides').carousel('prev')"}
                 
             .carousel-control.right{"data-slide"=>"left", :onclick =>"$('#slides').carousel('next')"}
 
-    .col-sm-4 
+    .col-sm-4
         .row
-            .col-sm-2
+            .col-sm-11.text-center
                 %h2 Welcome!
                 
         .row
-            .col-sm-2
-            .col-sm-8
+            .col-sm-11.text-center
                 We're here to help you find the best deals in Iowa City. 
                 If you're a restaurant owner, create an account and join the Gorge where 
-                Iowa City residents are engorging without eating a whole through their wallet!
+                Iowa City residents are eating well without eating a whole through their wallet!
         .row
+            
+            .main-image
+                =image_tag "Gorge1.png", :height => 100
 
 .row
     %nav.navbar.navbar-inverse
@@ -47,33 +49,56 @@
                     Today's Deals!
                     
             %form.navbar-form.navbar-right{:id=>'search_deals'}
-                .formgi-group
+                .form-group
                     .form-inline
-
                         = form_tag(sessions_path, :method => "get", id: "search-form") do
-                            = text_field_tag :deal, params[:deal], placeholder: "Search Deals", class: 'form-control'
-                            
-                            = button_tag(:type => 'submit', :class => 'btn btn-success') do
+                            = text_field_tag :deal, params[:deal], placeholder: "Search Deals", class: 'form-control', id: 'search_field' do 
+                                %i#searchclear.glyphicon.glyphicon-remove-circle
+                            = button_tag(:type => 'submit', :class => 'btn btn-destroy') do
                                 %i.class.glyphicon.glyphicon-search
+        :javascript
+            $("#searchclear").click(function(){
+                $("#search_field").val('');
+            });
 
 
-            
-.deal_class
+.row
+    %table.table
+        %tbody
+            - @deals.each do |deal|
+                %tr
+                    %td
+                        .row
+                            .col-sm-12
+                                %h3
+                                    = deal.title
+                        .row
+                            .col-sm-2
+                            .col-sm-10
+                                = link_to 'See More Informaton', deal_path(deal)
+                                
+  
+                    %td
+                        .row
+                            .col-sm-12
+                                .row.center
+                                    =deal.description
+                                
+                                .row    
+                                    -if !deal.restaurant_name.nil?
+                                        .row.center
+                                            %i.glyphicon.glyphicon-user
+                                        .row.center
+                                            = link_to Restaurant.where(:id => deal.restaurant_id).pluck(:name)[0], restaurant_path(deal.restaurant_id)
+                        
+                        %td
+                            .row 
+                                %span.label.label-success 
+                                    Start Date:
+                                    = deal.start_date
+                            .row 
+                                %span.label.label-danger 
+                                    End Date:
+                                    = deal.end_date   
 
-
-
-%table#restaurants-table
-    %thead
-        %tr
-            %th Deal
-            %th Description
-            %th Restaurant
-      
-    %tbody
-        - @deals.each do |deal|
-            %tr
-                %td= link_to deal.title, deal_path(deal)
-                %td= deal.description
-                %td= link_to deal.restaurant_name, restaurant_path(deal.restaurant_id)
-    
 .footer

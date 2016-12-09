@@ -17,18 +17,12 @@
         %nav.navbar.navbar-inverse.navbar-fixed-top
           .container-fluid
             .navbar-header
-              .navbar-brand   
-                THE GORGE
-            %ul.nav.navbar-nav
-              %li
-                =link_to root_path do 
-                  %span.glyphicon.glyphicon-home
-                  = 'Home'
-              %li 
-                =link_to 'Deals', deals_path
-              %li 
-                =link_to 'Restaurants', restaurants_path
-                
+              =image_tag "Engorge.png", :height => 50
+              
+              .navbar-brand
+                .nav-image
+                  
+                  
             - if !@current_restaurant
               %ul.nav.navbar-nav.navbar-right
                 %li
@@ -49,6 +43,18 @@
                   = link_to logout_path, :method => 'delete' do 
                     ='Log Out'
                     %span.glyphicon.glyphicon-log-out
+                  
+            %ul.nav.navbar-nav.navbar-right
+              %li
+                =link_to root_path do 
+                  %span.glyphicon.glyphicon-home
+                  = 'Home'
+              %li 
+                =link_to 'Deals', deals_path
+              %li 
+                =link_to 'Restaurants', restaurants_path
+                
+            
 
         - if flash[:notice]
           #notice.message= flash[:notice]
@@ -59,8 +65,9 @@
         .navbar.navbar-inverse.navbar-fixed-bottom
           .container
             .navbar-text.pull-right
+              2016 SELT Class 
               %span.glyphicon.glyphicon-education
-              2016 SELT Class University Of Iowa, 
+              University Of Iowa 
               
 
       = yield

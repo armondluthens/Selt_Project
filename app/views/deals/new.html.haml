@@ -1,60 +1,24 @@
-.new_session
-  %h1 Create New Deal
-  
-.deal_creation
-  = form_tag deals_path do
-  
-    = label :deal, :title, 'Deal Title'
-    = text_field :deal, 'title', placeholder: "Taco Tuesday"
-    
-    = label :deal, :description, 'Description'
-    = text_area :deal, 'description', placeholder: "Half off all tacos on tuesdays 5-8pm!"
-  
-    = label :deal, :start_date, 'Start Date'
-    = date_field :deal, 'start_date', placeholder: "2016-12-22"
-    
-    = label :deal, :end_date, 'End Date'
-    = date_field :deal, 'end_date', placeholder: "2016-12-24"
-    
-    = label :deal, :start_time, 'Start Time'
-    = time_field :deal, 'start_time', placeholder: ""
-    
-    = label :deal, :end_time, 'End Time'
-    = time_field :deal, 'end_time', placeholder: ""
-    
-    = label :deal, :days_checkboxes, 'Days of Week'
-
-    :plain
-      <!-- DO NOT DELETE THIS LEXI, IT TOOK FOR FUCKING EVER-->
-      <div class="checkbox_wrapper">
-        <input type="checkbox" name="deal[sunday]" value="1" id="deal_sunday">
-        <label for="sunday">Sunday</label>
+.row
+  .col-sm-3
+  .col-sm-6
+    .row{:style => "margin-bottom: 60px;"}
+    = simple_form_for("deal", :url => deals_path, :html => { :class => "form-horizontal" } ) do |f|
+      %fieldset
+      %legend Create New Deal
+      = f.input :title,  :label =>'Deal Title', :placeholder =>'Taco Tuesday'
+      = f.input :description, :label => 'Description', :placeholder => "Half off all tacos on tuesdays 5-8pm!"
+      = f.input :start_date, :label => 'Start Date', :placeholder => "2016-12-22"
+      = f.input :end_date, :label => 'End Date', :placeholder => "2016-12-24"
+      = f.input :start_time, :label => 'Start Time', :placeholder => ""
+      = f.input :end_time, :label => 'End Time', :placeholder => ""
+      =f.input :ethnicity, placeholder: [ "General" ], collection: [ "Mexican", "Asian", "Seafood", "Italian", "American", "General" ]
+      = f.input :sunday, :as => :boolean, :label =>'Sunday'
+      = f.input :monday, :as => :boolean, :label =>'Monday'
+      = f.input :tuesday, :as => :boolean, :label =>'Tuesday'
+      = f.input :wednesday, :as => :boolean, :label =>'Wednesday'
+      = f.input :thursday, :as => :boolean, :label =>'Thursday'
+      = f.input :friday, :as => :boolean, :label =>'Friday'
+      = f.input :saturday, :as => :boolean, :label =>'Saturday'
+      .form-actions
+        = f.button :submit, 'Create Deal'
         
-        <input type="checkbox" name="deal[monday]" value="1" id="deal_monday">
-        <label for="monday"> Monday</label>
-        
-        <input type="checkbox" name="deal[tuesday]" value="1" id="deal_tuesday">
-        <label for="tuesday"> Tuesday</label>
-        
-        <input type="checkbox" name="deal[wednesday]" value="1" id="deal_wednesday">
-        <label for="wednesday">Wednesday</label>
-        
-        <input type="checkbox" name="deal[thursday]" value="1" id="deal_thursday">
-        <label for="thursday">Thursday</label>
-        
-        <input type="checkbox" name="deal[friday]" value="1" id="deal[friday]">
-        <label for="friday">Friday</label>
-        
-        <input type="checkbox" name="deal[saturday]" value="1" id="deal_saturday">
-        <label for="saturday">Saturday</label>
-      </div>
-      
-    
-    
-    = label :deal, :ethnicity, 'Type'
-    = select(:deal, :ethnicity, options_for_select([["General", "All"], ["Mexican", "Mexican"], ["Asian", "Asian"], ["Spanish", "Spanish"], ["Seafood", "Seafood"]]))
-      
-    = submit_tag 'Create Deal', :id => 'login_submit'
-      
-  
-

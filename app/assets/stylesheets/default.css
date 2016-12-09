@@ -457,6 +457,11 @@ ul#left-nav li,
     font-size: 22px;
     width:20%;
 }
+
+.nav-image{ 
+    height: 61px;    
+}
+
 #Account_Password{
     float: left;
     font-family: 'Open Sans', sans-serif;
@@ -584,12 +589,17 @@ ul#left-nav li,
 #signupform{
     margin-bottom: 100px;
 }
+.center { 
+     text-align: center;   
+}
+
 /********************************************
     JavaScript Deal Slideshow
 ********************************************/
 .carousel{ 
     height: 300px; 
-    width: 800px;   
+    width: 800px; 
+    z-index: 999;
 }
 .carousel-inner{ 
     height: 300px; 
@@ -605,7 +615,7 @@ ul#left-nav li,
 }
 
 .carousel img {
-  position: absolute;
+
 
   min-width: 100%;
   height: 500px;
@@ -723,6 +733,25 @@ ul#left-nav li,
     .no-gutter > [class*='col-'] {
         padding-right:0;
         padding-left:0;
+    }
+    .navcenter{ 
+         text-align: center;   
+    }
+    .deal-title{ 
+        font-size: 30    
+    }
+    
+    .main-image{ 
+        height: 300px;
+        width: 300px;
+    }
+    
+    .posfix{ 
+        float: left; 
+        z-index:9999;
+    }
+    .white{ 
+        background-color: white; 
     }
     
 }
