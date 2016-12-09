@@ -568,7 +568,7 @@ ul#left-nav li,
 }
 #restaurants-table td{
     text-align: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgrey;
 }
 #restaurants-table tr:hover{
     background-color: lightgrey;
