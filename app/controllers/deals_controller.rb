@@ -45,6 +45,7 @@ class DealsController < ApplicationController
     
     @allDeals.each do |deal|
       #destroy expired deals
+=begin
       if deal.end_date < Time.now.in_time_zone("Central Time (US & Canada)")
         deal.destroy
       end
@@ -76,6 +77,7 @@ class DealsController < ApplicationController
         sat_deals[sat] = deal
         sat += 1
       end
+=end
     end
        
     if @time == 0
