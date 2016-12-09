@@ -48,14 +48,14 @@ class DealsController < ApplicationController
       if deal.end_date < Time.now.in_time_zone("Central Time (US & Canada)")
         deal.destroy
       end
-      #if deal.sunday == true
-        #sun_deals[sun] = deal
-        #sun += 1
-      #end
-      if deal.monday == true
-        mon_deals[mon] = deal
-        mon += 1
+      if deal.sunday == true
+        sun_deals[sun] = deal
+        sun += 1
       end
+      #if deal.monday == true
+        #mon_deals[mon] = deal
+        #mon += 1
+      #end
       if deal.tuesday == true
         tues_deals[tues] = deal
         tues += 1
