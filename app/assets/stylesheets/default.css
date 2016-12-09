@@ -560,9 +560,19 @@ ul#left-nav li,
     width: 90%;
     margin-left: 5%;
     font-family: 'Open Sans', sans-serif;
+    margin-bottom: 100px;
 }
-td{
+#restaurants-table th{
     text-align: center;
+    font-size: 24px;
+}
+#restaurants-table td{
+    text-align: center;
+    border-bottom: 1px solid lightgrey;
+}
+#restaurants-table tr:hover{
+    background-color: lightgrey;
+    cursor: pointer;
 }
 #table_title{
     font-size: 24px;
@@ -570,6 +580,9 @@ td{
     float: left;
     width: 100%;
     text-align: center;
+}
+#signupform{
+    margin-bottom: 100px;
 }
 /********************************************
     JavaScript Deal Slideshow
@@ -607,7 +620,19 @@ td{
     border-radius: 0px !important;
 }
 
-
+.restaurant_profile{
+    float: left;
+    width: 90%;
+    margin: 0px 5% 0px 5%;
+    padding-bottom: 100px;
+}
+.restaurant_profile h2{
+    text-align: center;
+    font-size: 36px;
+}
+.restaurant_profile h3, ul{
+  
+}
     
 
 
