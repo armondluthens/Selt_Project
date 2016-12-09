@@ -12,8 +12,8 @@
       = f.input :contact
       = f.input :location
       = f.input :description
-      = f.check_box :terms_of_service
+      = f.input :terms, :as => :boolean, :label =>'I accept the terms and conditions'
       .form-actions
-        = f.submit
+        = f.button :submit, 'Sign Up'
         
   .col-sm-3
