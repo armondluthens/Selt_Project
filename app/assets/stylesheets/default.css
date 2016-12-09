@@ -560,6 +560,7 @@ ul#left-nav li,
     width: 90%;
     margin-left: 5%;
     font-family: 'Open Sans', sans-serif;
+    margin-bottom: 100px;
 }
 td{
     text-align: center;
