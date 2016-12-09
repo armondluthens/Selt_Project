@@ -80,13 +80,14 @@
   
                     %td
                         .row
+                            .col-sm-2
                             .col-sm-8.col-md.8
                                 .row
                                     =deal.description
-                                .row 
-                                Deal Name
-                    %td= deal.description
-                    -if !deal.restaurant_name.nil?
-                        %td= link_to deal.restaurant_name, restaurant_path(deal.restaurant_id)
+                                
+                                .row    
+                        %td
+                            -if !deal.restaurant_name.nil?
+                                = link_to Restaurant.where(:id => deal.restaurant_id).pluck(:name)[0], restaurant_path(deal.restaurant_id)
 
 .footer
