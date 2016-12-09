@@ -40,6 +40,10 @@
                     ='Create Deal'
                     %span.glyphicon.glyphicon-plus-sign
                 %li
+                  = link_to restaurant_path(@current_restaurant) do 
+                    ='View Profile'
+                    %span.glyphicon.glyphicon-eye-open
+                %li
                   = link_to logout_path, :method => 'delete' do 
                     ='Log Out'
                     %span.glyphicon.glyphicon-log-out

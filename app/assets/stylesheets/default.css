@@ -592,6 +592,9 @@ ul#left-nav li,
 .center { 
      text-align: center;   
 }
+#row_bottom_cushion{
+    margin-bottom: 100px;
+}
 
 /********************************************
     JavaScript Deal Slideshow
@@ -644,7 +647,6 @@ ul#left-nav li,
   
 }
     
-
 
 /*--------------------------------------
     Media Queries
@@ -752,6 +754,9 @@ ul#left-nav li,
     }
     .white{ 
         background-color: white; 
+    }
+    .bottom { 
+        margin-bottom: 100px;    
     }
     
 }

@@ -1,7 +1,7 @@
-.row
+.row#row_bottom_cushion
   .col-sm-3
   .col-sm-6
-    .row{:style => "margin-bottom: 60px;"}
+    .row.bottom
     = simple_form_for("deal", :url => deals_path, :html => { :class => "form-horizontal" } ) do |f|
       %fieldset
       %legend Create New Deal
@@ -21,4 +21,3 @@
       = f.input :saturday, :as => :boolean, :label =>'Saturday'
       .form-actions
         = f.button :submit, 'Create Deal'
-        

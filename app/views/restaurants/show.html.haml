@@ -1,9 +1,13 @@
 
 .restaurant_profile
   %h2 #{@restaurant.name}'s Profile
+  - if !@current_restaurant.nil?
+    - if @restaurant.id == @current_restaurant.id
+      %a.btn.btn-default.pull-right{:href => edit_restaurant_path(@restaurant)}
+        Edit
   
   %h3 Profile Details
-  
+
   %ul
     %li
       Restaurant ID:
@@ -34,7 +38,3 @@
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBflC9F2q9s5axPkt1oOXG2qmpnoVpgQFc&q=#{google_address}" allowfullscreen>
       </iframe>
       
-  - if !@current_restaurant.nil?
-    - if @restaurant.id == @current_restaurant.id
-      %h3 Edit Restaurant Details
-      = link_to 'Edit', edit_restaurant_path(@restaurant)

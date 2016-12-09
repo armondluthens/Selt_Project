@@ -1,51 +1,32 @@
-.right-button
-  = button_to 'Home', root_path, :method => :get
-
-  %h2 Welcome, #{@restaurant.name} !
-
-  - if @restaurant.password.nil?
-  
-    = form_tag restaurant_path(@restaurant), :method => :put do
-    
-      = label :restaurant, :name, 'Restaurant Name'
-      = text_field :restaurant, 'name', placeholder: "Restaurant Name"
-      
-      = label :restaurant, :email, 'Account Email'
-      = text_field :restaurant, 'email', placeholder: "Account Email"
-      
-      = label :restaurant, :password, 'Account Password'
-      = text_field :restaurant, 'password', placeholder: 'Account Password'
-      = text_field :restaurant, 'password_confirmation', placeholder: 'Confirm Password'
-
-      = submit_tag 'Create Account'
-
-  - else
-    %h3 Profile Details
-    
-    = form_tag edit_restaurant_path(@restaurant), :method => :put do
-    
-      = label :restaurant, :contact, 'Account Contact'
-      = text_field :restaurant, 'contact', placeholder: "Contact Name"
-      
-      = label :restaurant, :name, 'Account ID'
-      = text_field :restaurant, 'name', placeholder: "Account ID"
-      
-      = label :restaurant, :email, 'Account Email'
-      = text_field :restaurant, 'email', placeholder: "Account Email"
-      
-      = label :user, :password, 'Account Password'
-      = button_to 'Update Password'
-      
-      = submit_tag 'Update Account'
-        
-    %h3 Restaurant Details
-    
-    = form_tag edit_restaurant_path(@restaurant), :method => :put do
-    
-      = label :restaurant, :location, 'Restaurant Location'
-      = text_field :restaurant, 'location', placeholder: "Restaurant Location"
-      
-      = label :restaurant, :description, 'Restaurant Description'
-      = text_field :restaurant, 'description', placeholder: "Restaurant Description"
-      
-      = submit_tag 'Update Restaurant Details'
+- if @current_restaurant == @restaurant
+  .row#row_bottom_cushion
+    %h2 Welcome, #{@restaurant.name}!
+    .row
+      .col-sm-3
+      .col-sm-6
+        .row
+        = simple_form_for("restaurant", :url => edit_restaurant_path(@restaurant), :html => { :class => "form-horizontal" } ) do |f|
+          %fieldset
+          %legend Edit Profile Details
+          = f.input :contact, placeholder: "Contact Name"
+          = f.input :name, placeholder: "Restaurant Name"
+          = f.input :email, placeholder: "Account Email"
+          = simple_form_for("restaurant", :url => restaurant_path(@restaurant), :method => :put, :html => { :class => "form-horizontal" } ) do |f|
+            .form-actions
+              = f.button :submit, 'Update Password'
+          .form-actions.pull-right
+            = f.button :submit, 'Update Account Details'
+          = simple_form_for("restaurant", :url => restaurant_path(@restaurant), :method => :put, :html => { :class => "form-horizontal" } ) do |f|
+            %fieldset
+            %legend Edit Restaurant Details
+            = f.input :location, placeholder: "Restaurant Location"
+            = f.input :description, placeholder: "Restaurant Description"
+            .form-actions.pull-right
+              = f.button :submit, 'Update Restaurant Details'
+- else 
+  .col-sm-3
+  .col-sm-9
+    .row 
+      %h1 Whoops! 
+    .row 
+      Looks like you've stumbled upon the wrong page!

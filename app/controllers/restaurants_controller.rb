@@ -28,23 +28,11 @@ class RestaurantsController < ApplicationController
   
   def update
     @restaurant = Restaurant.find params[:id]
-    
-    if (@restaurant.invitationID).to_s == (params[:restaurant][:invitationID])
-      if Restaurant.exists?(:name => restaurant_params[:name]) && Restaurant.exists?(:email => restaurant_params[:email])
-        @restaurant.update_attributes!(restaurant_params)
-        flash[:notice] = "#{@restaurant.name} has been successfully registered."
-        redirect_to login_path
-      end
-      
-    elsif (!(@restaurant.invitationID).to_s == (params[:restaurant][:invitationID]))
-      flash[:notice] = "Restaurant Name, Restaurant Email, and/or Invitation ID is incorrect. Please try again."
-      redirect_to edit_restaurant_path
-    
-    #User has already made it past InvitationID check
-    else
+  
+    if Restaurant.exists?(:name => restaurant_params[:name]) && Restaurant.exists?(:email => restaurant_params[:email])
       @restaurant.update_attributes!(restaurant_params)
-      flash[:notice] = "Updates have been made"
-      redirect_to edit_restaurant_path
+      flash[:notice] = "#{@restaurant.name} has been successfully registered."
+      redirect_to login_path
     end
   end
   
