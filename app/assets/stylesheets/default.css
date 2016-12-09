@@ -594,7 +594,9 @@ ul#left-nav li,
 }
 #row_bottom_cushion{
     margin-bottom: 200px !important;
+    padding: 100px;
 }
+
 
 /********************************************
     JavaScript Deal Slideshow
