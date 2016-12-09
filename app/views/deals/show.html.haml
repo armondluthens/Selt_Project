@@ -11,12 +11,16 @@
           %span.glyphicon.glyphicon-piggy-bank
       .row  
         From
+      .row
         - amOrpm= "pm"
         = @deal.start_time.strftime("%l:%M #{amOrpm}")
       .row  
         Until 
         = @deal.end_time.strftime("%l:%M #{amOrpm}")
 
+
+      .row
+        = @deal.end_time.strftime("%m/%d/%Y @ %l:%M #{amOrpm}")
 
   
     

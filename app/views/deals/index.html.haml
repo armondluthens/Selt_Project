@@ -15,38 +15,24 @@
                 %i#searchclear.glyphicon.glyphicon-remove-circle
               = button_tag(:type => 'submit', :class => 'btn btn-destroy') do
                 %i.class.glyphicon.glyphicon-search
+                  
+                 
 
-
+          
 %table#restaurants-table
   %thead
     %tr
       %th Deal Title
       %th Deal Description
-      %th Offered by Restaurant
-      %th Days Offered
+      %th Restaurant
   %tbody
     - @deals.each do |deal|
-      - deal_days = ""
-      -if deal.sunday == true
-        -deal_days = deal_days + "Sunday "
-      -if deal.monday == true
-        -deal_days = deal_days + "Monday "
-      -if deal.tuesday == true
-        -deal_days = deal_days + "Tuesday "
-      -if deal.wednesday == true
-        -deal_days = deal_days + "Wednesday "
-      -if deal.thursday == true
-        -deal_days = deal_days + "Thursday "
-      -if deal.friday == true
-        -deal_days = deal_days + "Friday "
-      -if deal.saturday == true
-        -deal_days = deal_days + "Saturday"
-        
-      
       %tr
+        %td= link_to deal.title, deal_path(deal)
+        %td= deal.description
         -if !deal.restaurant_name.nil?
-          %td= link_to deal.title, deal_path(deal)
-          %td= deal.description
           %td= link_to Restaurant.where(:id => deal.restaurant_id).pluck(:name)[0], restaurant_path(deal.restaurant_id)
-          %td= deal_days
+          
+       
+        
 
