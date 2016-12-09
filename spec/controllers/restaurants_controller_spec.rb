@@ -70,7 +70,40 @@ RSpec.describe RestaurantsController, type: :controller do
   end
   
   describe "PUT #update" do
-    
+    context "with invitation id" do
+      it "should set flash message to registered" do
+        restaurant = double("fake_restaurant", invitationID: "id1")
+        expect(Restaurant).to receive(:find).and_return(restaurant)
+        
+        put :update, {id: 1, restaurant: { :invitationID => "id1" } }
+        expect(flash[:notice]).to eq("fake_restaurant has been successfully registered.")
+        
+      end
+      it "should redirect to login_path" do
+        
+      end
+    end
+    context "without invitation id" do
+      context "invalid input" do
+        it "should set flash message to unsuccessful" do
+          
+        end
+        it "should redirect path to edit" do 
+          
+        end
+      end
+      context "valid input" do
+        it "should set flash message to successful" do
+          
+        end
+        it "should redirect to login_path" do
+          
+        end
+        it "should call update_attributes" do
+          
+        end
+      end
+    end
   end
   
   describe "GET #show" do

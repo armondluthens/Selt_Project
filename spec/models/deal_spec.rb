@@ -8,4 +8,14 @@ RSpec.describe Deal, type: :model do
       Deal.create_deal!(fake_params)
     end
   end
+  describe "searching" do
+    it 'should not call where if search is blank' do
+      expect(Deal).to_not receive(:where)
+      Deal.search(nil)
+    end
+    it 'should call where if search isn\'t blank' do
+      expect(Deal).to receive(:where)
+      Deal.search("Blank")
+    end
+  end
 end
