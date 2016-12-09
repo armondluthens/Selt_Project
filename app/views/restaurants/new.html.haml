@@ -1,7 +1,7 @@
-.row
+.row#signupform 
   .col-sm-3
   .col-sm-6
-    .row 
+    .row
     = simple_form_for("restaurant", :url => restaurants_path, :html => { :class => "form-horizontal" } ) do |f|
       %fieldset
       %legend Sign Up Restaurant

@@ -572,6 +572,9 @@ td{
     width: 100%;
     text-align: center;
 }
+#signupform{
+    margin-bottom: 100px;
+}
 /********************************************
     JavaScript Deal Slideshow
 ********************************************/
