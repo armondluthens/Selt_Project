@@ -66,6 +66,10 @@
               2016 SELT Class 
               %span.glyphicon.glyphicon-education
               University Of Iowa 
+            .navbar-text.pull-left
+              - if !@current_restaurant.nil?
+                You are logged in as
+                =@current_restaurant.name
               
 
       = yield
