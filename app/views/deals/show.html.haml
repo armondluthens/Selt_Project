@@ -1,34 +1,5 @@
-<<<<<<< HEAD
-- deal_days = ""
--if @deal.sunday == true
-  -deal_days = deal_days + "Sunday "
--if @deal.monday == true
-  -deal_days = deal_days + "Monday "
--if @deal.tuesday == true
-  -deal_days = deal_days + "Tuesday "
--if @deal.wednesday == true
-  -deal_days = deal_days + "Wednesday "
--if @deal.thursday == true
-  -@deal_days = deal_days + "Thursday "
--if @deal.friday == true
-  -deal_days = deal_days + "Friday "
--if @deal.saturday == true
-  -deal_days = deal_days + "Saturday"
-  
-- rest = @deal.restaurant_name
-- address = Restaurant.where(name: rest).pluck(:location)
-- lat = Restaurant.where(name: rest).pluck(:latitude)
-- long = Restaurant.where(name: rest).pluck(:longitude)
-
-- current = request.location.coordinates
-
-
-    
-.display_deal
-=======
 
 .row
->>>>>>> master
   %h1 #{@deal.title}'s Details
 
 .row 
@@ -40,61 +11,14 @@
       .row  
         From
       .row
-        = @deal.start_time
+        - amOrpm= "pm"
+        = @deal.start_time.strftime("%m/%d/%Y @ %l:%M #{amOrpm}")
       .row  
         Until 
       .row
-        = @deal.end_time
+        = @deal.end_time.strftime("%m/%d/%Y @ %l:%M #{amOrpm}")
 
   
-<<<<<<< HEAD
-  %h2
-    Deal Title:
-    = @deal.title
-  %h2
-    Deal Description:
-    = @deal.description
-  %h2
-    Deal Start Date:
-    = @deal.start_date
-  %h2
-    Deal End Date:
-    = @deal.end_date
-  %h2
-    Deal Start Time:
-    = @deal.start_time
-  %h2
-    Deal End Time:
-    = @deal.end_time
-  %h2
-    Deal Ethnicity:
-    = @deal.ethnicity
-  %h2
-    Deal Days:
-    - if @deal.sunday == true
-      Sunday
-    - if @deal.monday == true
-      Monday
-    - if @deal.tuesday == true
-      Tuesday
-    - if @deal.wednesday == true
-      Wednesday
-    - if @deal.thursday == true
-      Thursday
-    - if @deal.friday == true
-      Friday
-    - if @deal.saturday == true
-      Saturday
-  %h2 
-    Restaurant Name:
-    = @deal.restaurant_name
-    
-- if !@current_restaurant.nil?
-  - if @deal.restaurant_id == @current_restaurant.id
-    %h3 Edit Deal
-    = link_to 'Edit', edit_deal_path(@deal)
-
-=======
     
   .col-sm-4.center
     .row
@@ -156,4 +80,3 @@
           Saturday
 
         
->>>>>>> master
