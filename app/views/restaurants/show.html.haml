@@ -1,40 +1,40 @@
 
-
-%h2 #{@restaurant.name}'s Profile
-
-%h3 Profile Details
-
-%ul
-  %li
-    Restaurant ID:
-    = @restaurant.name
-  %li
-    Restaurant Contact:
-    = @restaurant.contact
-  %li
-    Restaurant Location:
-    = @restaurant.location
-  %li
-    Restaurant Description:
-    = @restaurant.description
-  %li
-    Deals:
-    - @deals.each do |deal|
-      - if deal.restaurant_id == @restaurant.id
-        = deal.title
-    
-  - google_address = @restaurant.location
-  - google_address.tr!(" ", "+")
-    
-  :plain
-    <iframe
-      width="600"
-      height="450"
-      frameborder="0" style="border:0"
-      src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBflC9F2q9s5axPkt1oOXG2qmpnoVpgQFc&q=#{google_address}" allowfullscreen>
-    </iframe>
-    
-- if !@current_restaurant.nil?
-  - if @restaurant.id == @current_restaurant.id
-    %h3 Edit Restaurant Details
-    = link_to 'Edit', edit_restaurant_path(@restaurant)
+.restaurant_profile
+  %h2 #{@restaurant.name}'s Profile
+  
+  %h3 Profile Details
+  
+  %ul
+    %li
+      Restaurant ID:
+      = @restaurant.name
+    %li
+      Restaurant Contact:
+      = @restaurant.contact
+    %li
+      Restaurant Location:
+      = @restaurant.location
+    %li
+      Restaurant Description:
+      = @restaurant.description
+    %li
+      Deals:
+      - @deals.each do |deal|
+        - if deal.restaurant_id == @restaurant.id
+          %t= link_to deal.title, deal_path(deal)
+      
+    - google_address = @restaurant.location
+    - google_address.tr!(" ", "+")
+      
+    :plain
+      <iframe
+        width="600"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBflC9F2q9s5axPkt1oOXG2qmpnoVpgQFc&q=#{google_address}" allowfullscreen>
+      </iframe>
+      
+  - if !@current_restaurant.nil?
+    - if @restaurant.id == @current_restaurant.id
+      %h3 Edit Restaurant Details
+      = link_to 'Edit', edit_restaurant_path(@restaurant)

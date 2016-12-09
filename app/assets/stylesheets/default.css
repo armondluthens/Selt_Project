@@ -620,7 +620,19 @@ ul#left-nav li,
     border-radius: 0px !important;
 }
 
-
+.restaurant_profile{
+    float: left;
+    width: 90%;
+    margin: 0px 5% 0px 5%;
+    padding-bottom: 100px;
+}
+.restaurant_profile h2{
+    text-align: center;
+    font-size: 36px;
+}
+.restaurant_profile h3, ul{
+  
+}
     
 
 
