@@ -598,6 +598,11 @@ td{
   height: 500px;
   max-width: none;
 }
+.carousel{
+    margin-top: -50px !important;
+    margin-left: -20px;
+}
+    
 
 
 /*--------------------------------------
