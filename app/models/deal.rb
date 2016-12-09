@@ -17,7 +17,8 @@ class Deal < ActiveRecord::Base
   # performs simple search based on deal title
   def self.search(search)
     if search
-      where(["title LIKE ?","%#{search}%"])
+      #where(["description LIKE ? OR title LIKE ? ethnicity LIKE ?","%#{search}%"])
+      Deal.where('description LIKE :search OR title LIKE :search OR ethnicity LIKE :search', search: "%#{search}%")
     else
       all
     end
