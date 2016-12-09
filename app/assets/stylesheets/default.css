@@ -562,8 +562,13 @@ ul#left-nav li,
     font-family: 'Open Sans', sans-serif;
     margin-bottom: 100px;
 }
-td{
+#restaurants-table th{
     text-align: center;
+    font-size: 24px;
+}
+#restaurants-table td{
+    text-align: center;
+    border-bottom: 1px solid black;
 }
 #table_title{
     font-size: 24px;
