@@ -65,8 +65,17 @@
         - elsif flash[:warning]
           #warning.message= flash[:warning]
           
-      .footer666
-        %p SELT 2016
+      .footer
+        .navbar.navbar-inverse.navbar-fixed-bottom#bottom-margin
+          .container
+            .navbar-text.pull-right
+              2016 SELT Class 
+              %span.glyphicon.glyphicon-education
+              University Of Iowa 
+            .navbar-text.pull-left
+              - if !@current_restaurant.nil?
+                You are logged in as
+                =@current_restaurant.name
         
               
 
