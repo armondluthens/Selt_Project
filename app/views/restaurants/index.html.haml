@@ -1,14 +1,24 @@
+.row
+  %nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        .navbar-brand 
+          %i.glyphicon.glyphicon-user
+          All Restaurants Page 
+          
+                    
+      %form.navbar-form.navbar-right{:id=>'search_deals'}
+        .form-group
+          .form-inline
+            = form_tag(restaurants_path, :method => "get", id: "search-form") do
+              = text_field_tag :restaurant, params[:restaurant], placeholder: "Search Deals", class: 'form-control', id: 'search_field' do 
+                %i#searchclear.glyphicon.glyphicon-remove-circle
+              = button_tag(:type => 'submit', :class => 'btn btn-destroy') do
+                %i.class.glyphicon.glyphicon-search
+
 #table_title
   %h1 View All Restaurants
 
-%h3 Search Criteria:
-= form_tag restaurants_path, :method => 'get' do
-
-  = label :restaurant, :name, 'Filter by Restaurant or Description'
-  = text_field_tag :restaurant, params[:restaurant]
-  
-  = submit_tag 'Search', :name => nil
-  = submit_tag 'Clear Search', :name => 'clear_search'
 
 %table#restaurants-table
   %thead
