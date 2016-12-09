@@ -1,6 +1,23 @@
-.new_session
-  %h1 Create New Deal
-  
+.row
+  .col-sm-3
+  .col-sm-6
+    .row 
+    = simple_form_for("deal", :url => deals_path, :html => { :class => "form-horizontal" } ) do |f|
+      %fieldset
+      %legend Create New Deal
+      = f.input :title,  :label =>'Deal Title', :placeholder = >'Taco Tuesday'
+      = f.input :email
+      = f.input :password
+      = f.input :password_confirmation
+      = f.input :contact
+      = f.input :location
+      = f.input :description
+      = f.input :terms, :as => :boolean, :label =>'I accept the terms and conditions'
+      .form-actions
+        = f.button :submit, 'Sign Up'
+        
+  .col-sm-3
+
 .deal_creation
   = form_tag deals_path do
   

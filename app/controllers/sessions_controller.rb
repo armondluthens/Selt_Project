@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  
+  @search = true; 
     
   def session_params
     params.require(:session).permit(:email, :password, :session_token)
@@ -42,8 +44,11 @@ class SessionsController < ApplicationController
     
     # Searching criteria
     if (params[:clear_search])
+      @search = true; 
       render :action => 'index'
     else
+      @search = false unless params[:deal].blank?
+      @search = true if params[:deal].blank?
       @deals = Deal.search(params[:deal]) unless params[:deal].blank?
     end
   end

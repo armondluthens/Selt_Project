@@ -47,14 +47,17 @@
                     Today's Deals!
                     
             %form.navbar-form.navbar-right{:id=>'search_deals'}
-                .formgi-group
+                .form-group
                     .form-inline
-
                         = form_tag(sessions_path, :method => "get", id: "search-form") do
-                            = text_field_tag :deal, params[:deal], placeholder: "Search Deals", class: 'form-control'
-                            
+                            = text_field_tag :deal, params[:deal], placeholder: "Search Deals", class: 'form-control', id: 'search_field' do 
+                                %i#searchclear.glyphicon.glyphicon-remove-circle
                             = button_tag(:type => 'submit', :class => 'btn btn-success') do
                                 %i.class.glyphicon.glyphicon-search
+        :javascript
+            $("#searchclear").click(function(){
+                $("#search_field").val('');
+            });
 
 .row    
     .deal_class
@@ -69,14 +72,6 @@
             %h5 End Date: mm-dd-yy
             
 .deal_class
-
-= form_tag sessions_path, :method => 'get' do
-
-    = label :deal,  'Filter by'
-    = text_field_tag :deal, params[:deal]
-    
-    = submit_tag 'Search', :name => nil
-    = submit_tag 'Clear Search', :name => 'clear_search'
 
 %table#deals-table
     %thead
