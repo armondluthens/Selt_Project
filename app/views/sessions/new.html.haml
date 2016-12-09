@@ -1,17 +1,19 @@
-.new_session
-  %h1 Log In
+    
+.row
+  .col-sm-3
+  .col-sm-6
+    .row 
+      = simple_form_for("session", :url => login_create_path, :html => { :class => "form-horizontal" } ) do |f|
+        %fieldset
+        %legend Log In
+        .pull-right
+          =link_to new_restaurant_path do 
+            %span.glyphicon.glyphicon-user
+            = 'Sign Up'
+        = f.input :email
+        = f.input :password
+        .form-actions
+          = f.button :submit, 'Log In'
+    .row 
 
-  = form_tag login_create_path :method => 'post' do
-    
-    = label :session, :email, 'Email', :id => 'Account_ID'
-    = text_field :session, 'email', placeholder: 'Email Address', :id => 'signup_name'
-    
-    = label :session, :password, 'Account Password', :id => 'Account_Password'
-    = password_field :session, 'password', placeholder: 'Account Password', :id => 'signup_password'
-    
-    = button_to 'Login to my account', login_create_path, :method => :post, :id => 'login_submit'
-    
-    = link_to 'Forgot Account ID or Password', root_path, :id => 'login_link'
-    = link_to 'Register for an Account', new_restaurant_path, :method => :get, :id => 'login_link'
-    
-    
+  .col-sm-3
