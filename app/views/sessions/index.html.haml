@@ -56,33 +56,17 @@
                             = button_tag(:type => 'submit', :class => 'btn btn-success') do
                                 %i.class.glyphicon.glyphicon-search
 
-.row    
-    .deal_class
-        .deal-left
-            %h5 Status
-            %h1 Deal Title
-            %h5 Rating tool
-        .deal-right
-            %p 
-            .deal_duration
-            %h5 Start Date: mm-dd-yy
-            %h5 End Date: mm-dd-yy
+
             
 .deal_class
 
-= form_tag sessions_path, :method => 'get' do
 
-    = label :deal,  'Filter by'
-    = text_field_tag :deal, params[:deal]
-    
-    = submit_tag 'Search', :name => nil
-    = submit_tag 'Clear Search', :name => 'clear_search'
 
-%table#deals-table
+%table#restaurants-table
     %thead
         %tr
-            %th Deal Title
-            %th Deal Description
+            %th Deal
+            %th Description
             %th Restaurant
       
     %tbody
