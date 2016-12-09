@@ -599,9 +599,10 @@ td{
   max-width: none;
 }
 .carousel{
-    /*margin-top: -50px !important;
-    margin-left: -20px;*/
+    margin-top: -50px !important;
+    margin-left: -20px;
 }
+
 .navbar{
     border-radius: 0px !important;
 }
