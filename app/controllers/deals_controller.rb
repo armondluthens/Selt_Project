@@ -43,36 +43,36 @@ class DealsController < ApplicationController
     sun_deals = []; mon_deals = []; tues_deals = []; wed_deals = []; thurs_deals = []; fri_deals = []; sat_deals = [];
     sun = 0; mon = 0; tues = 0; wed = 0; thurs = 0; fri = 0; sat = 0;
     
-    @allDeals.each do |deal|
+    @allDeals.each do |deal2|
       #destroy expired deals
-      if deal.end_date < Time.now.in_time_zone("Central Time (US & Canada)")
-        deal.destroy
+      if deal2.end_date < Time.now.in_time_zone("Central Time (US & Canada)")
+        deal2.destroy
       end
-      if deal.sunday == true
+      if deal2.sunday == true
         sun_deals[sun] = deal
         sun += 1
       end
-      if deal.monday == true
+      if deal2.monday == true
         mon_deals[mon] = deal
         mon += 1
       end
-      if deal.tuesday == true
+      if deal2.tuesday == true
         tues_deals[tues] = deal
         tues += 1
       end
-      if deal.wednesday == true
+      if deal2.wednesday == true
         wed_deals[wed] = deal
         wed += 1
       end
-      if deal.thursday == true
+      if deal2.thursday == true
         thurs_deals[thurs] = deal
         thurs += 1
       end
-      if deal.friday == true
+      if deal2.friday == true
         fri_deals[fri] = deal
         fri += 1
       end
-      if deal.saturday == true
+      if deal2.saturday == true
         sat_deals[sat] = deal
         sat += 1
       end
