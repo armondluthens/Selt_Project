@@ -115,13 +115,13 @@ class DealsController < ApplicationController
       #@deals = @deals.title unless params[:title].blank?
     end
     #searching criteria
-    if (params[:clear_search])
-      render :action => 'index'
-    else
+    #if (params[:clear_search])
+      #render :action => 'index'
+    #else
       #@deals = Deal.where(["title or ethnicity LIKE ?","%#{params[:search]}%"])
       #@deals = Deal.search(params[:search]) unless params[:search].blank?
      
-    end
+    #end
   end
   
   def update
