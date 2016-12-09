@@ -13,10 +13,18 @@
   -deal_days = deal_days + "Friday "
 -if @deal.saturday == true
   -deal_days = deal_days + "Saturday"
+  
+- rest = @deal.restaurant_name
+- address = Restaurant.where(name: rest).pluck(:location)
+- lat = Restaurant.where(name: rest).pluck(:latitude)
+- long = Restaurant.where(name: rest).pluck(:longitude)
+
+- current = request.location.coordinates
+
+
     
 .display_deal
   %h1 #{@deal.title}'s Details
-  
   
   %h2
     Deal Title:
@@ -63,3 +71,4 @@
   - if @deal.restaurant_id == @current_restaurant.id
     %h3 Edit Deal
     = link_to 'Edit', edit_deal_path(@deal)
+
