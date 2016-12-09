@@ -16,8 +16,11 @@
               = button_tag(:type => 'submit', :class => 'btn btn-destroy') do
                 %i.class.glyphicon.glyphicon-search
                   
+                 
 
 
+:plain
+  <!--
   %table#restaurants-table
     %thead
       %tr
@@ -43,6 +46,7 @@
         -if deal.saturday == true
           -deal_days = deal_days + "Saturday"
 
+  -->
       :plain
         <!--
         %tr
