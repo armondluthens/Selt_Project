@@ -1,20 +1,25 @@
-.row
-  %nav.navbar.navbar-default
-    .container-fluid
-      .navbar-header
-        .navbar-brand 
-          %i.glyphicon.glyphicon-tags
-          All Deals Page 
-          
-                    
-      %form.navbar-form.navbar-right{:id=>'search_deals'}
-        .form-group
-          .form-inline
-            = form_tag(new_search_path, :method => "get", id: "search-form") do
-              = text_field_tag :search, params[:search], placeholder: "Search Deals", class: 'form-control', id: 'search_field' do 
-                %i#searchclear.glyphicon.glyphicon-remove-circle
-              = button_tag(:type => 'submit', :class => 'btn btn-destroy') do
-                %i.class.glyphicon.glyphicon-search
+%h1 TEST
+:plain
+  <!--
+  .row
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          .navbar-brand 
+            %i.glyphicon.glyphicon-tags
+            All Deals Page 
+            
+                      
+        %form.navbar-form.navbar-right{:id=>'search_deals'}
+          .form-group
+            .form-inline
+              = form_tag(new_search_path, :method => "get", id: "search-form") do
+                = text_field_tag :search, params[:search], placeholder: "Search Deals", class: 'form-control', id: 'search_field' do 
+                  %i#searchclear.glyphicon.glyphicon-remove-circle
+                = button_tag(:type => 'submit', :class => 'btn btn-destroy') do
+                  %i.class.glyphicon.glyphicon-search
+                  
+  -->                  
 
 
 :plain
