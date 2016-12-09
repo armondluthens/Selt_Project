@@ -592,7 +592,7 @@ ul#left-nav li,
 .center { 
      text-align: center;   
 }
-#row_bottom_cushion.row{
+.row#row_bottom_cushion{
     margin-bottom: 200px !important;
     padding: 100px;
 }
