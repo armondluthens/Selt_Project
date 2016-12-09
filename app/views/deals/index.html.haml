@@ -47,9 +47,9 @@
         
       
       %tr
-        %td= link_to deal.title, deal_path(deal)
-        %td= deal.description
         -if !deal.restaurant_name.nil?
-          %td= link_to deal.restaurant_name, restaurant_path(deal.restaurant_id)
-        %td= deal_days
+          %td= link_to deal.title, deal_path(deal)
+          %td= deal.description
+          %td= link_to Restaurant.where(:id => deal.restaurant_id).pluck(:name)[0], restaurant_path(deal.restaurant_id)
+          %td= deal_days
 
