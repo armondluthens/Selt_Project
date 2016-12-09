@@ -5,24 +5,18 @@
       .col-sm-3
       .col-sm-6
         .row
-        = simple_form_for("restaurant", :url => edit_restaurant_path(@restaurant), :html => { :class => "form-horizontal" } ) do |f|
+        = simple_form_for("restaurant", :url => restaurant_path(@restaurant), :method => :put, :html => { :class => "form-horizontal" } ) do |f|
           %fieldset
           %legend Edit Profile Details
           = f.input :contact, placeholder: "Contact Name"
           = f.input :name, placeholder: "Restaurant Name"
           = f.input :email, placeholder: "Account Email"
-          = simple_form_for("restaurant", :url => restaurant_path(@restaurant), :method => :put, :html => { :class => "form-horizontal" } ) do |f|
-            .form-actions
-              = f.button :submit, 'Update Password'
+          = f.input :password, placeholder: "Password"
+          = f.input :password_confirmation, placeholder: "Password Confirmation"
+          = f.input :location, placeholder: "Restaurant Location"
+          = f.input :description, placeholder: "Restaurant Description"
           .form-actions.pull-right
-            = f.button :submit, 'Update Account Details'
-          = simple_form_for("restaurant", :url => restaurant_path(@restaurant), :method => :put, :html => { :class => "form-horizontal" } ) do |f|
-            %fieldset
-            %legend Edit Restaurant Details
-            = f.input :location, placeholder: "Restaurant Location"
-            = f.input :description, placeholder: "Restaurant Description"
-            .form-actions.pull-right
-              = f.button :submit, 'Update Restaurant Details'
+            = f.button :submit, 'Update Restaurant Details'
 - else 
   .col-sm-3
   .col-sm-9
