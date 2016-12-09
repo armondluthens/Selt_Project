@@ -24,8 +24,8 @@ module SeltProject
     #config.web_console.whitelisted_ips = '173.28.188.92'
     config.active_record.raise_in_transactional_callbacks = true
     
-    #config.serve_static_assets = true
-    #config.assets.initialize_on_precompile = false
+    config.serve_static_assets = true
+    config.assets.initialize_on_precompile = false
     
   end
 end
