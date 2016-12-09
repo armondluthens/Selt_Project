@@ -29,11 +29,10 @@ class RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find params[:id]
   
-    if Restaurant.exists?(:name => restaurant_params[:name]) && Restaurant.exists?(:email => restaurant_params[:email])
-      @restaurant.update_attributes!(restaurant_params)
-      flash[:notice] = "#{@restaurant.name} has been successfully registered."
-      redirect_to login_path
-    end
+    @restaurant.update_attributes!(restaurant_params)
+    flash[:notice] = "Updates have been made"
+    redirect_to edit_restaurant_path
+    
   end
   
   def edit
