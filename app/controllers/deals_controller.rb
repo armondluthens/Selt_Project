@@ -35,6 +35,7 @@ class DealsController < ApplicationController
   
 
   def index
+=begin
     @allDeals = Deal.all
     @deals = []
     @time = Time.now.in_time_zone("Central Time (US & Canada)").wday #returns today's weekday
@@ -45,7 +46,7 @@ class DealsController < ApplicationController
     
     @allDeals.each do |deal|
       #destroy expired deals
-=begin
+
       if deal.end_date < Time.now.in_time_zone("Central Time (US & Canada)")
         deal.destroy
       end
@@ -77,7 +78,7 @@ class DealsController < ApplicationController
         sat_deals[sat] = deal
         sat += 1
       end
-=end
+
     end
        
     if @time == 0
@@ -103,14 +104,23 @@ class DealsController < ApplicationController
       @deals = @deals.uniq
     end
     
+=end
+    @deals = Deal.all
     
+    if (params[:clear_search])
+      render :action => 'index'
+    else
+      #@deals = Deal.search(params[:restaurant]) unless params[:restaurant].blank?
+      @deals = Deal.search(params[:search])
+      #@deals = @deals.title unless params[:title].blank?
+    end
     #searching criteria
     if (params[:clear_search])
       render :action => 'index'
     else
       #@deals = Deal.where(["title or ethnicity LIKE ?","%#{params[:search]}%"])
       #@deals = Deal.search(params[:search]) unless params[:search].blank?
-      @deals = Deal.search(params[:search])
+     
     end
   end
   
