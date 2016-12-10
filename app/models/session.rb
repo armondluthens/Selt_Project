@@ -6,7 +6,4 @@ class Deal < ActiveRecord::Base
     Deal.where('description LIKE :search OR title LIKE :search OR ethnicity LIKE :search', search: "%#{search}%")
   end
 
-  end
-
-
 end
