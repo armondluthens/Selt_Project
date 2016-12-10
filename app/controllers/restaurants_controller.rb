@@ -41,27 +41,6 @@ class RestaurantsController < ApplicationController
   def edit
     @restaurant = Restaurant.find params[:id]
 
-    # InvitationID is correct
-    
-#      # If Restaurant Name and Email is correct, save password
-#      if Restaurant.exists?(:name => restaurant_params[:name]) && Restaurant.exists?(:email => restaurant_params[:email])
-#        @restaurant.update_attributes!(restaurant_params)
-#        flash[:notice] = "#{@restaurant.name} has been successfully registered." #Password saved
-#        redirect_to login_path
-#      end
-        
-    # InvitationID is incorrect
-#    elsif !Restaurant.exists?(:invitationID => restaurant_params[:invitationID])
-#      flash[:notice] = "Incorrect Invitation ID"
-#      redirect_to edit_restaurant_path
-      
-    # No InvitationID required; must have already signed up correctly
-#    else
-#      @restaurant.update_attributes!(restaurant_params)
-#      flash[:notice] = "#{@restaurant.name} has been successfully updated."
-#      redirect_to edit_restaurant_path
-#    end
-    
   end
   
   def index

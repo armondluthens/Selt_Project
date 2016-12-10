@@ -14,35 +14,10 @@ class Deal < ActiveRecord::Base
     Deal.create!(params)
   end
   
+  
   # performs simple search based on deal title
   def self.search(search)
-    #if search
-      #where(["description LIKE ? OR title LIKE ? ethnicity LIKE ?","%#{search}%"])
     Deal.where('description LIKE :search OR title LIKE :search OR ethnicity LIKE :search', search: "%#{search}%")
-    #else
-      #all
-    #end
-=begin
-    if (term == "sunday" || term == "Sunday")
-      Deal.where(sunday: true)
-    elsif(term == "monday" || "Monday")
-      Deal.where(monday: true)
-    elsif(term == "tuesday" || "Tuesday")
-      Deal.where(tuesday: true)
-    elsif(term == "wednesday" || "Wednesday")
-      Deal.where(wednesday: true)
-    elsif(term == "thursday" || "Thursday")
-      Deal.where(thursday: true)
-    elsif(term == "friday" || "Friday")
-      Deal.where(friday: true)
-    elsif(term == "saturday" || "Saturday")
-      Deal.where(saturday: true)
-
-    else
-      where("title like :term or description like :term or ethnicity like :term or restaurant_name like :term", term: "%#{term}%")
-    end
-=end
-    
   end
   
   def end_date_is_after_start_date
