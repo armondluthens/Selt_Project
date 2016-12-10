@@ -29,9 +29,12 @@ class RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find params[:id]
   
-    @restaurant.update_attributes!(restaurant_params)
-    flash[:notice] = "Updates have been made"
-    redirect_to edit_restaurant_path
+    if @restaurant.update_attributes(restaurant_params)
+      flash[:notice] = "Updates have been made"
+      redirect_to edit_restaurant_path
+    else 
+      render 'edit'
+    end
     
   end
   

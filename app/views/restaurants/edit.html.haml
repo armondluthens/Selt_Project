@@ -5,7 +5,7 @@
       .col-sm-3
       .col-sm-6
         .row
-        = simple_form_for("restaurant", :url => restaurant_path(@restaurant), :method => :put, :html => { :class => "form-horizontal" } ) do |f|
+        = simple_form_for(@restaurant, :html => { :class => "form-horizontal" } ) do |f|
           %fieldset
           %legend Edit Profile Details
           = f.input :contact, placeholder: "Contact Name"
