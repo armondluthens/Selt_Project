@@ -11,8 +11,7 @@
         .form-group
           .form-inline
             = form_tag(restaurants_path, :method => "get", id: "search-form") do
-              = text_field_tag :restaurant, params[:restaurant], placeholder: "Search Restaurants", class: 'form-control', id: 'search_field' do 
-                %i#searchclear.glyphicon.glyphicon-remove-circle
+              = text_field_tag :restaurant, params[:restaurant], placeholder: "Search Restaurants", class: 'form-control', id: 'search_field'  
               = button_tag(:type => 'submit', :class => 'btn btn-destroy') do
                 %i.class.glyphicon.glyphicon-search
 
