@@ -36,6 +36,7 @@ gem 'simple_form'
 gem 'geocoder'
 gem 'gmaps4rails'
 
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
