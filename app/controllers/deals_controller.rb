@@ -109,11 +109,12 @@ class DealsController < ApplicationController
     
     if (params[:clear_search])
       render :action => 'index'
-    else
-      #@deals = Deal.search(params[:restaurant]) unless params[:restaurant].blank?
-      @deals = Deal.search(params[:search])
-      #@deals = @deals.title unless params[:title].blank?
     end
+    #else
+      #@deals = Deal.search(params[:restaurant]) unless params[:restaurant].blank?
+      #@deals = Deal.search(params[:search])
+      #@deals = @deals.title unless params[:title].blank?
+    #end
   end
   
   def update
