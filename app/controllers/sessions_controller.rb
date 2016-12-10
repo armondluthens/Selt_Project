@@ -13,43 +13,15 @@ class SessionsController < ApplicationController
   def index
     
     # displays deals by current day
-    @allDeals = Deal.all
-    @deals = []
-    i = 0
-    
-    @allDeals.each do |deal|
-      if deal.sunday == true && Time.now.in_time_zone("Central Time (US & Canada)").sunday?
-        @deals[i] = deal
-        i += 1
-      elsif deal.monday == true && Time.now.in_time_zone("Central Time (US & Canada)").monday?
-        @deals[i] = deal
-        i += 1
-      elsif deal.tuesday == true && Time.now.in_time_zone("Central Time (US & Canada)").tuesday?
-        @deals[i] = deal
-        i += 1
-      elsif deal.wednesday == true && Time.now.in_time_zone("Central Time (US & Canada)").wednesday?
-        @deals[i] = deal
-        i += 1
-      elsif deal.thursday == true && Time.now.in_time_zone("Central Time (US & Canada)").thursday?
-        @deals[i] = deal
-        i += 1
-      elsif deal.friday == true && Time.now.in_time_zone("Central Time (US & Canada)").friday?
-        @deals[i] = deal
-        i += 1
-      elsif deal.saturday == true && Time.now.in_time_zone("Central Time (US & Canada)").saturday?
-        @deals[i] = deal
-        i += 1
-      end
-    end
+    @deals = Deal.all
     
     # Searching criteria
     if (params[:clear_search])
-      @search = true; 
       render :action => 'index'
     else
-      @search = false unless params[:deal].blank?
-      @search = true if params[:deal].blank?
-      @deals = Deal.search(params[:deal]) unless params[:deal].blank?
+      @deals = Deal.search(params[:restaurant]) unless params[:restaurant].blank?
+      @deals = Deal.search(params[:search]) 
+      @deals = @deals.title unless params[:title].blank?
     end
   end
 

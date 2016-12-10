@@ -16,8 +16,8 @@ class Deal < ActiveRecord::Base
   
   
   # performs simple search based on deal title
-  def self.search(search)
-    Deal.where('description LIKE :search OR title LIKE :search OR ethnicity LIKE :search', search: "%#{search}%")
+  def self.search(term)
+    where("title like :term or description like :term", term: "%#{term}%")
   end
   
   def end_date_is_after_start_date

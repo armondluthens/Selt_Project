@@ -3,7 +3,7 @@ class Deal < ActiveRecord::Base
   
   
   def self.search(term)
-    Deal.where('description LIKE :search OR title LIKE :search OR ethnicity LIKE :search', search: "%#{search}%")
+    where("title like :term or description like :term", term: "%#{term}%")
   end
 
 end
